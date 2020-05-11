@@ -5,13 +5,13 @@ import { Link } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/utils/seo"
 
-const SecondPage = props => (
+const Portfolio = props => (
   <Layout>
     <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
+    <h1>Portfolio</h1>
     <p>Welcome to page 2 ({props.path})</p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
 )
 
-export default SecondPage
+export default Portfolio
