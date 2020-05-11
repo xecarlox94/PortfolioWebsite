@@ -7,7 +7,7 @@ import SEO from "../components/utils/seo"
 
 const Portfolio = props => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="Portfolio" />
     <h1>Portfolio</h1>
     <p>Welcome to page 2 ({props.path})</p>
     <Link to="/">Go back to the homepage</Link>
