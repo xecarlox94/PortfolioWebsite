@@ -1,14 +1,31 @@
 site:
 -lay down the structure
+-logo
 -change icon
+-call to action
+
+
+structure:
+-landing page
+    services section
+    testimonials section
+    startup projects section
+    contact section
+
+-about page
+
+-Projects page
+    individual page
+
+-blog page
+    individual page (divided by categories)
 
 
 
 
-good website examples
-
-https://timmyomahony.com/
-https://benadam.me/
-https://sebkay.com/
-http://ejosue.com/
-https://mattfarley.ca/
+good website examples:
+-http://ejosue.com/
+-https://timmyomahony.com/
+-https://benadam.me/
+-https://sebkay.com/
+-https://mattfarley.ca/

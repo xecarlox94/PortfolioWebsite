@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import SEO from "../../utils/seo"
+import SEO from "../utils/seo"
 
 const Layout = ({ description, lang, meta, title, children }) => {
   return (

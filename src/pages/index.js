@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layouts/globals/layout"
+import Layout from "../components/layouts/layout"
 
 const IndexPage = () => (
   <Layout title="Home">
