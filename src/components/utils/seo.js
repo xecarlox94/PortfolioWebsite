@@ -25,6 +25,8 @@ function SEO({ description, lang, meta, title }) {
     `
   )
 
+  const finalTitle = title || site.siteMetadata.title
+
   const metaDescription = description || site.siteMetadata.description
 
   return (
@@ -32,7 +34,7 @@ function SEO({ description, lang, meta, title }) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
+      title={finalTitle}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
@@ -41,7 +43,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: finalTitle,
         },
         {
           property: `og:description`,

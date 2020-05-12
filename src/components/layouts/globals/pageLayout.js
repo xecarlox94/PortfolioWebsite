@@ -7,20 +7,24 @@ import Footer from "../footers/footer"
 import Layout from "./layout"
 
 const PageLayout = ({ description, lang, meta, title, children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+  var data
+
+  if (!title) {
+    data = useStaticQuery(graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
         }
       }
-    }
-  `)
+    `)
+  }
 
   return (
     <Layout description={description} lang={lang} meta={meta} title={title}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main>{children}</main>
+      {children}
       <Footer />
     </Layout>
   )
