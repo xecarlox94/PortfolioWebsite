@@ -1,15 +1,14 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { Link } from "gatsby"
-
-import Layout from "../components/layout/layout"
+import PageLayout from "../components/layouts/globals/pageLayout"
 
 const Portfolio = props => (
-  <Layout title="Portfolio">
+  <PageLayout>
     <h1>Portfolio</h1>
     <p>Welcome to page 2 ({props.path})</p>
     <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  </PageLayout>
 )
 
 export default Portfolio
