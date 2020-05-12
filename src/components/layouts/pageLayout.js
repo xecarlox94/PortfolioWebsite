@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./layouts/headers/header"
-import Footer from "./layouts/footers/footer"
-import Layout from "./layouts/layout"
+import Header from "./headers/header"
+import Footer from "./footers/footer"
+import Layout from "./layout"
 
 const PageLayout = ({ description, lang, meta, title, children }) => {
   var data

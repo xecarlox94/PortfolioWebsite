@@ -7,10 +7,13 @@ const Header = ({ siteTitle }) => (
     <div>
       <h2>{siteTitle}</h2>
       <h3>Header</h3>
-      <Link to="/">Home</Link>
+      <Link to="/">Home page</Link>
       <br />
       <br />
-      <Link to="/portfolio/">Portfolio</Link>
+      <Link to="/about/">About page</Link>
+      <br />
+      <br />
+      <Link to="/404/">Error page</Link>
     </div>
   </header>
 )

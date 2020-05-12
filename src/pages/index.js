@@ -5,8 +5,8 @@ import Layout from "../components/layouts/layout"
 
 const IndexPage = () => (
   <Layout title="Home">
-    <h1>Home</h1>
-    <Link to="/portfolio/">Go to Portfolio</Link>
+    <h1>Home page</h1>
+    <Link to="/about/">Go to About</Link>
     <br />
     <br />
     <Link to="/404/">Go to not found</Link>
