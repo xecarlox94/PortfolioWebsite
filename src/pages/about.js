@@ -1,7 +1,6 @@
-// Gatsby supports TypeScript natively!
 import React from "react"
-import { Link } from "gatsby"
-import PageLayout from "../components/layouts/globals/pageLayout"
+
+import PageLayout from "../components/layouts/pageLayout"
 
 const About = props => (
   <PageLayout>

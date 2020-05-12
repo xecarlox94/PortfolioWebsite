@@ -14,7 +14,7 @@ const Layout = ({ description, lang, meta, title, children }) => {
   return (
     <>
       <SEO description={description} lang={lang} meta={meta} title={title} />
-      <main>{children}</main>
+      {children}
     </>
   )
 }
