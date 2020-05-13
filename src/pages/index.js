@@ -12,6 +12,7 @@ const IndexPage = () => (
       <h1>Testimonials</h1>
       <h1>Projects</h1>
     </main>
+    <button className="py-4 px-4 bg-blue-600">Button</button>
   </Layout>
 )
 
