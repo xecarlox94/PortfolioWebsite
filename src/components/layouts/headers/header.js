@@ -1,12 +1,12 @@
 import React from "react"
 import Navbar from "./navbar"
 
-const Header = ({ children }) => {
+const Header = ({ navbarFixed, classes, children }) => {
   return (
-    <header>
-      <Navbar />
-      {children}
-    </header>
+    <>
+      <Navbar fixed={navbarFixed} />
+      {children && <header className={classes}>{children}</header>}
+    </>
   )
 }
 export default Header

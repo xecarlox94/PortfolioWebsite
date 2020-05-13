@@ -6,14 +6,24 @@ import Section from "../components/layouts/section"
 
 const IndexPage = () => (
   <Layout title="Home">
-    <Header>HEADER CONTENT</Header>
-    <Section>
-      <h1>TOP presentation section</h1>
-    </Section>
+    <Header
+      navbarFixed={true}
+      classes={"h-screen flex items-center justify-center "}
+    >
+      <div
+        className="bg-local p-64"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
+        }}
+      >
+        Landing Page
+      </div>
+    </Header>
     <main>
-      <h1>Services</h1>
-      <h1>Testimonials</h1>
-      <h1>Projects</h1>
+      <Section>Services</Section>
+      <Section>Testimonials</Section>
+      <Section>Projects</Section>
     </main>
   </Layout>
 )
