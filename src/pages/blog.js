@@ -1,7 +1,7 @@
 import React from "react"
 
-const Work = () => {
+const Blog = () => {
   return <div></div>
 }
 
-export default Work
+export default Blog

@@ -6,16 +6,16 @@ site:
 
 
 structure:
--landing page
+-home page
     services section
     testimonials section
-    startup projects section
+    projects section
     contact section
 
 -about page
 
 -Projects page
-    individual page
+    individual page (divided by categories)
 
 -blog page
     individual page (divided by categories)

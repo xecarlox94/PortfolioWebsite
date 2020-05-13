@@ -5,10 +5,12 @@ import Header from "../components/layouts/headers/header"
 
 const IndexPage = () => (
   <Layout title="Home">
-    <h1>Home page</h1>
+    <h1>TOP presentation section</h1>
     <Header />
     <main>
-      <p>content</p>
+      <h1>Services</h1>
+      <h1>Testimonials</h1>
+      <h1>Projects</h1>
     </main>
   </Layout>
 )
