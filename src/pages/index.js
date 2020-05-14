@@ -3,6 +3,9 @@ import React from "react"
 import Layout from "../components/layouts/layout"
 import Header from "../components/layouts/headers/header"
 import Section from "../components/layouts/section"
+import Testimonials from "../components/fragments/testimonials"
+import Skills from "../components/fragments/skills"
+import Contact from "../components/fragments/contact"
 
 const IndexPage = () => (
   <Layout title="Home">
@@ -21,9 +24,12 @@ const IndexPage = () => (
       </div>
     </Header>
     <main>
-      <Section>Services</Section>
-      <Section>Testimonials</Section>
-      <Section>Projects</Section>
+      <Skills />
+      <Testimonials />
+      <Section classes="h-screen flex items-center justify-center ">
+        Projects
+      </Section>
+      <Contact />
     </main>
   </Layout>
 )
