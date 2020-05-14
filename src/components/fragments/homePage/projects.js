@@ -1,12 +1,12 @@
 import React from "react"
-import Section from "../layouts/section"
+import Section from "../../layouts/section"
 
-const Testimonials = () => {
+const Projects = () => {
   return (
     <Section classes="h-screen flex items-center justify-center ">
-      Testimonials
+      Projects section
     </Section>
   )
 }
 
-export default Testimonials
+export default Projects

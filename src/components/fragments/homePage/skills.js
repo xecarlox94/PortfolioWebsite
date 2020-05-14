@@ -1,10 +1,10 @@
 import React from "react"
-import Section from "../layouts/section"
+import Section from "../../layouts/section"
 
 const Skills = () => {
   return (
     <Section classes="h-screen flex items-center justify-center ">
-      Skills
+      Skills Sections
     </Section>
   )
 }

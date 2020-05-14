@@ -1,7 +1,8 @@
 import React from "react"
+import PageLayout from "../components/layouts/pageLayout"
 
 const Article = () => {
-  return <div></div>
+  return <PageLayout>Article Page</PageLayout>
 }
 
 export default Article
