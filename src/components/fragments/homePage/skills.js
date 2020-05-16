@@ -1,12 +1,17 @@
 import React from "react"
-import Section from "../../layouts/section"
+
+// const skillsArr = [
+//   {
+//     type: "Web",
+//   },
+// ]
+
+// const skillTile = ({ skill }) => {
+//   return <div></div>
+// }
 
 const Skills = () => {
-  return (
-    <Section classes="h-screen flex items-center justify-center ">
-      Skills Sections
-    </Section>
-  )
+  return <section className="h-screen grid">Skills Sections</section>
 }
 
 export default Skills
