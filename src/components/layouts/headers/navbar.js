@@ -45,6 +45,7 @@ class Navbar extends React.Component {
 
     const { fixed } = this.props
 
+    let styles = {}
     let navClasses = "flex items-center justify-between px-2 py-3 z-40 w-full "
 
     if (fixed) {
@@ -52,14 +53,16 @@ class Navbar extends React.Component {
       if (this.state.isTop) {
         navClasses += " bg-black bg-opacity-25 text-white "
       } else {
-        navClasses += " bg-white bg-opacity-75 shadow-lg"
+        navClasses += " bg-white shadow-md"
+        styles.opacity = 0.95
       }
     } else {
-      navClasses += " sticky top-0 bg-white bg-opacity-75 shadow-lg"
+      navClasses += " sticky top-0 bg-white shadow-md"
+      styles.opacity = 0.95
     }
 
     return (
-      <nav className={navClasses}>
+      <nav className={navClasses} style={styles}>
         <Link to="/">{this.props.title}</Link>
         <ul>
           {pages.map((page, i) => {
