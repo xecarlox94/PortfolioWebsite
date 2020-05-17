@@ -1,54 +1,84 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
 
-const Navbar = ({ fixed }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
+import PropTypes from "prop-types"
+import { Link } from "gatsby"
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isTop: true,
     }
-  `)
+  }
 
-  let navClasses =
-    "flex items-center justify-between px-2 py-3 z-50 w-full bg-white bg-opacity-75 "
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll)
+  }
 
-  if (fixed) navClasses += "fixed"
-  else navClasses += "sticky top-0"
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+  }
 
-  const pages = [
-    {
-      link: "/about/",
-      title: "About",
-    },
-    {
-      link: "/projects/",
-      title: "Projects",
-    },
-    {
-      link: "/blog/",
-      title: "Blog",
-    },
-  ]
+  handleScroll = () => {
+    if (window.scrollY === 0) {
+      this.setState({ isTop: true })
+    } else {
+      this.setState({ isTop: false })
+    }
+  }
 
-  return (
-    <nav className={navClasses}>
-      <Link to="/">{data.site.siteMetadata.title}</Link>
-      <ul>
-        {pages.map((page, i) => {
-          const link = "/" + page.link + "/"
+  render() {
+    const pages = [
+      {
+        link: "/about/",
+        title: "About",
+      },
+      {
+        link: "/projects/",
+        title: "Projects",
+      },
+      {
+        link: "/blog/",
+        title: "Blog",
+      },
+    ]
 
-          return (
-            <li key={i} className="inline-block pl-5">
-              <Link to={link}>{page.title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
-  )
+    const { fixed } = this.props
+
+    let navClasses = "flex items-center justify-between px-2 py-3 z-40 w-full "
+
+    if (fixed) {
+      navClasses += " fixed transition ease-in-out delay-300 duration-700 "
+      if (this.state.isTop) {
+        navClasses += " bg-black bg-opacity-25 text-white "
+      } else {
+        navClasses += " bg-white bg-opacity-75 shadow-lg"
+      }
+    } else {
+      navClasses += " sticky top-0 bg-white bg-opacity-75 shadow-lg"
+    }
+
+    return (
+      <nav className={navClasses}>
+        <Link to="/">{this.props.title}</Link>
+        <ul>
+          {pages.map((page, i) => {
+            const link = "/" + page.link + "/"
+
+            return (
+              <li key={i} className="inline-block pl-5">
+                <Link to={link}>{page.title}</Link>
+              </li>
+            )
+          })}
+        </ul>
+      </nav>
+    )
+  }
+}
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
 }
 
 export default Navbar

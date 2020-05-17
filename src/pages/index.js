@@ -11,17 +11,13 @@ const IndexPage = () => (
   <Layout title="Home">
     <Header
       navbarFixed={true}
-      classes={"h-screen flex items-center justify-center "}
+      classes={"h-screen flex items-center justify-center bg-cover bg-center"}
+      styles={{
+        backgroundImage:
+          "url(https://images.pexels.com/photos/1251299/pexels-photo-1251299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)",
+      }}
     >
-      <div
-        className="bg-local p-64"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
-        }}
-      >
-        Landing Page
-      </div>
+      Landing Page
     </Header>
     <main>
       <Skills />

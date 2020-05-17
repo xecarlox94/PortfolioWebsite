@@ -47,8 +47,8 @@ class ProjectTile extends React.Component {
           backgroundImage:
             "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
         }}
-        onMouseOver={() => this.onHover()}
-        onMouseLeave={() => this.onHoverOut()}
+        onMouseOver={this.onHover}
+        onMouseLeave={this.onHoverOut}
       >
         <div className={overlayClasses}>
           <h1>{project.title}</h1>
