@@ -1,11 +1,20 @@
 import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
-import { Link } from "gatsby"
+const HomeLink = () => {
+  const { site } = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  return <Link to="/">{site.siteMetadata.title}</Link>
+}
 
 class MenuBurger extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <svg
@@ -43,7 +52,75 @@ class MenuBurger extends React.Component {
 //   }
 // }
 
+// class MobileMenu extends React.Component {
+//   render() {
+//     return (
+//       <div className="z-50 w-full h-full bg-gray-300">
+//         <div className="z-50 w-full h-full bg-gray-300">asd</div>
+//       </div>
+//     )
+//   }
+// }
+
 class Navbar extends React.Component {
+  render() {
+    const { fixed } = this.props
+
+    let styles = {}
+    let navClasses = "flex items-center justify-between px-2 py-3 z-40 w-full "
+
+    if (fixed) {
+      navClasses += " fixed transition ease-in-out delay-300 duration-700 "
+      if (this.state.isTop) {
+        navClasses += " bg-black bg-opacity-25 text-white "
+      } else {
+        navClasses += " bg-white shadow-md"
+        styles.opacity = 0.95
+      }
+    } else {
+      navClasses += " sticky top-0 bg-white shadow-md"
+      styles.opacity = 0.95
+    }
+
+    const pages = [
+      {
+        link: "/about/",
+        title: "About",
+      },
+      {
+        link: "/projects/",
+        title: "Projects",
+      },
+      {
+        link: "/blog/",
+        title: "Blog",
+      },
+    ]
+
+    let menu
+
+    if (!this.state.isMobile) {
+      menu = (
+        <ul>
+          {pages.map((page, i) => (
+            <li key={i} className="inline-block pl-5">
+              <Link to={page.link}>{page.title}</Link>
+            </li>
+          ))}
+        </ul>
+      )
+    } else {
+      menu = <MenuBurger />
+    }
+
+    return (
+      <nav className={navClasses} style={styles}>
+        <HomeLink />
+        {menu}
+      </nav>
+    )
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -78,64 +155,6 @@ class Navbar extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll)
     window.removeEventListener("resize", this.handleResize)
-  }
-
-  render() {
-    const pages = [
-      {
-        link: "/about/",
-        title: "About",
-      },
-      {
-        link: "/projects/",
-        title: "Projects",
-      },
-      {
-        link: "/blog/",
-        title: "Blog",
-      },
-    ]
-
-    const { fixed } = this.props
-
-    let styles = {}
-    let navClasses = "flex items-center justify-between px-2 py-3 z-40 w-full "
-
-    if (fixed) {
-      navClasses += " fixed transition ease-in-out delay-300 duration-700 "
-      if (this.state.isTop) {
-        navClasses += " bg-black bg-opacity-25 text-white "
-      } else {
-        navClasses += " bg-white shadow-md"
-        styles.opacity = 0.95
-      }
-    } else {
-      navClasses += " sticky top-0 bg-white shadow-md"
-      styles.opacity = 0.95
-    }
-
-    let menu
-
-    if (!this.state.isMobile) {
-      menu = (
-        <ul>
-          {pages.map((page, i) => (
-            <li key={i} className="inline-block pl-5">
-              <Link to={page.link}>{page.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )
-    } else {
-      menu = <MenuBurger />
-    }
-
-    return (
-      <nav className={navClasses} style={styles}>
-        <Link to="/">{this.props.title}</Link>
-        {menu}
-      </nav>
-    )
   }
 }
 
