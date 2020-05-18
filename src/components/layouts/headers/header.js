@@ -16,6 +16,9 @@ const Header = ({ navbarFixed, classes, styles, children }) => {
 
   return (
     <>
+      {/* <div className="z-50 w-full h-full bg-gray-300">
+        <div className="z-50 w-full h-full bg-gray-300">asd</div>
+      </div> */}
       <Navbar fixed={navbarFixed} title={data.site.siteMetadata.title} />
       {children && (
         <header className={classes} style={styles}>
@@ -25,4 +28,5 @@ const Header = ({ navbarFixed, classes, styles, children }) => {
     </>
   )
 }
+
 export default Header
