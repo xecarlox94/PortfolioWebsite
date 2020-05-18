@@ -102,33 +102,33 @@ class Navbar extends React.Component {
     )
   }
 
-  handleResize = e => {
-    // const w = e.currentTarget
-    // this.setState({
-    //   isMobile: w.innerWidth <= 450,
-    // })
-  }
+  // handleResize = e => {
+  //   // const w = e.currentTarget
+  //   // this.setState({
+  //   //   isMobile: w.innerWidth <= 450,
+  //   // })
+  // }
 
-  handleScroll = e => {
-    // const w = e.currentTarget
-    // this.setState({
-    //   isTop: w.scrollY === 0,
-    // })
-  }
+  // handleScroll = e => {
+  //   // const w = e.currentTarget
+  //   // this.setState({
+  //   //   isTop: w.scrollY === 0,
+  //   // })
+  // }
 
-  componentDidMount() {
-    // this.setState({
-    //   isTop: window.scrollY === 0,
-    //   isMobile: window.innerWidth <= 450,
-    // })
-    // window.addEventListener("resize", this.handleResize)
-    // window.addEventListener("scroll", this.handleScroll)
-  }
+  // componentDidMount() {
+  //   // this.setState({
+  //   //   isTop: window.scrollY === 0,
+  //   //   isMobile: window.innerWidth <= 450,
+  //   // })
+  //   // window.addEventListener("resize", this.handleResize)
+  //   // window.addEventListener("scroll", this.handleScroll)
+  // }
 
-  componentWillUnmount() {
-    // window.removeEventListener("scroll", this.handleScroll)
-    // window.removeEventListener("resize", this.handleResize)
-  }
+  // componentWillUnmount() {
+  //   // window.removeEventListener("scroll", this.handleScroll)
+  //   // window.removeEventListener("resize", this.handleResize)
+  // }
 }
 
 Navbar.propTypes = {
