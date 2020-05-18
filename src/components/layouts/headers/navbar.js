@@ -104,7 +104,6 @@ class Navbar extends React.Component {
 
   handleResize = e => {
     const w = e.currentTarget
-    console.log(w)
     this.setState({
       isMobile: w.innerWidth <= 450,
     })
@@ -112,7 +111,6 @@ class Navbar extends React.Component {
 
   handleScroll = e => {
     const w = e.currentTarget
-    console.log(w)
     this.setState({
       isTop: w.scrollY === 0,
     })
