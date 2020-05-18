@@ -29,23 +29,23 @@ const HomeLink = () => {
   return <Link to="/">{site.siteMetadata.title}</Link>
 }
 
-// class MenuBurger extends React.Component {
-//   render() {
-//     return (
-//       <svg
-//         onClick={this.props.menuOpen}
-//         style={{ fill: "white", cursor: "pointer" }}
-//         height="25"
-//         width="25"
-//         viewBox="0 0 128 128"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path d="M64 128a64 64 0 1164-64 64 64 0 01-64 64zM64 4a60 60 0 1060 60A60 60 0 0064 4z" />
-//         <path d="M95 44H33a2 2 0 010-4h62a2 2 0 010 4zM95 66H33a2 2 0 010-4h62a2 2 0 010 4zM95 88H33a2 2 0 010-4h62a2 2 0 010 4z" />
-//       </svg>
-//     )
-//   }
-// }
+class MenuBurger extends React.Component {
+  render() {
+    return (
+      <svg
+        onClick={this.props.menuOpen}
+        style={{ fill: "white", cursor: "pointer" }}
+        height="25"
+        width="25"
+        viewBox="0 0 128 128"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M64 128a64 64 0 1164-64 64 64 0 01-64 64zM64 4a60 60 0 1060 60A60 60 0 0064 4z" />
+        <path d="M95 44H33a2 2 0 010-4h62a2 2 0 010 4zM95 66H33a2 2 0 010-4h62a2 2 0 010 4zM95 88H33a2 2 0 010-4h62a2 2 0 010 4z" />
+      </svg>
+    )
+  }
+}
 
 // class MenuClose extends React.Component {
 //   render() {
@@ -67,11 +67,11 @@ const HomeLink = () => {
 //   }
 // }
 
-const MobileMenu = () => (
-  <div className="z-50 w-full h-full bg-gray-300">
-    <div className="z-50 w-full h-full bg-gray-300">asd</div>
-  </div>
-)
+// const MobileMenu = () => (
+//   <div className="absolute top-0 z-50 w-full h-full bg-gray-300">
+//     <div>asd</div>
+//   </div>
+// )
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -80,6 +80,24 @@ class Navbar extends React.Component {
       isTop: true,
       isMobile: false,
     }
+  }
+
+  componentDidMount() {
+    let { classList } = document.body
+    if (!classList.contains("relative")) classList.add("relative")
+
+    this.setState({
+      isTop: window.scrollY === 0,
+      isMobile: window.innerWidth <= 450,
+    })
+
+    window.addEventListener("resize", this.handleResize)
+    window.addEventListener("scroll", this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+    window.removeEventListener("resize", this.handleResize)
   }
 
   handleResize = e => {
@@ -94,20 +112,6 @@ class Navbar extends React.Component {
     this.setState({
       isTop: w.scrollY === 0,
     })
-  }
-
-  componentDidMount() {
-    this.setState({
-      isTop: window.scrollY === 0,
-      isMobile: window.innerWidth <= 450,
-    })
-    window.addEventListener("resize", this.handleResize)
-    window.addEventListener("scroll", this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
-    window.removeEventListener("resize", this.handleResize)
   }
 
   render() {
@@ -135,7 +139,7 @@ class Navbar extends React.Component {
       )
     }
 
-    return <MobileMenu />
+    return <MenuBurger />
   }
 
   getNavStyling = () => {
