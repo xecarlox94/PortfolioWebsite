@@ -1,21 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-const getPages = () => [
-  {
-    link: "/about/",
-    title: "About",
-  },
-  {
-    link: "/projects/",
-    title: "Projects",
-  },
-  {
-    link: "/blog/",
-    title: "Blog",
-  },
-]
-
 const HomeLink = () => {
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -33,7 +18,10 @@ class MenuBurger extends React.Component {
   render() {
     return (
       <svg
-        onClick={this.props.menuOpen}
+        onClick={() => {
+          console.log("button clicked")
+          this.props.menuOpen()
+        }}
         style={{ fill: "white", cursor: "pointer" }}
         height="25"
         width="25"
@@ -46,32 +34,6 @@ class MenuBurger extends React.Component {
     )
   }
 }
-
-// class MenuClose extends React.Component {
-//   render() {
-//     return (
-//       <svg
-//         onClick={this.props.menuClose}
-//         height="24"
-//         width="24"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <g fill="none" fillRule="evenodd">
-//           <path
-//             d="M12.5 23a11.5 11.5 0 100-23 11.5 11.5 0 000 23zm0-1a10.5 10.5 0 100-21 10.5 10.5 0 000 21zm-4.24-5.55l-.71-.7 4.24-4.25-4.24-4.24.7-.71 4.25 4.24 4.24-4.24.71.7-4.24 4.25 4.24 4.24-.7.71-4.25-4.24-4.24 4.24z"
-//             fill="#000"
-//           />
-//         </g>
-//       </svg>
-//     )
-//   }
-// }
-
-// const MobileMenu = () => (
-//   <div className="absolute top-0 z-50 w-full h-full bg-gray-300">
-//     <div>asd</div>
-//   </div>
-// )
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -115,20 +77,25 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { navClasses, styles } = this.getNavStyling()
-    return (
-      <nav className={navClasses} style={styles}>
-        <HomeLink />
-        {this.getMenu()}
-      </nav>
-    )
-  }
+    const pages = [
+      {
+        link: "/about/",
+        title: "About",
+      },
+      {
+        link: "/projects/",
+        title: "Projects",
+      },
+      {
+        link: "/blog/",
+        title: "Blog",
+      },
+    ]
 
-  getMenu = () => {
-    const pages = getPages()
+    let menu
 
     if (!this.state.isMobile) {
-      return (
+      menu = (
         <ul>
           {pages.map((page, i) => (
             <li key={i} className="inline-block pl-5">
@@ -137,9 +104,24 @@ class Navbar extends React.Component {
           ))}
         </ul>
       )
+    } else {
+      menu = (
+        <MenuBurger
+          menuOpen={() => {
+            console.log("mobile nav open")
+            this.props.onMenuOpen()
+          }}
+        />
+      )
     }
 
-    return <MenuBurger />
+    const { navClasses, styles } = this.getNavStyling()
+    return (
+      <nav className={navClasses} style={styles}>
+        <HomeLink />
+        {menu}
+      </nav>
+    )
   }
 
   getNavStyling = () => {
