@@ -1,6 +1,21 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
+const getPages = () => [
+  {
+    link: "/about/",
+    title: "About",
+  },
+  {
+    link: "/projects/",
+    title: "Projects",
+  },
+  {
+    link: "/blog/",
+    title: "Blog",
+  },
+]
+
 const HomeLink = () => {
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -52,15 +67,11 @@ class MenuBurger extends React.Component {
 //   }
 // }
 
-// class MobileMenu extends React.Component {
-//   render() {
-//     return (
-//       <div className="z-50 w-full h-full bg-gray-300">
-//         <div className="z-50 w-full h-full bg-gray-300">asd</div>
-//       </div>
-//     )
-//   }
-// }
+const MobileMenu = () => (
+  <div className="z-50 w-full h-full bg-gray-300">
+    <div className="z-50 w-full h-full bg-gray-300">asd</div>
+  </div>
+)
 
 class Navbar extends React.Component {
   render() {
@@ -82,20 +93,7 @@ class Navbar extends React.Component {
       styles.opacity = 0.95
     }
 
-    const pages = [
-      {
-        link: "/about/",
-        title: "About",
-      },
-      {
-        link: "/projects/",
-        title: "Projects",
-      },
-      {
-        link: "/blog/",
-        title: "Blog",
-      },
-    ]
+    const pages = getPages()
 
     let menu
 
@@ -111,6 +109,7 @@ class Navbar extends React.Component {
       )
     } else {
       menu = <MenuBurger />
+      menu = <MobileMenu />
     }
 
     return (

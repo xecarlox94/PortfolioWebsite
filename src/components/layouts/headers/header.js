@@ -12,4 +12,5 @@ const Header = ({ navbarFixed, classes, styles, children }) => (
     )}
   </>
 )
+
 export default Header
