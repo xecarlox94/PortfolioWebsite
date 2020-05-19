@@ -6,14 +6,21 @@ import Footer from "./footers/footer"
 import Layout from "./layout"
 import MobileNav from "./headers/mobileNav"
 
-const PageLayout = ({ description, lang, meta, title, children }) => {
+const PageLayout = ({
+  description,
+  lang,
+  meta,
+  title,
+  headerChild,
+  children,
+}) => {
   const [mMenu, setMMenu] = useState(false)
 
   return (
     <Layout description={description} lang={lang} meta={meta} title={title}>
       {mMenu && <MobileNav menuClose={() => setMMenu(false)} />}
 
-      <Header menuOpen={() => setMMenu(true)} />
+      <Header menuOpen={() => setMMenu(true)}>{headerChild}</Header>
 
       <main>{children}</main>
 
