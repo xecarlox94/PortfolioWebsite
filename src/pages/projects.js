@@ -6,20 +6,20 @@ import Contact from "../components/fragments/contact"
 
 const projects = [
   {
-    title: "Small Project",
+    title: "Project title",
   },
   {
-    title: "Small Project",
+    title: "Project title",
   },
   {
-    title: "Small Project",
+    title: "Project title",
   },
   {
-    title: "Small Project",
+    title: "Project title",
   },
 ]
 
-const ProjectCard = ({ title }) => <p>{title}</p>
+const ProjectCard = ({ project }) => <p>{project.title}</p>
 
 const Projects = () => (
   <Layout

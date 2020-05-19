@@ -6,7 +6,9 @@ const Project = () => (
     title="Project"
     headerChild={<header>Invididual Project page</header>}
   >
-    <p>main</p>
+    <p>image</p>
+    <p>title</p>
+    <p>text</p>
   </Layout>
 )
 
