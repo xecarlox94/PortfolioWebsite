@@ -11,16 +11,24 @@ const PageLayout = ({
   lang,
   meta,
   title,
-  headerChild,
+  headerChildComponent,
   children,
 }) => {
   const [mMenu, setMMenu] = useState(false)
+
+  const { headerChild, headerClasses, headerStyles } = headerChildComponent
 
   return (
     <Layout description={description} lang={lang} meta={meta} title={title}>
       {mMenu && <MobileNav menuClose={() => setMMenu(false)} />}
 
-      <Header menuOpen={() => setMMenu(true)}>{headerChild}</Header>
+      <Header
+        menuOpen={() => setMMenu(true)}
+        classes={headerClasses}
+        styles={headerStyles}
+      >
+        {headerChild}
+      </Header>
 
       <main>{children}</main>
 
