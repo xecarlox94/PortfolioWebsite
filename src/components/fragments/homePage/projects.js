@@ -36,7 +36,7 @@ class ProjectTile extends React.Component {
   render() {
     const { project } = this.props
 
-    let overlayClasses = "z-10 bg-gray-300 w-full h-full bg-opacity-50 "
+    let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
 
     if (!this.state.mouseOver) overlayClasses += "invisible"
 
@@ -44,13 +44,19 @@ class ProjectTile extends React.Component {
       <div
         className="bg-cover bg-center"
         style={{
+          minHeight: "35vh",
           backgroundImage:
             "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
         }}
         onMouseOver={this.onHover}
         onMouseLeave={this.onHoverOut}
       >
-        <div className={overlayClasses}>
+        <div
+          className={overlayClasses}
+          style={{
+            minHeight: "35vh",
+          }}
+        >
           <h1>{project.title}</h1>
           <p>{project.description}</p>
         </div>
@@ -61,7 +67,7 @@ class ProjectTile extends React.Component {
 
 const Projects = () => {
   return (
-    <section className="h-screen grid gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <section className="grid gap-0 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
       {projectsArr.map((prj, i) => (
         <ProjectTile key={i} project={prj} />
       ))}

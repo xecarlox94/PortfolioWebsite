@@ -1,16 +1,31 @@
 import React from "react"
+import Carousel from "@brainhubeu/react-carousel"
+import "@brainhubeu/react-carousel/lib/style.css"
 
 const testimonialArr = [
   {
-    name: "Jose",
+    name: "Bruno",
     image: "https://tailwindcss.com/img/jonathan.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  },
+  {
+    name: "Bruno",
+    image: "https://tailwindcss.com/img/jonathan.jpg",
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  },
+  {
+    name: "Bruno",
+    image: "https://tailwindcss.com/img/jonathan.jpg",
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
 ]
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg text-center">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg text-center m-12">
       <img
         className="w-20 h-20 rounded-full mx-auto"
         src={testimonial.image}
@@ -26,10 +41,26 @@ const TestimonialCard = ({ testimonial }) => {
 
 const Testimonials = () => {
   return (
-    <section className="h-screen flex items-center justify-center ">
-      {testimonialArr.map((tst, i) => (
-        <TestimonialCard key={i} testimonial={tst} />
-      ))}
+    <section className="my-40">
+      <Carousel
+        infinite
+        rtl
+        dots
+        centered
+        autoPlay={5000}
+        animationSpeed={2500}
+        slidesPerPage={2}
+        keepDirectionWhenDragging
+        breakpoints={{
+          640: {
+            slidesPerPage: 1,
+          },
+        }}
+      >
+        {testimonialArr.map((tst, i) => (
+          <TestimonialCard key={i} testimonial={tst} />
+        ))}
+      </Carousel>
     </section>
   )
 }

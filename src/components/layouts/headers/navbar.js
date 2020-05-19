@@ -14,6 +14,14 @@ export const getPages = () => [
     link: "/blog/",
     title: "Blog",
   },
+  {
+    link: "/article/",
+    title: "article",
+  },
+  {
+    link: "/project/",
+    title: "project",
+  },
 ]
 
 const HomeLink = () => {
