@@ -1,5 +1,4 @@
 site:
--lay down the structure
 -logo
 -change icon
 -call to action
@@ -7,18 +6,18 @@ site:
 
 structure:
 -home page
-    skills section
-    testimonials section
-    projects section
-    contact section
 
 -about page
 
 -Projects page
-    individual page (divided by categories)
+    category tab
+    
+-individual Project page (divided by categories)
 
 -blog page
-    individual page (divided by categories)
+    category tab
+    
+-individual article page (divided by categories)
 
 
 
