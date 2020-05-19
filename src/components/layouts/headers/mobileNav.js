@@ -1,10 +1,13 @@
 import React from "react"
+import { Link } from "gatsby"
+
 import { getPages } from "./navbar"
 
-class MenuClose extends React.Component {
+class ButtonClose extends React.Component {
   render() {
     return (
       <svg
+        className="float-right"
         onClick={this.props.menuClose}
         height="24"
         width="24"
@@ -27,19 +30,29 @@ class MobileNav extends React.Component {
     this.state = { scrollY: 0 }
   }
   componentDidMount() {
-    // code before opening
+    // code to disable scrolling
   }
 
   componentWillUnmount() {
-    // code before destroying component
+    // code to disable scrolling
   }
 
   render() {
-    // const pages = getPages()
+    const pages = getPages()
     return (
-      <div className="absolute top-0 z-50 h-screen w-screen bg-gray-300">
+      <div
+        className="fixed top-0 z-50 h-full px-2 py-3  w-full bg-white"
+        style={{ opacity: 0.87 }}
+      >
+        <ButtonClose menuClose={this.props.menuClose} />
         <div>
-          <MenuClose menuClose={this.props.menuClose} />
+          <ul>
+            {pages.map((page, i) => (
+              <li key={i}>
+                <Link to={page.link}>{page.title}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     )

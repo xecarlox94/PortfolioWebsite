@@ -31,10 +31,13 @@ const HomeLink = () => {
 
 class MenuBurger extends React.Component {
   render() {
+    const { colorFill } = this.props
+    console.log("COLOR SVG: " + colorFill)
     return (
       <svg
         onClick={this.props.menuOpen}
-        style={{ fill: "white", cursor: "pointer" }}
+        className="transition ease-in-out delay-300 duration-700 "
+        style={{ fill: colorFill, cursor: "pointer" }}
         height="25"
         width="25"
         viewBox="0 0 128 128"
@@ -89,8 +92,9 @@ class Navbar extends React.Component {
   }
 
   render() {
-    let menu
+    const { navClasses, styles } = this.getNavStyling()
 
+    let menu
     if (!this.state.isMobile) {
       const pages = getPages()
 
@@ -104,10 +108,14 @@ class Navbar extends React.Component {
         </ul>
       )
     } else {
-      menu = <MenuBurger menuOpen={this.props.menuOpen} />
+      console.log(styles.btnClrFill)
+      menu = (
+        <MenuBurger
+          colorFill={styles.btnClrFill}
+          menuOpen={this.props.menuOpen}
+        />
+      )
     }
-
-    const { navClasses, styles } = this.getNavStyling()
 
     return (
       <nav className={navClasses} style={styles}>
@@ -121,19 +129,24 @@ class Navbar extends React.Component {
     const navbarOpacity = 0.95
     const { fixed } = this.props
 
-    let styles = {}
+    let styles = {
+      btnClrFill: "#000",
+      opacity: 1,
+    }
+
     let navClasses = "flex items-center justify-between px-2 py-3 z-40 w-full "
 
     if (fixed) {
       navClasses += " fixed transition ease-in-out delay-300 duration-700 "
       if (this.state.isTop) {
         navClasses += " bg-black bg-opacity-25 text-white "
+        styles.btnClrFill = "#fff"
       } else {
-        navClasses += " bg-white shadow-md"
+        navClasses += " bg-white shadow-md text-black "
         styles.opacity = navbarOpacity
       }
     } else {
-      navClasses += " sticky top-0 bg-white shadow-md"
+      navClasses += " sticky top-0 bg-white text-black  shadow-md"
       styles.opacity = navbarOpacity
     }
 
