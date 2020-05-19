@@ -22,6 +22,10 @@ export const getPages = () => [
     link: "/project/",
     title: "project",
   },
+  {
+    link: "/404/",
+    title: "notFound",
+  },
 ]
 
 const HomeLink = () => {

@@ -6,7 +6,15 @@ import MobileNav from "./headers/mobileNav"
 import Navbar from "./headers/navbar"
 import Footer from "./footers/footer"
 
-const Layout = ({ description, lang, meta, title, children, navbarFixed }) => {
+const Layout = ({
+  description,
+  lang,
+  meta,
+  title,
+  navbarFixed,
+  headerChild,
+  children,
+}) => {
   const [mMenu, setMMenu] = useState(false)
 
   return (
@@ -17,7 +25,9 @@ const Layout = ({ description, lang, meta, title, children, navbarFixed }) => {
 
       <Navbar fixed={navbarFixed} menuOpen={() => setMMenu(true)} />
 
-      {children}
+      {headerChild}
+
+      <main>{children}</main>
 
       <Footer />
     </>
@@ -26,6 +36,7 @@ const Layout = ({ description, lang, meta, title, children, navbarFixed }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  headerChild: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
 }
 

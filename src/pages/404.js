@@ -3,8 +3,7 @@ import React from "react"
 import Layout from "../components/layouts/layout"
 
 const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
+  <Layout title="Page not found" headerChild={<header>Page not Found</header>}>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </Layout>
 )

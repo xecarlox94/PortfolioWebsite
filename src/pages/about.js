@@ -4,8 +4,13 @@ import Layout from "../components/layouts/layout"
 import Contact from "../components/fragments/contact"
 
 const About = () => (
-  <Layout>
-    <section className="h-screen">Welcome to the About Page</section>
+  <Layout
+    title="About"
+    headerChild={
+      <header className="h-screen">Welcome to the About Page!</header>
+    }
+  >
+    <p>main content</p>
     <Contact />
   </Layout>
 )
