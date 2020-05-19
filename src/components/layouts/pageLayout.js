@@ -1,15 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 import Header from "./headers/header"
 import Footer from "./footers/footer"
 import Layout from "./layout"
+import MobileNav from "./headers/mobileNav"
 
 const PageLayout = ({ description, lang, meta, title, children }) => {
+  const [mMenu, setMMenu] = useState(false)
+
   return (
     <Layout description={description} lang={lang} meta={meta} title={title}>
-      <Header />
-      {children}
+      {mMenu && <MobileNav menuClose={() => setMMenu(false)} />}
+
+      <Header menuOpen={() => setMMenu(true)} />
+
+      <main>{children}</main>
+
       <Footer />
     </Layout>
   )

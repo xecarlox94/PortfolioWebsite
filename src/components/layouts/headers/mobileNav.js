@@ -1,4 +1,5 @@
 import React from "react"
+import { getPages } from "./navbar"
 
 class MenuClose extends React.Component {
   render() {
@@ -23,27 +24,22 @@ class MenuClose extends React.Component {
 class MobileNav extends React.Component {
   constructor(props) {
     super(props)
+    this.state = { scrollY: 0 }
   }
   componentDidMount() {
-    // let body = document.body
-    // body.style.position = "fixed"
-    // body.style.top = `-${window.scrollY}px`
-    // this.setState({ scrollY: body.style.top })
+    // code before opening
   }
 
   componentWillUnmount() {
-    // const scrollY = document.body.style.top
-    // let body = document.body
-    // body.style.position = ""
-    // body.style.top = ""
-    // window.scrollTo(0, parseInt(scrollY || "0") * -1)
+    // code before destroying component
   }
 
   render() {
+    // const pages = getPages()
     return (
       <div className="absolute top-0 z-50 h-screen w-screen bg-gray-300">
         <div>
-          <MenuClose menuClose={() => this.props.onMenuClose} />
+          <MenuClose menuClose={this.props.menuClose} />
         </div>
       </div>
     )

@@ -1,6 +1,21 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
+export const getPages = () => [
+  {
+    link: "/about/",
+    title: "About",
+  },
+  {
+    link: "/projects/",
+    title: "Projects",
+  },
+  {
+    link: "/blog/",
+    title: "Blog",
+  },
+]
+
 const HomeLink = () => {
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -18,10 +33,7 @@ class MenuBurger extends React.Component {
   render() {
     return (
       <svg
-        onClick={() => {
-          console.log("button clicked")
-          this.props.menuOpen()
-        }}
+        onClick={this.props.menuOpen}
         style={{ fill: "white", cursor: "pointer" }}
         height="25"
         width="25"
@@ -77,24 +89,11 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const pages = [
-      {
-        link: "/about/",
-        title: "About",
-      },
-      {
-        link: "/projects/",
-        title: "Projects",
-      },
-      {
-        link: "/blog/",
-        title: "Blog",
-      },
-    ]
-
     let menu
 
     if (!this.state.isMobile) {
+      const pages = getPages()
+
       menu = (
         <ul>
           {pages.map((page, i) => (
@@ -105,17 +104,11 @@ class Navbar extends React.Component {
         </ul>
       )
     } else {
-      menu = (
-        <MenuBurger
-          menuOpen={() => {
-            console.log("mobile nav open")
-            this.props.onMenuOpen()
-          }}
-        />
-      )
+      menu = <MenuBurger menuOpen={this.props.menuOpen} />
     }
 
     const { navClasses, styles } = this.getNavStyling()
+
     return (
       <nav className={navClasses} style={styles}>
         <HomeLink />
