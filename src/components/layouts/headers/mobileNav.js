@@ -41,11 +41,11 @@ class MobileNav extends React.Component {
     const pages = getPages()
     return (
       <div
-        className="fixed top-0 z-50 h-full px-2 py-3  w-full bg-white"
+        className="fixed top-0 z-50 h-screen px-2 py-3  w-full bg-white"
         style={{ opacity: 0.87 }}
       >
         <ButtonClose menuClose={this.props.menuClose} />
-        <nav className="flex items-center h-full">
+        <nav className="flex items-center h-screen">
           <ul className="w-full">
             {pages.map((page, i) => (
               <li key={i} className="text-center my-10">
