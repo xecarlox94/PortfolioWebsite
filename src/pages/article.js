@@ -1,8 +1,9 @@
 import React from "react"
-import PageLayout from "../components/layouts/pageLayout"
+
+import Layout from "../components/layouts/layout"
 
 const Article = () => {
-  return <PageLayout>Article Page</PageLayout>
+  return <Layout title="Article">Article Page</Layout>
 }
 
 export default Article

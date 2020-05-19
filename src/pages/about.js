@@ -1,13 +1,13 @@
 import React from "react"
 
-import PageLayout from "../components/layouts/pageLayout"
+import Layout from "../components/layouts/layout"
 import Contact from "../components/fragments/contact"
 
 const About = () => (
-  <PageLayout>
+  <Layout>
     <section className="h-screen">Welcome to the About Page</section>
     <Contact />
-  </PageLayout>
+  </Layout>
 )
 
 export default About

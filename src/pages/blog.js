@@ -1,12 +1,11 @@
 import React from "react"
-import PageLayout from "../components/layouts/pageLayout"
 
-const Blog = () => {
-  return (
-    <PageLayout>
-      <section classes="h-screen">Welcome to the Blog Page</section>
-    </PageLayout>
-  )
-}
+import Layout from "../components/layouts/layout"
+
+const Blog = () => (
+  <Layout title="Blog">
+    <section classes="h-screen">Welcome to the Blog Page</section>
+  </Layout>
+)
 
 export default Blog

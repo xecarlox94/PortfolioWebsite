@@ -1,8 +1,10 @@
 import React from "react"
-import PageLayout from "../components/layouts/pageLayout"
+import Layout from "../components/layouts/layout"
 
-const Project = () => {
-  return <PageLayout>Project Page</PageLayout>
-}
+const Project = () => (
+  <Layout title="Project">
+    <h1>Project page</h1>
+  </Layout>
+)
 
 export default Project
