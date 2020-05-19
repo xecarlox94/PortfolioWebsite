@@ -45,15 +45,20 @@ class MobileNav extends React.Component {
         style={{ opacity: 0.87 }}
       >
         <ButtonClose menuClose={this.props.menuClose} />
-        <div>
-          <ul>
+        <nav className="flex items-center h-full">
+          <ul className="w-full">
             {pages.map((page, i) => (
-              <li key={i}>
-                <Link to={page.link}>{page.title}</Link>
+              <li key={i} className="text-center my-10">
+                <Link
+                  to={page.link}
+                  className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                >
+                  {page.title}
+                </Link>
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
       </div>
     )
   }
