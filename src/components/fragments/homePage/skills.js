@@ -1,17 +1,17 @@
 import React from "react"
 
-// const skillsArr = [
-//   {
-//     type: "Web",
-//   },
-// ]
+const SkillTile = ({ title, subtitle }) => (
+  <div className="text-center py-32">
+    <h1 className="font-bold text-xl text-center">{title}</h1>
+    <h2 className="text-lg text-center">{subtitle}</h2>
+  </div>
+)
 
-// const skillTile = ({ skill }) => {
-//   return <div></div>
-// }
-
-const Skills = () => {
-  return <section className="h-screen grid">Skills Sections</section>
-}
+const Skills = () => (
+  <section className="my-32 grid grid-cols-1 lg:grid-cols-2 divide-x divide-gray-400">
+    <SkillTile title="Web Development" subtitle="Full Stack Developer" />
+    <SkillTile title="Software Development" subtitle="Versatile Programmer" />
+  </section>
+)
 
 export default Skills

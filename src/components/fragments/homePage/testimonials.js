@@ -6,16 +6,6 @@ const testimonialArr = [
     image: "https://tailwindcss.com/img/jonathan.jpg",
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
-  {
-    name: "Jose",
-    image: "https://tailwindcss.com/img/jonathan.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
-  {
-    name: "Jose",
-    image: "https://tailwindcss.com/img/jonathan.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
 ]
 
 const TestimonialCard = ({ testimonial }) => {

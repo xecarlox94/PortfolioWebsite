@@ -61,7 +61,7 @@ class ProjectTile extends React.Component {
 
 const Projects = () => {
   return (
-    <section className="h-screen grid grid-cols-3 gap-0">
+    <section className="h-screen grid gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {projectsArr.map((prj, i) => (
         <ProjectTile key={i} project={prj} />
       ))}

@@ -32,7 +32,6 @@ const HomeLink = () => {
 class MenuBurger extends React.Component {
   render() {
     const { colorFill } = this.props
-    console.log("COLOR SVG: " + colorFill)
     return (
       <svg
         onClick={this.props.menuOpen}
@@ -108,7 +107,6 @@ class Navbar extends React.Component {
         </ul>
       )
     } else {
-      console.log(styles.btnClrFill)
       menu = (
         <MenuBurger
           colorFill={styles.btnClrFill}
@@ -134,7 +132,8 @@ class Navbar extends React.Component {
       opacity: 1,
     }
 
-    let navClasses = "flex items-center justify-between px-2 py-3 z-40 w-full "
+    let navClasses =
+      "flex items-center justify-between px-2 py-3 z-40 w-full shadow-2xl "
 
     if (fixed) {
       navClasses += " fixed transition ease-in-out delay-300 duration-700 "
@@ -142,11 +141,11 @@ class Navbar extends React.Component {
         navClasses += " bg-black bg-opacity-25 text-white "
         styles.btnClrFill = "#fff"
       } else {
-        navClasses += " bg-white shadow-md text-black "
+        navClasses += " bg-white text-black "
         styles.opacity = navbarOpacity
       }
     } else {
-      navClasses += " sticky top-0 bg-white text-black  shadow-md"
+      navClasses += " sticky top-0 bg-white text-black"
       styles.opacity = navbarOpacity
     }
 
