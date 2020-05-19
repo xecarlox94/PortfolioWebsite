@@ -9,18 +9,6 @@ const testimonialArr = [
     text:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
-  {
-    name: "Bruno",
-    image: "https://tailwindcss.com/img/jonathan.jpg",
-    text:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
-  {
-    name: "Bruno",
-    image: "https://tailwindcss.com/img/jonathan.jpg",
-    text:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  },
 ]
 
 const TestimonialCard = ({ testimonial }) => {
@@ -42,25 +30,9 @@ const TestimonialCard = ({ testimonial }) => {
 const Testimonials = () => {
   return (
     <section className="my-40">
-      <Carousel
-        infinite
-        rtl
-        dots
-        centered
-        autoPlay={5000}
-        animationSpeed={2500}
-        slidesPerPage={2}
-        keepDirectionWhenDragging
-        breakpoints={{
-          640: {
-            slidesPerPage: 1,
-          },
-        }}
-      >
-        {testimonialArr.map((tst, i) => (
-          <TestimonialCard key={i} testimonial={tst} />
-        ))}
-      </Carousel>
+      {testimonialArr.map((tst, i) => (
+        <TestimonialCard key={i} testimonial={tst} />
+      ))}
     </section>
   )
 }
