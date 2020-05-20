@@ -4,7 +4,7 @@ import Page from "../components/page"
 
 const Article = () => (
   <Page
-    seoAttr={{ title: "Article" }}
+    seoAtr={{ title: "Article" }}
     headerChild={<header>Welcome to the article page</header>}
   >
     <p>main content</p>

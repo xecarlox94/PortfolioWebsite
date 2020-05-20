@@ -1,6 +1,6 @@
 import React from "react"
 
-import Layout from "../components/layouts/layout"
+import Page from "../components/page"
 
 import Testimonials from "../components/fragments/homePage/testimonials"
 import Skills from "../components/fragments/homePage/skills"
@@ -8,7 +8,7 @@ import Contact from "../components/fragments/contact"
 import Projects from "../components/fragments/homePage/projects"
 
 const IndexPage = () => (
-  <Layout
+  <Page
     seoAttr={{ title: "Home" }}
     navbarFixed={true}
     headerChild={
@@ -27,7 +27,7 @@ const IndexPage = () => (
     <Testimonials />
     <Projects />
     <Contact />
-  </Layout>
+  </Page>
 )
 
 export default IndexPage

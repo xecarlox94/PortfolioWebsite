@@ -1,6 +1,6 @@
 import React from "react"
 
-import Layout from "../components/layouts/layout"
+import Page from "../components/page"
 
 import Contact from "../components/fragments/contact"
 
@@ -22,7 +22,7 @@ const projects = [
 const ProjectCard = ({ project }) => <p>{project.title}</p>
 
 const Projects = () => (
-  <Layout
+  <Page
     seoAttr={{ title: "Projects" }}
     headerChild={
       <header classes="h-screen">Welcome to the Projects Page</header>
@@ -32,7 +32,7 @@ const Projects = () => (
       <ProjectCard key={i} project={prj} />
     ))}
     <Contact />
-  </Layout>
+  </Page>
 )
 
 export default Projects

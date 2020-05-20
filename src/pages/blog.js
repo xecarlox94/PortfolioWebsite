@@ -1,6 +1,7 @@
 import React from "react"
 
-import Layout from "../components/layouts/layout"
+import Page from "../components/page"
+
 import Contact from "../components/fragments/contact"
 
 const articles = [
@@ -24,7 +25,7 @@ const articles = [
 const ArticleCard = ({ article }) => <p>{article.title}</p>
 
 const Blog = () => (
-  <Layout
+  <Page
     seoAttr={{ title: "Blog" }}
     headerChild={<header classes="h-screen">Welcome to the Blog Page</header>}
   >
@@ -34,7 +35,7 @@ const Blog = () => (
     ))}
     end
     <Contact />
-  </Layout>
+  </Page>
 )
 
 export default Blog
