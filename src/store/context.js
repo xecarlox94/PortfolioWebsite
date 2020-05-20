@@ -1,11 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 
-const initialState = { isMobile: false }
+const AppContext = React.createContext()
 
-const AppContext = React.createContext(initialState)
+const AppProvider = ({ children }) => {
+  const [isMobileMenu, setMobileMenu] = useState(false)
 
-const AppProvider = ({ children }) => (
-  <AppContext.Provider value={initialState}>{children}</AppContext.Provider>
-)
+  const openMobileMenu = () => setMobileMenu(true)
+  const closeMobileMenu = () => setMobileMenu(false)
+
+  return (
+    <AppContext.Provider
+      value={{
+        isMobileMenu,
+        openMobileMenu,
+        closeMobileMenu,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  )
+}
 
 export { AppContext, AppProvider }

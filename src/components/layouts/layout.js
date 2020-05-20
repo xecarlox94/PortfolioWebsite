@@ -1,26 +1,27 @@
-import React, { useState } from "react"
+import React from "react"
+import { AppContext } from "../../store/context"
 
 import MobileNav from "./headers/mobileNav"
 import Navbar from "./headers/navbar"
 import Footer from "./footers/footer"
 
-const Layout = ({ seoAttr, navbarFixed, headerChild, children }) => {
-  const [mMenu, setMMenu] = useState(false)
+const Layout = ({ navbarFixed, headerChild, children }) => (
+  <>
+    <AppContext.Consumer>
+      {({ isMobileMenu, openMobileMenu, closeMobileMenu }) =>
+        isMobileMenu && <MobileNav menuClose={closeMobileMenu} />
+      }
+    </AppContext.Consumer>
 
-  return (
-    <>
-      {mMenu && <MobileNav menuClose={() => setMMenu(false)} />}
+    <Navbar fixed={navbarFixed} />
 
-      <Navbar fixed={navbarFixed} menuOpen={() => setMMenu(true)} />
+    {headerChild}
 
-      {headerChild}
+    <main>{children}</main>
 
-      <main>{children}</main>
-
-      <Footer />
-    </>
-  )
-}
+    <Footer />
+  </>
+)
 
 // Layout.propTypes = {
 //   children: PropTypes.node.isRequired,
