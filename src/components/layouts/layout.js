@@ -17,9 +17,11 @@ const Layout = ({
 }) => {
   const [mMenu, setMMenu] = useState(false)
 
+  const seoAttr = { description, lang, meta, title }
+
   return (
     <>
-      <SEO description={description} lang={lang} meta={meta} title={title} />
+      <SEO attributes={seoAttr} />
 
       {mMenu && <MobileNav menuClose={() => setMMenu(false)} />}
 
