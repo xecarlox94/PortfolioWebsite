@@ -6,18 +6,8 @@ import MobileNav from "./headers/mobileNav"
 import Navbar from "./headers/navbar"
 import Footer from "./footers/footer"
 
-const Layout = ({
-  description,
-  lang,
-  meta,
-  title,
-  navbarFixed,
-  headerChild,
-  children,
-}) => {
+const Layout = ({ seoAttr, navbarFixed, headerChild, children }) => {
   const [mMenu, setMMenu] = useState(false)
-
-  const seoAttr = { description, lang, meta, title }
 
   return (
     <>

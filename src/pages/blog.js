@@ -25,7 +25,7 @@ const ArticleCard = ({ article }) => <p>{article.title}</p>
 
 const Blog = () => (
   <Layout
-    title="Blog"
+    seoAttr={{ title: "Blog" }}
     headerChild={<header classes="h-screen">Welcome to the Blog Page</header>}
   >
     start

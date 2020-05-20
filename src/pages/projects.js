@@ -23,7 +23,7 @@ const ProjectCard = ({ project }) => <p>{project.title}</p>
 
 const Projects = () => (
   <Layout
-    title="Projects"
+    seoAttr={{ title: "Projects" }}
     headerChild={
       <header classes="h-screen">Welcome to the Projects Page</header>
     }

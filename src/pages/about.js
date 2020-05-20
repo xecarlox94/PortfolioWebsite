@@ -5,7 +5,7 @@ import Contact from "../components/fragments/contact"
 
 const About = () => (
   <Layout
-    title="About"
+    seoAttr={{ title: "About" }}
     headerChild={
       <header className="h-screen">Welcome to the About Page!</header>
     }

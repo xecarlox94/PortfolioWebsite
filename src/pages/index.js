@@ -9,7 +9,7 @@ import Projects from "../components/fragments/homePage/projects"
 
 const IndexPage = () => (
   <Layout
-    title="Home"
+    seoAttr={{ title: "Home" }}
     navbarFixed={true}
     headerChild={
       <header

@@ -3,7 +3,7 @@ import Layout from "../components/layouts/layout"
 
 const Project = () => (
   <Layout
-    title="Project"
+    seoAttr={{ title: "Project" }}
     headerChild={<header>Invididual Project page</header>}
   >
     <p>image</p>
