@@ -12,14 +12,6 @@ export const getPages = () => [
     title: "Projects",
   },
   {
-    link: "/blog/",
-    title: "Blog",
-  },
-  {
-    link: "/article/",
-    title: "article",
-  },
-  {
     link: "/project/",
     title: "project",
   },
