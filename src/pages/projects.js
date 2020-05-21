@@ -47,7 +47,7 @@ const ProjectImg = ({ project }) => (
 
 const Card = ({ child1, child2 }) => {
   return (
-    <div class="rounded overflow-hidden shadow-md grid my-64 grid grid-cols-1 gap-0 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <div className="rounded overflow-hidden shadow-md grid my-64 grid grid-cols-1 gap-0 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
       {child1}
       {child2}
     </div>
