@@ -18,6 +18,12 @@ module.exports = {
         icon: `src/res/icons/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/components/utils/typography`,
+      },
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-purgecss`,
