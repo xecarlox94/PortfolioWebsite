@@ -63,7 +63,7 @@ const Projects = () => (
       {projects.map((prj, i) => {
         const img = <ProjectImg project={prj} />
         const desc = <ProjectDesc project={prj} />
-        if (i % 2 == 0) {
+        if (i % 2 === 0) {
           return <Card key={i} child1={img} child2={desc} />
         }
         return <Card key={i} child1={desc} child2={img} />
