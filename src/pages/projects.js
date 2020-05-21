@@ -5,7 +5,7 @@ import Page from "../components/page"
 import Contact from "../components/fragments/contact"
 import Image from "../components/utils/image"
 
-const projects = [
+const projectsArr = [
   {
     title: "Project title",
     img:
@@ -29,27 +29,15 @@ const projects = [
   },
 ]
 
-const ProjectDesc = ({ project }) => {
-  const { title, description } = project
+const Card = ({ project }) => {
+  const { title, img, description } = project
   return (
-    <div>
-      <p>{title}</p>
-      <p>{description}</p>
-    </div>
-  )
-}
-
-const ProjectImg = ({ project }) => (
-  <div>
-    <Image src={project.img} />
-  </div>
-)
-
-const Card = ({ child1, child2 }) => {
-  return (
-    <div className="rounded overflow-hidden shadow-md grid my-64 grid grid-cols-1 gap-0 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-      {child1}
-      {child2}
+    <div className="max-w-2xl rounded-lg mx-auto overflow-hidden shadow-lg my-56 px-4">
+      <Image className="w-full rounded-lg" src={img} alt={description} />
+      <div className="p-10">
+        <div className="font-bold text-xl mb-2 pb-5">{title}</div>
+        <p className="text-gray-700 text-base">{description}</p>
+      </div>
     </div>
   )
 }
@@ -60,14 +48,9 @@ const Projects = () => (
     headerChild={<header>Welcome to the Projects Page</header>}
   >
     <section>
-      {projects.map((prj, i) => {
-        const img = <ProjectImg project={prj} />
-        const desc = <ProjectDesc project={prj} />
-        if (i % 2 === 0) {
-          return <Card key={i} child1={img} child2={desc} />
-        }
-        return <Card key={i} child1={desc} child2={img} />
-      })}
+      {projectsArr.map((prj, i) => (
+        <Card key={i} project={prj} />
+      ))}
     </section>
     <Contact />
   </Page>
