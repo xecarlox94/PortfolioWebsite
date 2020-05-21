@@ -35,8 +35,8 @@ const Card = ({ project }) => {
     <div className="max-w-2xl rounded-lg mx-auto overflow-hidden shadow-lg my-56 px-4">
       <Image className="w-full rounded-lg" src={img} alt={description} />
       <div className="p-10">
-        <div className="font-bold text-xl mb-2 pb-5">{title}</div>
-        <p className="text-gray-700 text-base">{description}</p>
+        <div className="mb-2 pb-5">{title}</div>
+        <p>{description}</p>
       </div>
     </div>
   )

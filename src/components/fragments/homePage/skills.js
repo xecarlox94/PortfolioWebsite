@@ -2,8 +2,8 @@ import React from "react"
 
 const SkillTile = ({ title, subtitle }) => (
   <div className="text-center py-32">
-    <h1 className="font-bold text-xl text-center">{title}</h1>
-    <h2 className="text-lg text-center">{subtitle}</h2>
+    <h1>{title}</h1>
+    <h2>{subtitle}</h2>
   </div>
 )
 

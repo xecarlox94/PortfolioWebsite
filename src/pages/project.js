@@ -16,7 +16,7 @@ const Project = () => (
         }}
       >
         <div class="bg-white mx-4 p-4 text-center md:p-8">
-          <h1 class="text-5xl uppercase">Title</h1>
+          <h1>Title</h1>
         </div>
       </header>
     }

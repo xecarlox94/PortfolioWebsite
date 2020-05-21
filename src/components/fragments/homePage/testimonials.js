@@ -18,8 +18,8 @@ const TestimonialCard = ({ testimonial }) => {
         alt={testimonial.name}
       />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{testimonial.name}</div>
-        <p className="text-gray-700 text-base">{testimonial.text}</p>
+        <h1>{testimonial.name}</h1>
+        <p>{testimonial.text}</p>
       </div>
     </div>
   )
