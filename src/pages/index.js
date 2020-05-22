@@ -2,7 +2,6 @@ import React from "react"
 
 import Page from "../components/page"
 
-import Testimonials from "../components/fragments/homePage/testimonials"
 import Skills from "../components/fragments/homePage/skills"
 import Projects from "../components/fragments/homePage/projects"
 import About from "../components/fragments/homePage/about"
@@ -26,7 +25,7 @@ const IndexPage = () => (
     <Skills />
     <About />
     <Projects />
-    <Testimonials />
+    {/* <Testimonials /> adding testimonials soon !!!! */}
   </Page>
 )
 
