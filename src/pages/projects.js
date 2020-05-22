@@ -32,8 +32,8 @@ const projectsArr = [
 const Card = ({ project }) => {
   const { title, img, description } = project
   return (
-    <div className="max-w-2xl rounded-lg mx-auto overflow-hidden shadow-lg my-56 px-4">
-      <Img className="w-full rounded-lg" src={img} alt={description} />
+    <div className="max-w-2xl rounded-lg mx-auto overflow-hidden shadow-lg my-56">
+      <Img className="w-full" src={img} alt={description} />
       <div className="p-10">
         <div className="mb-2 pb-5">{title}</div>
         <p>{description}</p>

@@ -1,5 +1,4 @@
 site:
--about page structure
 -call to action
 -logo
 -change icon
@@ -9,8 +8,6 @@ site:
 
 structure:
 -home page
-
--about page
 
 -Projects page
     category tab
