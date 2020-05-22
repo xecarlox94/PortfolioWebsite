@@ -1,8 +1,9 @@
 import React from "react"
 
-const EmailForm = () => {
-  return (
-    <form>
+class TextInput extends React.Component {
+  render() {
+    // const {} = this.props
+    return (
       <div className="mb-4">
         <label className="block mb-2" htmlFor="name">
           Name
@@ -11,11 +12,22 @@ const EmailForm = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
           id="name"
           type="text"
-          placeholder="Name"
+          placeholder="Please insert your Name"
           aria-label="Name"
           aria-required="true"
         />
+        <p style={{ color: "red", fontStyle: "italic", paddingTop: "1vh" }}>
+          Please insert a valid value
+        </p>
       </div>
+    )
+  }
+}
+
+const EmailForm = () => {
+  return (
+    <form>
+      <TextInput />
     </form>
   )
 }
