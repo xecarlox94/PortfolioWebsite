@@ -11,16 +11,6 @@ const projectsArr = [
     description: "this is a little description",
     link: "https://github.com/",
   },
-  {
-    title: "Project",
-    description: "this is a little description",
-    link: "https://github.com/",
-  },
-  {
-    title: "Project",
-    description: "this is a little description",
-    link: "https://github.com/",
-  },
 ]
 
 const ProjectTile = ({ project }) => {
@@ -31,6 +21,7 @@ const ProjectTile = ({ project }) => {
   const onHoverOut = () => setMouseOver(false)
 
   let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
+  const minHeight = "100vh"
 
   if (!isMouseOver) overlayClasses += "invisible"
 
@@ -38,7 +29,7 @@ const ProjectTile = ({ project }) => {
     <div
       className="bg-cover bg-center"
       style={{
-        minHeight: "35vh",
+        minHeight,
         backgroundImage:
           "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
       }}
@@ -50,7 +41,7 @@ const ProjectTile = ({ project }) => {
       <div
         className={overlayClasses}
         style={{
-          minHeight: "35vh",
+          minHeight,
         }}
       >
         <h1>{project.title}</h1>
@@ -62,10 +53,23 @@ const ProjectTile = ({ project }) => {
 
 const Projects = () => {
   return (
-    <section className="grid gap-0 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-      {projectsArr.map((prj, i) => (
-        <ProjectTile key={i} project={prj} />
-      ))}
+    <section>
+      <h1
+        style={{
+          paddingBottom: "20vh",
+          paddingTop: "20vh",
+          fontSize: "30px",
+          fontWeight: "bold",
+        }}
+      >
+        Latest work
+      </h1>
+      <div className="grid gap-0 grid-cols-1 xl:grid-cols-2">
+        {" "}
+        {projectsArr.map((prj, i) => (
+          <ProjectTile key={i} project={prj} />
+        ))}
+      </div>
     </section>
   )
 }
