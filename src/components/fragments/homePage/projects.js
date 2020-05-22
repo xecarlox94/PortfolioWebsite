@@ -15,7 +15,7 @@ const projectsArr = [
   },
 ]
 
-const ProjectTile = ({ project, key }) => {
+const ProjectTile = ({ project, tabIndex }) => {
   const [isMouseOver, setMouseOver] = useState(false)
 
   const onHover = () => setMouseOver(true)
@@ -30,7 +30,7 @@ const ProjectTile = ({ project, key }) => {
   return (
     <div
       role="button"
-      tabIndex={key}
+      tabIndex={tabIndex}
       className="bg-cover bg-center"
       style={{
         minHeight,
@@ -70,7 +70,7 @@ const Projects = () => {
       <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
         {" "}
         {projectsArr.map((prj, i) => (
-          <ProjectTile key={i} project={prj} />
+          <ProjectTile key={i} tabIndex={i} project={prj} />
         ))}
       </div>
     </section>
