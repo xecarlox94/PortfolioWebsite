@@ -25,9 +25,9 @@ const IndexPage = () => (
     }
   >
     <Skills />
-    <Testimonials />
-    <Projects />
     <About />
+    <Projects />
+    <Testimonials />
     <Contact />
   </Page>
 )

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 const projectsArr = [
   {
@@ -11,65 +11,48 @@ const projectsArr = [
     description: "this is a little description",
     link: "https://github.com/",
   },
-  {
-    title: "Project",
-    description: "this is a little description",
-    link: "https://github.com/",
-  },
-  {
-    title: "Project",
-    description: "this is a little description",
-    link: "https://github.com/",
-  },
 ]
 
-class ProjectTile extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { mouseOver: false }
-  }
+const ProjectTile = ({ project }) => {
+  const [isMouseOver, setMouseOver] = useState(false)
 
-  onHover = () => this.setState({ mouseOver: true })
+  const onHover = () => setMouseOver(true)
 
-  onHoverOut = () => this.setState({ mouseOver: false })
+  const onHoverOut = () => setMouseOver(false)
 
-  render() {
-    const { project } = this.props
+  let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
 
-    let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
+  if (isMouseOver) overlayClasses += "invisible"
 
-    if (!this.state.mouseOver) overlayClasses += "invisible"
-
-    return (
+  return (
+    <div
+      className="bg-cover bg-center"
+      style={{
+        minHeight: "35vh",
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
+      }}
+      onMouseOver={onHover}
+      onFocus={onHover}
+      onBlur={onHoverOut}
+      onMouseLeave={onHoverOut}
+    >
       <div
-        className="bg-cover bg-center"
+        className={overlayClasses}
         style={{
           minHeight: "35vh",
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
         }}
-        onMouseOver={this.onHover}
-        onFocus={this.onHover}
-        onBlur={this.onHoverOut}
-        onMouseLeave={this.onHoverOut}
       >
-        <div
-          className={overlayClasses}
-          style={{
-            minHeight: "35vh",
-          }}
-        >
-          <h1>{project.title}</h1>
-          <p>{project.description}</p>
-        </div>
+        <h1>{project.title}</h1>
+        <p>{project.description}</p>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const Projects = () => {
   return (
-    <section className="grid gap-0 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+    <section className="grid gap-0 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
       {projectsArr.map((prj, i) => (
         <ProjectTile key={i} project={prj} />
       ))}
