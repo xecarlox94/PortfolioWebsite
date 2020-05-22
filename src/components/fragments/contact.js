@@ -3,8 +3,8 @@ import React from "react"
 const EmailForm = () => {
   return (
     <form>
-      <div class="mb-4">
-        <label className="block mb-2" for="name">
+      <div className="mb-4">
+        <label className="block mb-2" htmlFor="name">
           Name
         </label>
         <input

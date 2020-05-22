@@ -23,7 +23,7 @@ const ProjectTile = ({ project }) => {
   const onHoverOut = () => setMouseOver(false)
 
   let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
-  const minHeight = "100vh"
+  const minHeight = "60vh"
 
   if (!isMouseOver) overlayClasses += "invisible"
 
@@ -65,7 +65,7 @@ const Projects = () => {
       >
         Latest work
       </h1>
-      <div className="grid gap-0 grid-cols-1 xl:grid-cols-2">
+      <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
         {" "}
         {projectsArr.map((prj, i) => (
           <ProjectTile key={i} project={prj} />

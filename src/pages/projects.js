@@ -11,6 +11,18 @@ const projectsArr = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
+  {
+    title: "Project title",
+    img: "https://picsum.photos/1920/1920/?random",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  },
+  {
+    title: "Project title",
+    img: "https://picsum.photos/1920/1920/?random",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+  },
 ]
 
 const Card = ({ project }) => {
@@ -19,7 +31,7 @@ const Card = ({ project }) => {
     <div className="max-w-2xl mx-auto my-56">
       <div className="rounded-lg overflow-hidden shadow-lg mx-5">
         <Img className="w-full" src={img} alt={description} />
-        <div className="p-6">
+        <div className="px-3 pb-5">
           <div className="mb-2 pb-5">{title}</div>
           <p>{description}</p>
         </div>

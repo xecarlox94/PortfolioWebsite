@@ -7,19 +7,19 @@ const testimonialArr = [
     name: "Bruno",
     image: "https://tailwindcss.com/img/jonathan.jpg",
     text:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
 ]
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="max-w-xl rounded overflow-hidden text-center m-12">
+    <div className="max-w-xl rounded overflow-hidden text-center m-3">
       <Img
-        className="w-20 h-20 rounded-full mx-auto"
+        className="w-32 h-32 rounded-full mx-auto"
         src={testimonial.image}
         alt={testimonial.name}
       />
-      <div className="px-6 py-4">
+      <div>
         <h1>{testimonial.name}</h1>
         <p>{testimonial.text}</p>
       </div>

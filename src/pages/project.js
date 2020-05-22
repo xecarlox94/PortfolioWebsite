@@ -7,14 +7,14 @@ const Project = () => (
     seoAttr={{ title: "Project" }}
     headerChild={
       <header
-        class="bg-header flex items-center justify-center h-screen pb-12"
+        className="bg-header flex items-center justify-center h-screen pb-12"
         style={{
           background:
             "url(https://picsum.photos/1920/1920/?random) center center no-repeat",
           backgroundAttachment: "fixed",
         }}
       >
-        <div class="bg-white mx-4 p-4 text-center md:p-8">
+        <div className="bg-white mx-4 p-4 text-center md:p-8">
           <h1>Title</h1>
         </div>
       </header>
