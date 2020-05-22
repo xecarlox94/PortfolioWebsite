@@ -12,6 +12,8 @@ const EmailForm = () => {
           id="name"
           type="text"
           placeholder="Name"
+          aria-label="Name"
+          aria-required="true"
         />
       </div>
     </form>
