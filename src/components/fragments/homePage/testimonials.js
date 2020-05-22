@@ -13,7 +13,7 @@ const testimonialArr = [
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg text-center m-12">
+    <div className="max-w-xl rounded overflow-hidden text-center m-12">
       <Img
         className="w-20 h-20 rounded-full mx-auto"
         src={testimonial.image}
