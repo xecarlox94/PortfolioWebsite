@@ -4,9 +4,13 @@ import Img from "../../utils/img"
 
 const About = () => {
   return (
-    <section className="grid grid-cols-1 gap-0 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+    <section>
       <div>
-        <Img src="https://images.pexels.com/photos/1251299/pexels-photo-1251299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+        <Img
+          className="w-64 h-64 rounded-full mx-auto"
+          src="https://tailwindcss.com/img/jonathan.jpg"
+          alt="Jose Fernandes"
+        />
       </div>
       <div>description</div>
     </section>

@@ -1,5 +1,7 @@
 import React from "react"
 
+import Img from "../../utils/img"
+
 const testimonialArr = [
   {
     name: "Bruno",
@@ -12,7 +14,7 @@ const testimonialArr = [
 const TestimonialCard = ({ testimonial }) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg text-center m-12">
-      <img
+      <Img
         className="w-20 h-20 rounded-full mx-auto"
         src={testimonial.image}
         alt={testimonial.name}
