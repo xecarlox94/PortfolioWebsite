@@ -15,7 +15,7 @@ const projectsArr = [
   },
 ]
 
-const ProjectTile = ({ project }) => {
+const ProjectTile = ({ project, key }) => {
   const [isMouseOver, setMouseOver] = useState(false)
 
   const onHover = () => setMouseOver(true)
@@ -29,6 +29,8 @@ const ProjectTile = ({ project }) => {
 
   return (
     <div
+      role="button"
+      tabIndex={key}
       className="bg-cover bg-center"
       style={{
         minHeight,
