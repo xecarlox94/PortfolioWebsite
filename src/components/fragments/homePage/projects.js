@@ -32,7 +32,7 @@ const ProjectTile = ({ project }) => {
 
   let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
 
-  if (isMouseOver) overlayClasses += "invisible"
+  if (!isMouseOver) overlayClasses += "invisible"
 
   return (
     <div
