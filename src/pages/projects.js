@@ -24,18 +24,20 @@ const projectsArr = [
     img:
       "https://images.pexels.com/photos/1251299/pexels-photo-1251299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
   },
 ]
 
 const Card = ({ project }) => {
   const { title, img, description } = project
   return (
-    <div className="max-w-2xl rounded-lg mx-auto overflow-hidden shadow-lg my-56">
-      <Img className="w-full" src={img} alt={description} />
-      <div className="p-10">
-        <div className="mb-2 pb-5">{title}</div>
-        <p>{description}</p>
+    <div className="max-w-2xl mx-auto my-56">
+      <div className="rounded-lg overflow-hidden shadow-lg mx-5">
+        <Img className="w-full" src={img} alt={description} />
+        <div className="p-6">
+          <div className="mb-2 pb-5">{title}</div>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   )
