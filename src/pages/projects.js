@@ -2,7 +2,6 @@ import React from "react"
 
 import Page from "../components/page"
 
-import Contact from "../components/fragments/contact"
 import Img from "../components/utils/img"
 
 const projectsArr = [
@@ -52,7 +51,6 @@ const Projects = () => (
         <Card key={i} project={prj} />
       ))}
     </section>
-    <Contact />
   </Page>
 )
 

@@ -4,6 +4,7 @@ import { AppContext } from "../../store/context"
 import MobileNav from "./headers/mobileNav"
 import Navbar from "./headers/navbar"
 import Footer from "./footers/footer"
+import Contact from "../fragments/contact"
 
 const Layout = ({ navbarFixed, headerChild, children }) => (
   <>
@@ -17,7 +18,10 @@ const Layout = ({ navbarFixed, headerChild, children }) => (
 
     {headerChild}
 
-    <main>{children}</main>
+    <main>
+      {children}
+      <Contact />
+    </main>
 
     <Footer />
   </>
