@@ -106,7 +106,11 @@ class Navbar extends React.Component {
       menu = (
         <ul>
           {pages.map((page, i) => (
-            <li key={i} className="inline-block pl-5">
+            <li
+              key={i}
+              className="inline-block pl-5"
+              style={{ marginBottom: 0 }}
+            >
               <Link to={page.link}>{page.title}</Link>
             </li>
           ))}
