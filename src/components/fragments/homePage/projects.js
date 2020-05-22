@@ -11,6 +11,16 @@ const projectsArr = [
     description: "this is a little description",
     link: "https://github.com/",
   },
+  {
+    title: "Project",
+    description: "this is a little description",
+    link: "https://github.com/",
+  },
+  {
+    title: "Project",
+    description: "this is a little description",
+    link: "https://github.com/",
+  },
 ]
 
 const ProjectTile = ({ project }) => {
