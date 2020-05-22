@@ -4,10 +4,6 @@ import { AppContext } from "../../../store/context"
 
 export const getPages = () => [
   {
-    link: "/about/",
-    title: "About",
-  },
-  {
     link: "/projects/",
     title: "Projects",
   },

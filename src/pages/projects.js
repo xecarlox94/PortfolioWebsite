@@ -3,7 +3,7 @@ import React from "react"
 import Page from "../components/page"
 
 import Contact from "../components/fragments/contact"
-import Image from "../components/utils/image"
+import Img from "../components/utils/img"
 
 const projectsArr = [
   {
@@ -33,7 +33,7 @@ const Card = ({ project }) => {
   const { title, img, description } = project
   return (
     <div className="max-w-2xl rounded-lg mx-auto overflow-hidden shadow-lg my-56 px-4">
-      <Image className="w-full rounded-lg" src={img} alt={description} />
+      <Img className="w-full rounded-lg" src={img} alt={description} />
       <div className="p-10">
         <div className="mb-2 pb-5">{title}</div>
         <p>{description}</p>

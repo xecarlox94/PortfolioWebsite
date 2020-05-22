@@ -1,7 +1,6 @@
 import React from "react"
 
 import Page from "../components/page"
-import Image from "../components/utils/image"
 
 const Project = () => (
   <Page

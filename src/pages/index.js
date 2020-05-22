@@ -6,6 +6,7 @@ import Testimonials from "../components/fragments/homePage/testimonials"
 import Skills from "../components/fragments/homePage/skills"
 import Contact from "../components/fragments/contact"
 import Projects from "../components/fragments/homePage/projects"
+import About from "../components/fragments/homePage/about"
 
 const IndexPage = () => (
   <Page
@@ -26,6 +27,7 @@ const IndexPage = () => (
     <Skills />
     <Testimonials />
     <Projects />
+    <About />
     <Contact />
   </Page>
 )
