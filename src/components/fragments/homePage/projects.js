@@ -5,11 +5,13 @@ const projectsArr = [
     title: "Project",
     description: "this is a little description",
     link: "https://github.com/",
+    image: "https://picsum.photos/1920/1920/?random",
   },
   {
     title: "Project",
     description: "this is a little description",
     link: "https://github.com/",
+    image: "https://picsum.photos/1920/1920/?random",
   },
 ]
 
@@ -30,8 +32,7 @@ const ProjectTile = ({ project }) => {
       className="bg-cover bg-center"
       style={{
         minHeight,
-        backgroundImage:
-          "url(https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80)",
+        backgroundImage: `url(${project.image})`,
       }}
       onMouseOver={onHover}
       onFocus={onHover}

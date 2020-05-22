@@ -4,6 +4,7 @@ const SkillTile = ({ title, subtitle }) => (
   <div className="text-center py-32">
     <h1>{title}</h1>
     <h2>{subtitle}</h2>
+    <p>Expand accordion</p>
   </div>
 )
 
