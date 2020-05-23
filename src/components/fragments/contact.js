@@ -31,10 +31,11 @@ const EmailForm = () => {
 
 const Contact = () => (
   <section>
-    {/* name (required),email(required), subject, message (required) */}
     <EmailForm />
   </section>
 )
+
+// name (required), email(required), subject, message (required)
 
 export default Contact
 
