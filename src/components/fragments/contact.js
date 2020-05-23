@@ -1,80 +1,72 @@
 import React from "react"
-import { useFormik } from "formik"
+import { Formik } from "formik"
+import * as Yup from "yup"
 
-const SubmitButton = () => (
-  <div className="md:flex md:items-center">
-    <div className="md:w-1/3"></div>
-    <div className="md:w-2/3">
-      <button
-        className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-        type="submit"
-      >
-        Sign Up
-      </button>
-    </div>
-  </div>
-)
+// const ElementWrapper = ({ children, label }) => (
+//   <div className="md:flex md:items-center mb-6">
+//     <div className="md:w-1/3">{label ? label : null}</div>
+//     <div className="md:w-2/3">{children}</div>
+//   </div>
+// )
 
-const InputErrorMessage = ({ errorMsg }) =>
-  errorMsg ? <p>{errorMsg}</p> : null
+const InputError = ({ error }) =>
+  error ? <p style={{ color: "red" }}>{error}</p> : null
 
-// do wrapper input !!!!!
-
-const Input = props => {
-  const { name, type, errorMsg } = props
-  return (
-    <div className="md:flex md:items-center mb-6">
-      <div className="md:w-1/3">
-        <label className="block md:text-right mb-1 md:mb-0 pr-4" htmlFor={name}>
-          {name}
-        </label>
-      </div>
-      <div className="md:w-2/3">
-        <input
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          placeholder={`Please insert your ${name}`}
-          id={name}
-          type={type}
-          {...props}
-        />
-        <InputErrorMessage errorMsg={errorMsg} />
-      </div>
-    </div>
-  )
-}
-
-const validate = values => {
-  const errors = {}
-  if (!values.name) errors.name = "Required"
-  return errors
-}
+// const Input = props => {
+//   const { name, type, error } = props
+//   return (
+//     <ElementWrapper
+//       label={
+//         <label className="block md:text-right mb-1 md:mb-0 pr-4" htmlFor={name}>
+//           {name}
+//         </label>
+//       }
+//     >
+//       <input
+//         className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+//         placeholder={`Please insert your ${name}`}
+//         id={name}
+//         type={type}
+//         {...props}
+//       />
+//       <InputErrorMessage error={error} />
+//     </ElementWrapper>
+//   )
+// }
 
 const EmailForm = () => {
-  const formik = useFormik({
-    initialValues: { name: "" },
-    validate,
-    onSubmit: values => console.log(values),
-  })
   return (
-    <form className="w-full max-w-sm" onSubmit={formik.handleSubmit}>
-      <Input
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-        errorMsg={
-          formik.touched.name && formik.errors.name ? formik.errors.name : null
-        }
-      />
-
-      <SubmitButton />
-    </form>
+    <Formik
+      initialValues={{ email: "" }}
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email("Email is invalid")
+          .required("Email is required"),
+      })}
+      onSubmit={values => console.log("form submitted!", values)}
+      onReset={(values, actions) => console.log("form reset")}
+    >
+      {formik => (
+        <form
+          className="w-full max-w-xl"
+          onSubmit={formik.handleSubmit}
+          onReset={formik.handleReset}
+        >
+          <input name="email" type="email" {...formik.getFieldProps("email")} />
+          {formik.touched.email && formik.errors.email ? (
+            <InputError error={formik.errors.email} />
+          ) : null}
+          <br />
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </form>
+      )}
+    </Formik>
   )
 }
 
 const Contact = () => (
-  <section className="h-screen flex items-center justify-center ">
+  <section>
     {/* name (required),email(required), subject, message (required) */}
     <EmailForm />
   </section>

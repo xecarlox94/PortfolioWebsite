@@ -24,7 +24,8 @@
     "react-helmet": "^6.0.0",
     "react-refresh": "^0.8.2",
     "react-typography": "^0.16.19",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "yup": "^0.29.0"
   },
   "devDependencies": {
     "prettier": "2.0.5",

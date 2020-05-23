@@ -7,7 +7,7 @@ const NotFoundPage = () => (
     seoAttr={{ title: "Page not found" }}
     headerChild={<header>Page not Found</header>}
   >
-    <section className="h-screen">
+    <section>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </section>
   </Page>
