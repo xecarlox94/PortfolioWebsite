@@ -22,17 +22,17 @@ const InputError = ({ error }) =>
   ) : null
 
 const InputWrapper = ({ children, name, error }) => (
-  <div className="md:flex md:items-center mb-6">
-    <div className="md:w-1/3">
+  <div className="md:flex md:items-center mb-10">
+    <div className="md:w-1/6">
       <label
-        className="block md:text-right mb-1 md:mb-0 pr-4"
+        className="block md:text-right mb-3 md:mb-0 pr-10"
         id={`label-${name}`}
         htmlFor={name}
       >
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </label>
     </div>
-    <div className="md:w-2/3">
+    <div className="md:w-5/6">
       {children}
       <InputError error={error} />
     </div>
@@ -43,7 +43,7 @@ const getFieldStyle = error => {
   let styleClasses =
     "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
 
-  if (!error) styleClasses += "  focus:border-black"
+  if (!error) styleClasses += "  focus:border-gray-700"
   else styleClasses += " focus:border-red-500"
 
   return styleClasses
@@ -84,7 +84,10 @@ const ContactForm = () => {
 
   const onSubmit = data => console.log(data)
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm mx-auto">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-full max-w-3xl mx-auto"
+    >
       <TextInput
         type="text"
         name="name"
@@ -111,18 +114,21 @@ const ContactForm = () => {
       />
 
       <button
+        style={{ float: "right", marginTop: "4vh" }}
         type="submit"
         className="shadow bg-black hover:bg-gray-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
       >
-        submit
+        Submit
       </button>
     </form>
   )
 }
 
 const Contact = () => (
-  <section>
-    <ContactForm />
+  <section className="pb-20">
+    <div className="container mx-auto px-3 my-32">
+      <ContactForm />
+    </div>
   </section>
 )
 
