@@ -27,7 +27,11 @@ const InputError = ({ error }) =>
 const InputWrapper = ({ children, name, error }) => (
   <div className="md:flex md:items-center mb-6">
     <div className="md:w-1/3">
-      <label className="block md:text-right mb-1 md:mb-0 pr-4" htmlFor={name}>
+      <label
+        className="block md:text-right mb-1 md:mb-0 pr-4"
+        id={`label-${name}`}
+        htmlFor={name}
+      >
         {name}
       </label>
     </div>
@@ -48,6 +52,7 @@ const Input = ({ name, error, type, register }) => {
       <input
         className={styleClasses}
         placeholder={`Please insert your ${name}`}
+        aria-labelledby={`label-${name}`}
         name={name}
         id={name}
         type={type}
@@ -79,11 +84,13 @@ const ContactForm = () => {
         register={register}
         error={errors.subject}
       />
-      <label>
-        textarea
-        <textarea name="message" ref={register}></textarea>
+      <div>
+        <label htmlFor="message">textarea</label>
+      </div>
+      <div>
+        <textarea id="message" name="message" ref={register}></textarea>
         <InputError error={errors.message} />
-      </label>
+      </div>
       <br />
 
       <button
