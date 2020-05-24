@@ -1,5 +1,35 @@
 import React from "react"
 
+import { useForm } from "react-hook-form"
+import * as yup from "yup"
+
+// name (required), email(required), subject, message (required)
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .max(30, "Name must be smaller than 30 characters")
+    .required("Name is required"),
+  email: yup.string().email(),
+  subject: yup.string().max(30, "Name must be smaller than 30 characters"),
+  message: yup
+    .string()
+    .max(500, "Message must be smaller than 500 characters")
+    .required("Message is required"),
+})
+const EmailForm = () => {
+  const {} = useForm({
+    validationSchema: schema,
+  })
+}
+
+const Contact = () => (
+  <section>
+    <EmailForm />
+  </section>
+)
+
+export default Contact
+
 // const InputError = ({ error }) =>
 //   error ? <p style={{ color: "red" }}>{error}</p> : null
 
@@ -43,13 +73,3 @@ error={
 /* <label htmlFor="message">Message</label>
 <Field name="message" type="text" />
 <ErrorMessage name="message" /> */
-
-const Contact = () => (
-  <section>
-    <EmailForm />
-  </section>
-)
-
-// name (required), email(required), subject, message (required)
-
-export default Contact
