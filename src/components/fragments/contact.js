@@ -1,55 +1,5 @@
 import React from "react"
 
-// delete
-import { Formik, Field, ErrorMessage, Form } from "formik"
-import * as Yup from "yup"
-
-// message: Yup.string().max(500, "Must be 500 characters or less"),
-const EmailForm = () => (
-  <Formik
-    initialValues={{ name: "", email: "", subject: "" }}
-    validationSchema={Yup.object({
-      name: Yup.string()
-        .max(30, "Must be 30 characters or less")
-        .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-      subject: Yup.string().max(30, "Must be 30 characters or less"),
-    })}
-    onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        console.log(JSON.stringify(values, null, 2))
-        setSubmitting(false)
-      }, 50)
-    }}
-  >
-    <Form>
-      <label htmlFor="name">Name</label>
-      <Field name="name" type="text" />
-      <ErrorMessage name="name" />
-      <label htmlFor="email">Email</label>
-      <Field name="email" type="email" />
-      <ErrorMessage name="email" />
-      <label htmlFor="subject">Subject</label>
-      <Field name="subject" type="text" />
-      <ErrorMessage name="subject" />
-      <button type="submit">Submit</button>
-    </Form>
-  </Formik>
-)
-/* <label htmlFor="message">Message</label>
-<Field name="message" type="text" />
-<ErrorMessage name="message" /> */
-
-const Contact = () => (
-  <section>
-    <EmailForm />
-  </section>
-)
-
-// name (required), email(required), subject, message (required)
-
-export default Contact
-
 // const InputError = ({ error }) =>
 //   error ? <p style={{ color: "red" }}>{error}</p> : null
 
@@ -89,3 +39,17 @@ error={
     : null
 }
 /> */
+
+/* <label htmlFor="message">Message</label>
+<Field name="message" type="text" />
+<ErrorMessage name="message" /> */
+
+const Contact = () => (
+  <section>
+    <EmailForm />
+  </section>
+)
+
+// name (required), email(required), subject, message (required)
+
+export default Contact
