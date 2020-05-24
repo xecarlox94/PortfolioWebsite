@@ -18,6 +18,7 @@ module.exports = {
         icon: `src/res/icons/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -32,8 +33,19 @@ module.exports = {
         develop: false, // Enable while using `gatsby develop`
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: "./data/",
+      },
+    },
+    "gatsby-transformer-json",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
   ],
 }
+
+// https://www.gatsbyjs.org/docs/why-gatsby-uses-graphql/#create-a-page-without-any-data
+
+// stopped here
+// GATSBY_GRAPHQL_IDE=playground gatsby develop
