@@ -18,7 +18,9 @@ const validationSchema = yup.object().shape({
 
 const InputError = ({ error }) =>
   error ? (
-    <p style={{ color: "red", fontStyle: "italic" }}>{error.message}</p>
+    <p style={{ color: "red", fontStyle: "italic" }} className="mt-4">
+      {error.message}
+    </p>
   ) : null
 
 const InputWrapper = ({ children, name, error }) => (
@@ -127,6 +129,7 @@ const ContactForm = () => {
 const Contact = () => (
   <section className="pb-20">
     <div className="container mx-auto px-3 my-32">
+      <h1 className="text-center mb-20">Get in touch with me :)</h1>
       <ContactForm />
     </div>
   </section>
