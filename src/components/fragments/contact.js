@@ -3,35 +3,62 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 
-// name (required), email(required), subject, message (required)
 const schema = yup.object().shape({
   name: yup
     .string()
     .max(30, "Name must be smaller than 30 characters")
     .required("Name is required"),
-  email: yup.string().email(),
+  email: yup.string().email().required("Email is required"),
   subject: yup.string().max(30, "Name must be smaller than 30 characters"),
-  message: yup
-    .string()
-    .max(500, "Message must be smaller than 500 characters")
-    .required("Message is required"),
 })
-const EmailForm = () => {
-  const {} = useForm({
+
+// message: yup
+// .string()
+// .max(500, "Message must be smaller than 500 characters")
+// .required("Message is required"),
+
+const InputError = ({ error }) =>
+  error ? <p style={{ color: "red" }}>{error.message}</p> : null
+
+// name (required), email(required), subject, message (required)
+
+const ContactForm = () => {
+  const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   })
+
+  const onSubmit = data => console.log(data)
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>
+        name
+        <input type="text" name="name" ref={register} />
+        <InputError error={errors.name} />
+      </label>
+      <label>
+        email
+        <input type="email" name="email" ref={register} />
+        <InputError error={errors.email} />
+      </label>
+      <label>
+        subject
+        <input type="text" name="subject" ref={register} />
+        <InputError error={errors.subject} />
+      </label>
+      <button type="submit">submit</button>
+    </form>
+  )
 }
+
+/* <textarea name=></textarea> */
 
 const Contact = () => (
   <section>
-    <EmailForm />
+    <ContactForm />
   </section>
 )
 
 export default Contact
-
-// const InputError = ({ error }) =>
-//   error ? <p style={{ color: "red" }}>{error}</p> : null
 
 // const InputWrapper = ({ children, name, error }) => (
 //   <div className="md:flex md:items-center mb-6">
