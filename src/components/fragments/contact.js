@@ -76,8 +76,14 @@ const ContactForm = () => {
         <textarea name="message" ref={register}></textarea>
         <InputError error={errors.message} />
       </label>
+      <br />
 
-      <button type="submit">submit</button>
+      <button
+        type="submit"
+        className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+      >
+        submit
+      </button>
     </form>
   )
 }
