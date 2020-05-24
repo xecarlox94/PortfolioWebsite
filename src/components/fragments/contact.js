@@ -20,7 +20,9 @@ const validationSchema = yup.object().shape({
 })
 
 const InputError = ({ error }) =>
-  error ? <p style={{ color: "red" }}>{error.message}</p> : null
+  error ? (
+    <p style={{ color: "red", fontStyle: "italic" }}>{error.message}</p>
+  ) : null
 
 const InputWrapper = ({ children, name, error }) => (
   <div className="md:flex md:items-center mb-6">
@@ -36,18 +38,24 @@ const InputWrapper = ({ children, name, error }) => (
   </div>
 )
 
-const Input = ({ name, error, type, register }) => (
-  <InputWrapper name={name} error={error}>
-    <input
-      className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-      placeholder={`Please insert your ${name}`}
-      name={name}
-      id={name}
-      type={type}
-      ref={register}
-    />
-  </InputWrapper>
-)
+const Input = ({ name, error, type, register }) => {
+  let styleClasses =
+    "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
+  if (!error) styleClasses += "  focus:border-purple-500"
+  else styleClasses += " focus:border-red-500"
+  return (
+    <InputWrapper name={name} error={error}>
+      <input
+        className={styleClasses}
+        placeholder={`Please insert your ${name}`}
+        name={name}
+        id={name}
+        type={type}
+        ref={register}
+      />
+    </InputWrapper>
+  )
+}
 
 const ContactForm = () => {
   const { register, handleSubmit, errors } = useForm({
