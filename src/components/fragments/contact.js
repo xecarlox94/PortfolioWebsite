@@ -9,10 +9,7 @@ const validationSchema = yup.object().shape({
     .max(30, "Name must be smaller than 30 characters")
     .required("Name is required"),
   email: yup.string().email().required("Email is required"),
-  subject: yup
-    .string()
-    .max(30, "Name must be smaller than 30 characters")
-    .required("Subject is required"),
+  subject: yup.string().max(30, "Name must be smaller than 30 characters"),
   message: yup
     .string()
     .max(500, "Message must be smaller than 500 characters")
@@ -32,7 +29,7 @@ const InputWrapper = ({ children, name, error }) => (
         id={`label-${name}`}
         htmlFor={name}
       >
-        {name}
+        {name.charAt(0).toUpperCase() + name.slice(1)}
       </label>
     </div>
     <div className="md:w-2/3">
@@ -42,25 +39,43 @@ const InputWrapper = ({ children, name, error }) => (
   </div>
 )
 
-const Input = ({ name, error, type, register }) => {
+const getFieldStyle = error => {
   let styleClasses =
     "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
-  if (!error) styleClasses += "  focus:border-purple-500"
+
+  if (!error) styleClasses += "  focus:border-black"
   else styleClasses += " focus:border-red-500"
-  return (
-    <InputWrapper name={name} error={error}>
-      <input
-        className={styleClasses}
-        placeholder={`Please insert your ${name}`}
-        aria-labelledby={`label-${name}`}
-        name={name}
-        id={name}
-        type={type}
-        ref={register}
-      />
-    </InputWrapper>
-  )
+
+  return styleClasses
 }
+
+const TextInput = ({ name, error, type, register }) => (
+  <InputWrapper name={name} error={error}>
+    <input
+      className={getFieldStyle(error)}
+      placeholder={`Please insert your ${name}`}
+      aria-labelledby={`label-${name}`}
+      name={name}
+      id={name}
+      type={type}
+      ref={register}
+    />
+  </InputWrapper>
+)
+
+const TextAreaInput = ({ name, error, type, register }) => (
+  <InputWrapper name={name} error={error}>
+    <textarea
+      className={getFieldStyle(error)}
+      placeholder={`Please insert your ${name}`}
+      aria-labelledby={`label-${name}`}
+      name={name}
+      id={name}
+      type={type}
+      ref={register}
+    />
+  </InputWrapper>
+)
 
 const ContactForm = () => {
   const { register, handleSubmit, errors } = useForm({
@@ -70,32 +85,34 @@ const ContactForm = () => {
   const onSubmit = data => console.log(data)
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-sm mx-auto">
-      <Input type="text" name="name" register={register} error={errors.name} />
+      <TextInput
+        type="text"
+        name="name"
+        register={register}
+        error={errors.name}
+      />
 
-      <Input
+      <TextInput
         type="email"
         name="email"
         register={register}
         error={errors.email}
       />
-      <Input
+      <TextInput
         type="text"
         name="subject"
         register={register}
         error={errors.subject}
       />
-      <div>
-        <label htmlFor="message">textarea</label>
-      </div>
-      <div>
-        <textarea id="message" name="message" ref={register}></textarea>
-        <InputError error={errors.message} />
-      </div>
-      <br />
+      <TextAreaInput
+        name="message"
+        register={register}
+        error={errors.subject}
+      />
 
       <button
         type="submit"
-        className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+        className="shadow bg-black hover:bg-gray-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
       >
         submit
       </button>
