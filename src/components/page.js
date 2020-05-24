@@ -1,6 +1,6 @@
 import React from "react"
 
-import { AppProvider } from "../store/context"
+import { AppProvider } from "../context/context"
 
 import SEO from "./utils/seo"
 import Layout from "./layouts/layout"

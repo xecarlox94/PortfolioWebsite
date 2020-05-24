@@ -1,15 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { AppContext } from "../../../store/context"
+import { AppContext } from "../../../context/context"
 
 export const getPages = () => [
   {
     link: "/projects/",
     title: "Projects",
-  },
-  {
-    link: "/project/",
-    title: "project",
   },
   {
     link: "/404/",

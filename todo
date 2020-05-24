@@ -1,6 +1,6 @@
 site:
+-fix project page header image (safari error)
 -call to action
--logo
 -change icon
 -disable scrolling when mobile menu is used
 

@@ -1,5 +1,5 @@
 import React from "react"
-import { AppContext } from "../../store/context"
+import { AppContext } from "../../context/context"
 
 import MobileNav from "./headers/mobileNav"
 import Navbar from "./headers/navbar"
