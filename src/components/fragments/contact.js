@@ -3,19 +3,18 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 
-const schema = yup.object().shape({
+const validationSchema = yup.object().shape({
   name: yup
     .string()
     .max(30, "Name must be smaller than 30 characters")
     .required("Name is required"),
   email: yup.string().email().required("Email is required"),
   subject: yup.string().max(30, "Name must be smaller than 30 characters"),
+  message: yup
+    .string()
+    .max(500, "Message must be smaller than 500 characters")
+    .required("Message is required"),
 })
-
-// message: yup
-// .string()
-// .max(500, "Message must be smaller than 500 characters")
-// .required("Message is required"),
 
 const InputError = ({ error }) =>
   error ? <p style={{ color: "red" }}>{error.message}</p> : null
@@ -24,7 +23,7 @@ const InputError = ({ error }) =>
 
 const ContactForm = () => {
   const { register, handleSubmit, errors } = useForm({
-    validationSchema: schema,
+    validationSchema,
   })
 
   const onSubmit = data => console.log(data)
@@ -45,12 +44,16 @@ const ContactForm = () => {
         <input type="text" name="subject" ref={register} />
         <InputError error={errors.subject} />
       </label>
+      <label>
+        textarea
+        <textarea name="message" ref={register}></textarea>
+        <InputError error={errors.message} />
+      </label>
+
       <button type="submit">submit</button>
     </form>
   )
 }
-
-/* <textarea name=></textarea> */
 
 const Contact = () => (
   <section>
