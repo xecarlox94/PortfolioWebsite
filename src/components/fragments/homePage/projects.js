@@ -15,7 +15,7 @@ const projectsArr = [
   },
 ]
 
-const ProjectTile = ({ project, tabIndex }) => {
+const ProjectTile = ({ project: { image, title, description }, tabIndex }) => {
   const [isMouseOver, setMouseOver] = useState(false)
 
   const onHover = () => setMouseOver(true)
@@ -34,7 +34,7 @@ const ProjectTile = ({ project, tabIndex }) => {
       className="bg-cover bg-center"
       style={{
         minHeight,
-        backgroundImage: `url(${project.image})`,
+        backgroundImage: `url(${image})`,
       }}
       onMouseOver={onHover}
       onFocus={onHover}
@@ -47,8 +47,8 @@ const ProjectTile = ({ project, tabIndex }) => {
           minHeight,
         }}
       >
-        <h1>{project.title}</h1>
-        <p>{project.description}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </div>
     </div>
   )

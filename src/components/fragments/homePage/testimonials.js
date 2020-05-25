@@ -11,16 +11,12 @@ const testimonialArr = [
   },
 ]
 
-const TestimonialCard = ({ testimonial }) => (
+const TestimonialCard = ({ testimonial: { image, name, text } }) => (
   <div className="max-w-xl rounded overflow-hidden text-center m-3">
-    <Image
-      className="w-32 h-32 rounded-full mx-auto"
-      src={testimonial.image}
-      alt={testimonial.name}
-    />
+    <Image className="w-32 h-32 rounded-full mx-auto" src={image} alt={name} />
     <div>
-      <h1>{testimonial.name}</h1>
-      <p>{testimonial.text}</p>
+      <h1>{name}</h1>
+      <p>{text}</p>
     </div>
   </div>
 )
