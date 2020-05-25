@@ -1,18 +1,24 @@
 import React from "react"
 
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 
-const HomeButton = () => {
-  const { site } = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+const HomeButton = () => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
         }
       }
-    }
-  `)
-  return <Link to="/">{site.siteMetadata.title}</Link>
-}
+    `}
+    render={({
+      site: {
+        siteMetadata: { title },
+      },
+    }) => <Link to="/">{title}</Link>}
+  />
+)
 
 export default HomeButton
