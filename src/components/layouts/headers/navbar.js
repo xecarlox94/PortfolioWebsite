@@ -8,10 +8,6 @@ export const getPages = () => [
     title: "Projects",
   },
   {
-    link: "/prj/",
-    title: "Project",
-  },
-  {
     link: "/404/",
     title: "notFound",
   },

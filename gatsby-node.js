@@ -1,15 +1,24 @@
-exports.createPages = ({ actions: { createPage } }) => {
-  const products = require("./data/products.json")
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
+  const results = await graphql(`
+    query {
+      allProductsJson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
 
-  products.forEach(product => {
+  if (results.error) throw new Error(results.error)
+
+  results.data.allProductsJson.edges.forEach(({ node: { slug } }) => {
     createPage({
-      path: `/project/${product.slug}`,
+      path: `/project/${slug}/`,
       component: require.resolve("./src/templates/project.js"),
       context: {
-        title: product.title,
-        description: product.description,
-        image: product.image,
-        price: product.price,
+        slug,
       },
     })
   })
