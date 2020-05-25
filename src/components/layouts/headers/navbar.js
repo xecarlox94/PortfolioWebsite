@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 
 import HomeButton from "./buttons/homeButton"
@@ -42,81 +42,60 @@ const getNavStyling = (fixed, isTop) => {
   }
 }
 
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isTop: true,
-      isMobile: false,
-    }
-  }
+const Navbar = ({ fixed }) => {
+  const [isTop, setIsTop] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
 
-  handleResize = e => {
+  const handleResize = e => {
     const w = e.currentTarget
-    this.setState({
-      isMobile: w.innerWidth <= 450,
-    })
+    setIsMobile(w.innerWidth <= 450)
   }
 
-  handleScroll = e => {
+  const handleScroll = e => {
     const w = e.currentTarget
-    this.setState({
-      isTop: w.scrollY === 0,
-    })
+    setIsTop(w.scrollY === 0)
   }
 
-  componentDidMount() {
+  useEffect(() => {
     let { classList } = document.body
     if (!classList.contains("relative")) classList.add("relative")
 
-    this.setState({
-      isTop: window.scrollY === 0,
-      isMobile: window.innerWidth <= 450,
-    })
+    setIsTop(window.scrollY === 0)
+    setIsMobile(window.innerWidth <= 450)
 
-    window.addEventListener("resize", this.handleResize)
-    window.addEventListener("scroll", this.handleScroll)
-  }
+    window.addEventListener("resize", handleResize)
+    window.addEventListener("scroll", handleScroll)
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
-    window.removeEventListener("resize", this.handleResize)
-  }
-
-  render() {
-    const { navClasses, styles } = getNavStyling(
-      this.props.fixed,
-      this.state.isTop
-    )
-
-    let menu
-    if (!this.state.isMobile) {
-      const pages = getPages()
-
-      menu = (
-        <ul>
-          {pages.map((page, i) => (
-            <li
-              key={i}
-              className="inline-block pl-5"
-              style={{ marginBottom: 0 }}
-            >
-              <Link to={page.link}>{page.title}</Link>
-            </li>
-          ))}
-        </ul>
-      )
-    } else {
-      menu = <BurgerButton colorFill={styles.btnClrFill} />
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
     }
+  }, [])
 
-    return (
-      <nav className={navClasses} style={styles}>
-        <HomeButton />
-        {menu}
-      </nav>
+  const { navClasses, styles } = getNavStyling(fixed, isTop)
+
+  let menu
+
+  if (!isMobile) {
+    menu = (
+      <ul>
+        {getPages().map((page, i) => (
+          <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
+            <Link to={page.link}>{page.title}</Link>
+          </li>
+        ))}
+      </ul>
     )
+  } else {
+    menu = <BurgerButton colorFill={styles.btnClrFill} />
   }
+
+  return (
+    <nav className={navClasses} style={styles}>
+      <HomeButton />
+      {menu}
+    </nav>
+  )
 }
 
 export default Navbar
