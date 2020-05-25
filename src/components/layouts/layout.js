@@ -10,7 +10,7 @@ const Layout = ({ navbarFixed, headerChild, children }) => (
   <>
     <AppContext.Consumer>
       {({ isMobileMenu, openMobileMenu, closeMobileMenu }) =>
-        isMobileMenu && <MobileNav menuClose={closeMobileMenu} />
+        isMobileMenu && <MobileNav />
       }
     </AppContext.Consumer>
 

@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [isMobileMenu, setMobileMenu] = useState(false)
 
   const openMobileMenu = () => setMobileMenu(true)
+
   const closeMobileMenu = () => setMobileMenu(false)
 
   return (

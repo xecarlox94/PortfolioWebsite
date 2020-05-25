@@ -1,11 +1,13 @@
 import React from "react"
 
-class CloseButton extends React.Component {
-  render() {
-    return (
+import { AppContext } from "../../../../context/context"
+
+const CloseButton = () => (
+  <AppContext.Consumer>
+    {({ isMobileMenu, openMobileMenu, closeMobileMenu }) => (
       <svg
         className="float-right"
-        onClick={this.props.menuClose}
+        onClick={closeMobileMenu}
         height="24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,8 +19,8 @@ class CloseButton extends React.Component {
           />
         </g>
       </svg>
-    )
-  }
-}
+    )}
+  </AppContext.Consumer>
+)
 
 export default CloseButton

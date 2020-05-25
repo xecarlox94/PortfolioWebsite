@@ -24,7 +24,7 @@ class MobileNav extends React.Component {
         className="fixed top-0 z-50 h-screen px-2 py-3  w-full bg-white"
         style={{ opacity: 0.87 }}
       >
-        <CloseButton menuClose={this.props.menuClose} />
+        <CloseButton />
         <nav className="flex items-center h-screen">
           <ul className="w-full">
             {pages.map((page, i) => (
