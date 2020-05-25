@@ -76,44 +76,44 @@ class Navbar extends React.Component {
       menu = <BurgerButton colorFill={styles.btnClrFill} />
     }
 
+    getNavStyling = () => {
+      const navbarOpacity = 0.95
+      const { fixed } = this.props
+
+      let styles = {
+        btnClrFill: "#000",
+        opacity: 1,
+      }
+
+      let navClasses =
+        "flex items-center justify-between px-2 py-3 z-40 w-full shadow-2xl "
+
+      if (fixed) {
+        navClasses += " fixed transition ease-in-out delay-300 duration-700 "
+        if (this.state.isTop) {
+          navClasses += " bg-black bg-opacity-25 text-white "
+          styles.btnClrFill = "#fff"
+        } else {
+          navClasses += " bg-white text-black "
+          styles.opacity = navbarOpacity
+        }
+      } else {
+        navClasses += " sticky top-0 bg-white text-black"
+        styles.opacity = navbarOpacity
+      }
+
+      return {
+        styles,
+        navClasses,
+      }
+    }
+
     return (
       <nav className={navClasses} style={styles}>
         <HomeButton />
         {menu}
       </nav>
     )
-  }
-
-  getNavStyling = () => {
-    const navbarOpacity = 0.95
-    const { fixed } = this.props
-
-    let styles = {
-      btnClrFill: "#000",
-      opacity: 1,
-    }
-
-    let navClasses =
-      "flex items-center justify-between px-2 py-3 z-40 w-full shadow-2xl "
-
-    if (fixed) {
-      navClasses += " fixed transition ease-in-out delay-300 duration-700 "
-      if (this.state.isTop) {
-        navClasses += " bg-black bg-opacity-25 text-white "
-        styles.btnClrFill = "#fff"
-      } else {
-        navClasses += " bg-white text-black "
-        styles.opacity = navbarOpacity
-      }
-    } else {
-      navClasses += " sticky top-0 bg-white text-black"
-      styles.opacity = navbarOpacity
-    }
-
-    return {
-      styles,
-      navClasses,
-    }
   }
 }
 
