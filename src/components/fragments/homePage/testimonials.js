@@ -1,6 +1,6 @@
 import React from "react"
 
-import Img from "../../utils/img"
+import Image from "../../utils/image"
 
 const testimonialArr = [
   {
@@ -14,7 +14,7 @@ const testimonialArr = [
 const TestimonialCard = ({ testimonial }) => {
   return (
     <div className="max-w-xl rounded overflow-hidden text-center m-3">
-      <Img
+      <Image
         className="w-32 h-32 rounded-full mx-auto"
         src={testimonial.image}
         alt={testimonial.name}

@@ -1,7 +1,8 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Page from "../components/page"
-import { graphql } from "gatsby"
 
 export const query = graphql`
   query($slug: String!) {
@@ -9,12 +10,19 @@ export const query = graphql`
       title
       description
       price
+      image {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   }
 `
 
 const Project = ({ data: { productsJson } }) => {
-  const { title, description, price } = productsJson
+  const { title, description, price, image } = productsJson
   return (
     <Page
       seoAttr={{ title }}
@@ -32,6 +40,7 @@ const Project = ({ data: { productsJson } }) => {
       }
     >
       <section className="container mx-auto max-w-5xl px-3">
+        <Img fluid={image.childImageSharp.fluid} alt={title} />
         <div>{description}</div>
         <p>PRICE: {price}</p>
       </section>

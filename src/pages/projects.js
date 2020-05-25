@@ -2,8 +2,8 @@ import React from "react"
 
 import Page from "../components/page"
 
-import Img from "../components/utils/img"
 import { graphql, Link } from "gatsby"
+import Image from "../components/utils/image"
 
 const Card = ({ project }) => {
   const { title, description, slug } = project
@@ -11,7 +11,7 @@ const Card = ({ project }) => {
     <div className="max-w-2xl mx-auto my-56">
       <div className="rounded-lg overflow-hidden shadow-lg mx-5">
         <Link to={`/project/${slug}/`}>
-          <Img
+          <Image
             className="w-full"
             src="https://picsum.photos/1920/1920/?random"
             alt={description}

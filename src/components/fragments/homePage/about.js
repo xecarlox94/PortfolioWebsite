@@ -1,12 +1,12 @@
 import React from "react"
 
-import Img from "../../utils/img"
+import Image from "../../utils/image"
 
 const About = () => {
   return (
     <section>
       <div>
-        <Img
+        <Image
           className="w-64 h-64 rounded-full mx-auto"
           src="https://tailwindcss.com/img/jonathan.jpg"
           alt="Jose Fernandes"

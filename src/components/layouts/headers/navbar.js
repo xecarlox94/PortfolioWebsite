@@ -7,10 +7,6 @@ export const getPages = () => [
     link: "/projects/",
     title: "Projects",
   },
-  {
-    link: "/404/",
-    title: "notFound",
-  },
 ]
 
 const HomeLink = () => {

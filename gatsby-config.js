@@ -36,10 +36,17 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: "./data/",
+        path: `${__dirname}/data/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/images`,
       },
     },
     "gatsby-transformer-json",
+    `gatsby-transformer-remark`,
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
   ],

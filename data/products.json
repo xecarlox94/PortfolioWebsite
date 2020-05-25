@@ -4,20 +4,20 @@
     "slug": "vintage-purple-tee",
     "description": "Keep it simple with this vintage purple tee.",
     "price": "$10.00",
-    "image": "/images/amberley-romo-riggins.jpg"
+    "image": "./images/first.jpg"
   },
   {
     "title": "Space Socks",
     "slug": "space-socks",
     "description": "Get your feet into these spaced-out black socks with a Gatsby purple border and heel.",
     "price": "$10.00",
-    "image": "/images/erin-fox-and-sullivan.jpg"
+    "image": "./images/second.jpg"
   },
   {
     "title": "This Purple Hat Is Blazing Fast",
     "slug": "purple-hat",
     "description": "Add more blazingly blazing speed to your wardrobe with this solid purple laundered chino twill hat.",
     "price": "$10.00",
-    "image": "/images/david-bailey-cat-hat.jpg"
+    "image": "./images/third.jpg"
   }
 ]
