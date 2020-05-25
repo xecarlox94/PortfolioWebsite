@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 const Image = props => {
   if (props.fluid || props.fixed) {
-    return <Img {...props} />
+    return <Img {...props} alt={props.alt} />
   }
   return <img {...props} alt={props.alt} />
 }
