@@ -4,7 +4,7 @@ import { AppContext } from "../../../../context/context"
 
 const CloseButton = () => (
   <AppContext.Consumer>
-    {({ isMobileMenu, openMobileMenu, closeMobileMenu }) => (
+    {({ mobileMenu: { closeMobileMenu } }) => (
       <svg
         className="float-right"
         onClick={closeMobileMenu}

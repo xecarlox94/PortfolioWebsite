@@ -4,7 +4,7 @@ import { AppContext } from "../../../../context/context"
 
 const BurgerButton = ({ colorFill }) => (
   <AppContext.Consumer>
-    {({ isMobileMenu, openMobileMenu, closeMobileMenu }) => (
+    {({ mobileMenu: { openMobileMenu } }) => (
       <svg
         onClick={openMobileMenu}
         className="transition ease-in-out delay-300 duration-700 "

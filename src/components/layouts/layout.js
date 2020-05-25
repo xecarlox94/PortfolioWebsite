@@ -9,9 +9,7 @@ import Contact from "../fragments/contact"
 const Layout = ({ navbarFixed, headerChild, children }) => (
   <>
     <AppContext.Consumer>
-      {({ isMobileMenu, openMobileMenu, closeMobileMenu }) =>
-        isMobileMenu && <MobileNav />
-      }
+      {({ mobileMenu: { isMobileMenu } }) => isMobileMenu && <MobileNav />}
     </AppContext.Consumer>
 
     <Navbar fixed={navbarFixed} />
