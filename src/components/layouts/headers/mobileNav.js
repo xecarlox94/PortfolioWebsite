@@ -17,7 +17,6 @@ const MobileNav = () => {
     }
   }, [])
 
-  const pages = getPages()
   return (
     <div
       className="fixed top-0 z-50 h-screen px-2 py-3  w-full bg-white"
@@ -26,7 +25,7 @@ const MobileNav = () => {
       <CloseButton />
       <nav className="flex items-center h-screen">
         <ul className="w-full">
-          {pages.map((page, i) => (
+          {getPages().map((page, i) => (
             <li key={i} className="text-center my-10">
               <Link
                 to={page.link}
