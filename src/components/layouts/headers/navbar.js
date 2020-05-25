@@ -11,6 +11,37 @@ export const getPages = () => [
   },
 ]
 
+const getNavStyling = (fixed, isTop) => {
+  const navbarOpacity = 0.95
+
+  let styles = {
+    btnClrFill: "#000",
+    opacity: 1,
+  }
+
+  let navClasses =
+    "flex items-center justify-between px-2 py-3 z-40 w-full shadow-2xl "
+
+  if (fixed) {
+    navClasses += " fixed transition ease-in-out delay-300 duration-700 "
+    if (isTop) {
+      navClasses += " bg-black bg-opacity-25 text-white "
+      styles.btnClrFill = "#fff"
+    } else {
+      navClasses += " bg-white text-black "
+      styles.opacity = navbarOpacity
+    }
+  } else {
+    navClasses += " sticky top-0 bg-white text-black"
+    styles.opacity = navbarOpacity
+  }
+
+  return {
+    styles,
+    navClasses,
+  }
+}
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props)
@@ -18,6 +49,20 @@ class Navbar extends React.Component {
       isTop: true,
       isMobile: false,
     }
+  }
+
+  handleResize = e => {
+    const w = e.currentTarget
+    this.setState({
+      isMobile: w.innerWidth <= 450,
+    })
+  }
+
+  handleScroll = e => {
+    const w = e.currentTarget
+    this.setState({
+      isTop: w.scrollY === 0,
+    })
   }
 
   componentDidMount() {
@@ -38,54 +83,11 @@ class Navbar extends React.Component {
     window.removeEventListener("resize", this.handleResize)
   }
 
-  handleResize = e => {
-    const w = e.currentTarget
-    this.setState({
-      isMobile: w.innerWidth <= 450,
-    })
-  }
-
-  handleScroll = e => {
-    const w = e.currentTarget
-    this.setState({
-      isTop: w.scrollY === 0,
-    })
-  }
-
-  getNavStyling = () => {
-    const navbarOpacity = 0.95
-    const { fixed } = this.props
-
-    let styles = {
-      btnClrFill: "#000",
-      opacity: 1,
-    }
-
-    let navClasses =
-      "flex items-center justify-between px-2 py-3 z-40 w-full shadow-2xl "
-
-    if (fixed) {
-      navClasses += " fixed transition ease-in-out delay-300 duration-700 "
-      if (this.state.isTop) {
-        navClasses += " bg-black bg-opacity-25 text-white "
-        styles.btnClrFill = "#fff"
-      } else {
-        navClasses += " bg-white text-black "
-        styles.opacity = navbarOpacity
-      }
-    } else {
-      navClasses += " sticky top-0 bg-white text-black"
-      styles.opacity = navbarOpacity
-    }
-
-    return {
-      styles,
-      navClasses,
-    }
-  }
-
   render() {
-    const { navClasses, styles } = this.getNavStyling()
+    const { navClasses, styles } = getNavStyling(
+      this.props.fixed,
+      this.state.isTop
+    )
 
     let menu
     if (!this.state.isMobile) {
