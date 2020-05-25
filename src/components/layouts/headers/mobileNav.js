@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import CloseButton from "./buttons/closeButton"
-
+import ButtonClose from "./buttons/closeButton"
 import { getPages } from "./navbar"
 
 class MobileNav extends React.Component {
@@ -25,7 +24,7 @@ class MobileNav extends React.Component {
         className="fixed top-0 z-50 h-screen px-2 py-3  w-full bg-white"
         style={{ opacity: 0.87 }}
       >
-        <CloseButton menuClose={this.props.menuClose} />
+        <ButtonClose menuClose={this.props.menuClose} />
         <nav className="flex items-center h-screen">
           <ul className="w-full">
             {pages.map((page, i) => (
