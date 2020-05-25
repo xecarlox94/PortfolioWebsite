@@ -22,7 +22,7 @@ const Project = ({ data: { productsJson } }) => {
         <header
           className="bg-fixed bg-cover flex items-center justify-center h-screen"
           style={{
-            background: `url(https://images.pexels.com/photos/1251299/pexels-photo-1251299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`,
+            background: `url(https://picsum.photos/1920/1920/?random)`,
           }}
         >
           <div className="bg-white mx-4 p-4 text-center md:p-8">
