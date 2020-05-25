@@ -1,28 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { getPages } from "./navbar"
+import CloseButton from "./buttons/closeButton"
 
-class ButtonClose extends React.Component {
-  render() {
-    return (
-      <svg
-        className="float-right"
-        onClick={this.props.menuClose}
-        height="24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g fill="none" fillRule="evenodd">
-          <path
-            d="M12.5 23a11.5 11.5 0 100-23 11.5 11.5 0 000 23zm0-1a10.5 10.5 0 100-21 10.5 10.5 0 000 21zm-4.24-5.55l-.71-.7 4.24-4.25-4.24-4.24.7-.71 4.25 4.24 4.24-4.24.71.7-4.24 4.25 4.24 4.24-.7.71-4.25-4.24-4.24 4.24z"
-            fill="#000"
-          />
-        </g>
-      </svg>
-    )
-  }
-}
+import { getPages } from "./navbar"
 
 class MobileNav extends React.Component {
   constructor(props) {
@@ -44,7 +25,7 @@ class MobileNav extends React.Component {
         className="fixed top-0 z-50 h-screen px-2 py-3  w-full bg-white"
         style={{ opacity: 0.87 }}
       >
-        <ButtonClose menuClose={this.props.menuClose} />
+        <CloseButton menuClose={this.props.menuClose} />
         <nav className="flex items-center h-screen">
           <ul className="w-full">
             {pages.map((page, i) => (

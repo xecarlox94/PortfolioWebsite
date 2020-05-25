@@ -1,6 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { AppContext } from "../../../context/context"
+import { Link } from "gatsby"
+
+import HomeButton from "./buttons/homeButton"
+import BurgerButton from "./buttons/burgerButton"
 
 export const getPages = () => [
   {
@@ -8,40 +10,6 @@ export const getPages = () => [
     title: "Projects",
   },
 ]
-
-const HomeLink = () => {
-  const { site } = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-  return <Link to="/">{site.siteMetadata.title}</Link>
-}
-
-const MenuBurger = ({ colorFill }) => {
-  return (
-    <AppContext.Consumer>
-      {({ isMobileMenu, openMobileMenu, closeMobileMenu }) => (
-        <svg
-          onClick={openMobileMenu}
-          className="transition ease-in-out delay-300 duration-700 "
-          style={{ fill: colorFill, cursor: "pointer" }}
-          height="25"
-          width="25"
-          viewBox="0 0 128 128"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M64 128a64 64 0 1164-64 64 64 0 01-64 64zM64 4a60 60 0 1060 60A60 60 0 0064 4z" />
-          <path d="M95 44H33a2 2 0 010-4h62a2 2 0 010 4zM95 66H33a2 2 0 010-4h62a2 2 0 010 4zM95 88H33a2 2 0 010-4h62a2 2 0 010 4z" />
-        </svg>
-      )}
-    </AppContext.Consumer>
-  )
-}
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -105,12 +73,12 @@ class Navbar extends React.Component {
         </ul>
       )
     } else {
-      menu = <MenuBurger colorFill={styles.btnClrFill} />
+      menu = <BurgerButton colorFill={styles.btnClrFill} />
     }
 
     return (
       <nav className={navClasses} style={styles}>
-        <HomeLink />
+        <HomeButton />
         {menu}
       </nav>
     )
