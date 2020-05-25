@@ -46,29 +46,38 @@ const Navbar = ({ fixed }) => {
   const [isTop, setIsTop] = useState(true)
   const [isMobile, setIsMobile] = useState(false)
 
-  const handleResize = e => {
-    const w = e.currentTarget
-    setIsMobile(w.innerWidth <= 450)
-  }
+  const handleResize = ({
+    currentTarget: {
+      window: { innerWidth },
+    },
+  }) => setIsMobile(innerWidth <= 450)
 
-  const handleScroll = e => {
-    const w = e.currentTarget
-    setIsTop(w.scrollY === 0)
-  }
+  const handleScroll = ({
+    currentTarget: {
+      window: { scrollY },
+    },
+  }) => setIsTop(scrollY === 0)
 
   useEffect(() => {
     let { classList } = document.body
     if (!classList.contains("relative")) classList.add("relative")
 
-    setIsTop(window.scrollY === 0)
-    setIsMobile(window.innerWidth <= 450)
+    const {
+      scrollY,
+      innerWidth,
+      addEventListener,
+      removeEventListener,
+    } = window
 
-    window.addEventListener("resize", handleResize)
-    window.addEventListener("scroll", handleScroll)
+    setIsTop(scrollY === 0)
+    setIsMobile(innerWidth <= 450)
+
+    addEventListener("resize", handleResize)
+    addEventListener("scroll", handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("resize", handleResize)
+      removeEventListener("scroll", handleScroll)
+      removeEventListener("resize", handleResize)
     }
   }, [])
 
@@ -79,9 +88,9 @@ const Navbar = ({ fixed }) => {
   if (!isMobile) {
     menu = (
       <ul>
-        {getPages().map((page, i) => (
+        {getPages().map(({ link, title }, i) => (
           <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
-            <Link to={page.link}>{page.title}</Link>
+            <Link to={link}>{title}</Link>
           </li>
         ))}
       </ul>
