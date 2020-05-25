@@ -33,7 +33,6 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
         fields: { slug },
       },
     }) => {
-      console.log(slug)
       createPage({
         path: `/project${slug}`,
         component: require.resolve("./src/templates/project.js"),

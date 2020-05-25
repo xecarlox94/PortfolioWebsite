@@ -45,7 +45,6 @@ module.exports = {
         path: `${__dirname}/data/images`,
       },
     },
-    "gatsby-transformer-json",
     `gatsby-transformer-remark`,
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
