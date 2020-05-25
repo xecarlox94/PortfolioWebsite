@@ -54,27 +54,24 @@ const ProjectTile = ({ project, tabIndex }) => {
   )
 }
 
-const Projects = () => {
-  return (
-    <section>
-      <h1
-        style={{
-          paddingBottom: "20vh",
-          paddingTop: "20vh",
-          fontSize: "30px",
-          fontWeight: "bold",
-        }}
-      >
-        Latest work
-      </h1>
-      <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
-        {" "}
-        {projectsArr.map((prj, i) => (
-          <ProjectTile key={i} tabIndex={i} project={prj} />
-        ))}
-      </div>
-    </section>
-  )
-}
+const Projects = () => (
+  <section>
+    <h1
+      style={{
+        paddingBottom: "20vh",
+        paddingTop: "20vh",
+        fontSize: "30px",
+        fontWeight: "bold",
+      }}
+    >
+      Latest work
+    </h1>
+    <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
+      {projectsArr.map((prj, i) => (
+        <ProjectTile key={i} tabIndex={i} project={prj} />
+      ))}
+    </div>
+  </section>
+)
 
 export default Projects
