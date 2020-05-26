@@ -1,7 +1,8 @@
 ---
 title: "Vintage Purple Tee"
-date: "2017-08-10"
+date: "2019-08-10"
 image: "../images/third.jpg"
+topic: "software development"
 ---
 
 Keep it simple with this vintage purple tee.

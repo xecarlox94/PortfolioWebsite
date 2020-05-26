@@ -1,22 +1,10 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 
-const projectsArr = [
-  {
-    title: "Project",
-    description: "this is a little description",
-    link: "https://github.com/",
-    image: "https://picsum.photos/1920/1920/?random",
-  },
-  {
-    title: "Project",
-    description: "this is a little description",
-    link: "https://github.com/",
-    image: "https://picsum.photos/1920/1920/?random",
-  },
-]
-
-const ProjectTile = ({ project: { image, title, description }, tabIndex }) => {
+const ProjectTile = ({
+  project: { topic, title, slug, publicURL },
+  tabIndex,
+}) => {
   const [isMouseOver, setMouseOver] = useState(false)
 
   const onHover = () => setMouseOver(true)
@@ -37,7 +25,7 @@ const ProjectTile = ({ project: { image, title, description }, tabIndex }) => {
       className="bg-cover bg-center"
       style={{
         minHeight,
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${publicURL})`,
       }}
       onMouseOver={onHover}
       onFocus={onHover}
@@ -50,10 +38,10 @@ const ProjectTile = ({ project: { image, title, description }, tabIndex }) => {
           minHeight,
         }}
       >
-        <Link to="/project/example1/">
+        <Link to={`/project${slug}`}>
           <div className="bg-white p-6 text-center">
             <h1>{title}</h1>
-            <p>{description}</p>
+            <p>{topic}</p>
           </div>
         </Link>
       </div>
@@ -65,9 +53,53 @@ const Projects = () => (
   <section>
     <h1 className="text-center mb-20">Latest work</h1>
     <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
-      {projectsArr.map((prj, i) => (
-        <ProjectTile key={i} tabIndex={i} project={prj} />
-      ))}
+      <StaticQuery
+        query={graphql`
+          query {
+            allMarkdownRemark(
+              sort: { fields: frontmatter___date, order: ASC }
+              limit: 2
+            ) {
+              edges {
+                node {
+                  frontmatter {
+                    topic
+                    title
+                    image {
+                      publicURL
+                    }
+                  }
+                  fields {
+                    slug
+                  }
+                  id
+                }
+              }
+            }
+          }
+        `}
+        render={({ allMarkdownRemark: { edges } }) =>
+          edges.map(
+            (
+              {
+                node: {
+                  frontmatter: {
+                    topic,
+                    title,
+                    image: { publicURL },
+                  },
+                  id,
+                  fields: { slug },
+                },
+              },
+              i
+            ) => {
+              const prj = { topic, slug, title, publicURL }
+              return <ProjectTile key={id} tabIndex={i} project={prj} />
+            }
+          )
+        }
+      />
     </div>
   </section>
 )
