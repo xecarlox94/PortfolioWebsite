@@ -1,8 +1,8 @@
-const activeEnv =
+const active_env =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
 
 require("dotenv").config({
-  path: `.env.${activeEnv}`,
+  path: `.env.${active_env}`,
 })
 
 module.exports = {
