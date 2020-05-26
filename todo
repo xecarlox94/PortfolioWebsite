@@ -1,19 +1,18 @@
 SITE TO GO LIVE:
--env variables
 -finish footer section
 -finish skills section, home page
 -finish contact me section
 -finish about me section, home page
 -implement call to action
 -add image on initial page header
+-email submission
+-implement typography theme
+-change tailwind theme
 -implement mdx
 -set up project mdx format
 -finish project page
 -finish projects page
 -finish projects section, home page
--email submission
--implement typography theme
--change tailwind theme
 -change icon
 -add personal image to about me section
 -implement background sharp image

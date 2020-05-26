@@ -43,7 +43,7 @@ const InputWrapper = ({ children, name, error }) => (
 
 const getFieldStyle = error => {
   let styleClasses =
-    "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
+    "bg-gray-300 appearance-none border-2 border-gray-400 rounded w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white"
 
   if (!error) styleClasses += "  focus:border-gray-700"
   else styleClasses += " focus:border-red-500"
