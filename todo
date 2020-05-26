@@ -8,16 +8,31 @@ SITE TO GO LIVE:
 -finish projects page
 -implement typography
 -call to action
+-email submission
+-env variables
 -change icon
 -implement web progressive (manifest and offline)
+-change tailwind theme
 -change domain
 
 SITE IMPROVEMENT:
 -typescript rewrite
+-acessibility
+-creating site map
+-social media features 
+-creating ssr feed
+-preload fonts
+-adding incremental builds
+-adding mailchimp
 -adding google analytics
+-animate on scroll
 -disable scrolling when mobile menu is used
 -implement blogging page and articles
 -adding people individual page, linking with article
+-webpack analyser
+-react svg loader
+-progress/ loading feature
+-pagination
 
 
 
