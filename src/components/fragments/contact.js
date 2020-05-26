@@ -112,7 +112,7 @@ const ContactForm = () => {
       <TextAreaInput
         name="message"
         register={register}
-        error={errors.subject}
+        error={errors.message}
         height={"h-40"}
       />
 
