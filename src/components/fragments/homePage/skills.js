@@ -9,9 +9,12 @@ const SkillTile = ({ title, subtitle }) => (
 )
 
 const Skills = () => (
-  <section className="my-40 grid grid-cols-1 lg:grid-cols-2 divide-x divide-gray-400">
-    <SkillTile title="Web Development" subtitle="Full Stack Developer" />
-    <SkillTile title="Software Development" subtitle="Versatile Programmer" />
+  <section className="my-40">
+    <h1 className="text-center">What do I do?</h1>
+    <div className="grid grid-cols-1 lg:grid-cols-2 divide-x divide-gray-400">
+      <SkillTile title="Web Development" subtitle="Full Stack Developer" />
+      <SkillTile title="Software Development" subtitle="Versatile Programmer" />
+    </div>
   </section>
 )
 
