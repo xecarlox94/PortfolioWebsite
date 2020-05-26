@@ -3,6 +3,7 @@ SITE TO GO LIVE:
 -finish skills section, home page
 -finish contact me section
 -finish about me section, home page
+-finish 404 page
 -implement call to action
 -add image on initial page header
 -email submission
@@ -30,9 +31,10 @@ SITE IMPROVEMENT:
 -typescript rewrite
 -add interactive 3d animation home page header
 -accessibility
--creating site map
+-creating site map (add it to footer)
 -social media features/SEO
 -create social media sharing cards
+-adding twitter share highlighted text
 -add suggested work section to project page
 -add testimonials section home page
 -creating ssr feed
@@ -40,7 +42,9 @@ SITE IMPROVEMENT:
 -pre load fonts
 -add linking between markdown pages
 -adding incremental builds
+-add gdpr
 -adding mailchimp
+-add subscribe button to footer
 -adding google analytics
 -add smooth scrolling on page
 -animate on scroll
