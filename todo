@@ -1,19 +1,23 @@
-site:
--fix project page header image (safari error)
+SITE TO GO LIVE:
+-implement background sharp image
+-implement mdx
+-increase message input height
+-do skills section, home page
+-fix projects grid
+-finish projects section, home page
+-finish projects page
+-implement typography
 -call to action
 -change icon
+-implement web progressive (manifest and offline)
+-change domain
+
+SITE IMPROVEMENT:
+-typescript rewrite
+-adding google analytics
 -disable scrolling when mobile menu is used
-
-
-
-structure:
--home page
-
--Projects page
-    category tab
-    
--individual Project page (divided by categories)
-
+-implement blogging page and articles
+-adding people individual page, linking with article
 
 
 
