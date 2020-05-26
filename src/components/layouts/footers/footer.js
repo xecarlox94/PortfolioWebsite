@@ -10,7 +10,7 @@ const Copyright = () => {
   )
 }
 const Footer = () => (
-  <footer className="bg-gray-800 text-white py-10">
+  <footer className="bg-black text-white py-10">
     <div className="container mx-auto text-center">
       <Copyright />
     </div>

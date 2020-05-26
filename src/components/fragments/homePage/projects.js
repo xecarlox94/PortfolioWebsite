@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 
 const projectsArr = [
   {
@@ -22,10 +23,12 @@ const ProjectTile = ({ project: { image, title, description }, tabIndex }) => {
 
   const onHoverOut = () => setMouseOver(false)
 
-  let overlayClasses = "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 "
-  const minHeight = "60vh"
+  let overlayClasses =
+    "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 flex items-center justify-center "
 
-  if (!isMouseOver) overlayClasses += "invisible"
+  if (!isMouseOver) overlayClasses += " invisible"
+
+  const minHeight = "60vh"
 
   return (
     <div
@@ -47,8 +50,12 @@ const ProjectTile = ({ project: { image, title, description }, tabIndex }) => {
           minHeight,
         }}
       >
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <Link to="/project/example1/">
+          <div className="bg-white p-6 text-center">
+            <h1>{title}</h1>
+            <p>{description}</p>
+          </div>
+        </Link>
       </div>
     </div>
   )
