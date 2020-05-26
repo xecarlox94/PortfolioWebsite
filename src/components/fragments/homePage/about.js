@@ -4,6 +4,7 @@ import Image from "../../utils/image"
 
 const About = () => (
   <section className="my-40 px-4">
+    <h1 className="text-center mb-20">Who am I?</h1>
     <Image
       className="rounded-full mx-auto"
       src="https://tailwindcss.com/img/jonathan.jpg"
@@ -15,7 +16,9 @@ const About = () => (
         width: "33%",
       }}
     />
-    <div>description</div>
+    <div className="text-center">
+      <p>Description</p>
+    </div>
   </section>
 )
 
