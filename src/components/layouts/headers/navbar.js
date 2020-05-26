@@ -59,9 +59,6 @@ const Navbar = ({ fixed }) => {
   }) => setIsTop(scrollY === 0)
 
   useEffect(() => {
-    let { classList } = document.body
-    if (!classList.contains("relative")) classList.add("relative")
-
     const {
       scrollY,
       innerWidth,
