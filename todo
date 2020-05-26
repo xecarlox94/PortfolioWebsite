@@ -1,6 +1,4 @@
 SITE TO GO LIVE:
--implement background sharp image
--implement mdx
 -increase message input height
 -env variables
 -email submission
@@ -8,14 +6,15 @@ SITE TO GO LIVE:
 -finish skills section, home page
 -finish contact me section
 -finish about me section, home page
--set up project markdown format
--set up mdx jsx elements
+-implement call to action
+-implement mdx
+-set up project mdx format
 -finish project page
 -finish projects page
 -finish projects section, home page
 -add personal image to about me section
 -add image on initial page header
--implement call to action
+-implement background sharp image
 -implement typography theme
 -change tailwind theme
 -change icon
