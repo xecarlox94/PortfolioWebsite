@@ -2,31 +2,43 @@ SITE TO GO LIVE:
 -implement background sharp image
 -implement mdx
 -increase message input height
--do skills section, home page
--fix projects grid
--finish projects section, home page
--finish projects page
--implement typography
--call to action
--email submission
 -env variables
+-email submission
+-finish footer section
+-finish skills section, home page
+-finish contact me section
+-set up project markdown format
+-set up mdx jsx elements
+-finish project page
+-finish projects page
+-finish projects section, home page
+-add personal image
+-finish about me section, home page
+-add image on initial page header
+-implement call to action
+-implement typography theme
+-change tailwind theme
 -change icon
 -implement web progressive (manifest and offline)
--change tailwind theme
 -change domain
 
 SITE IMPROVEMENT:
 -typescript rewrite
--acessibility
+-add interactive 3d animation home page header
+-accessibility
 -creating site map
--social media features 
+-social media features/SEO
+-create social media sharing cards
 -creating ssr feed
--preload fonts
+-adding create keywords feature
+-pre load fonts
+-add linking between markdown pages
 -adding incremental builds
 -adding mailchimp
 -adding google analytics
+-add smooth scrolling on page
 -animate on scroll
--disable scrolling when mobile menu is used
+-disable/enable scrolling when mobile menu is used/closed
 -implement blogging page and articles
 -adding people individual page, linking with article
 -webpack analyser
