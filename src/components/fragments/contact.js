@@ -65,10 +65,10 @@ const TextInput = ({ name, error, type, register }) => (
   </InputWrapper>
 )
 
-const TextAreaInput = ({ name, error, type, register }) => (
+const TextAreaInput = ({ name, error, type, register, height }) => (
   <InputWrapper name={name} error={error}>
     <textarea
-      className={getFieldStyle(error)}
+      className={getFieldStyle(error) + " " + height}
       placeholder={`Please insert your ${name}`}
       aria-labelledby={`label-${name}`}
       name={name}
@@ -113,6 +113,7 @@ const ContactForm = () => {
         name="message"
         register={register}
         error={errors.subject}
+        height={"h-40"}
       />
 
       <button
