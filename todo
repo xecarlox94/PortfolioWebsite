@@ -15,7 +15,6 @@ SITE TO GO LIVE:
 -finish projects page
 -change icon
 -add personal image to about me section
--implement background sharp image
 -implement web progressive (manifest and offline)
 -change domain
 
@@ -43,6 +42,7 @@ SITE IMPROVEMENT:
 -adding incremental builds
 -add gdpr
 -adding mailchimp
+-implement background sharp image
 -add subscribe button to footer
 -adding google analytics
 -add smooth scrolling on page

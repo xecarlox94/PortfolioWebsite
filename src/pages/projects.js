@@ -5,26 +5,16 @@ import Page from "../components/page"
 import { graphql, Link } from "gatsby"
 import Image from "../components/utils/image"
 
-const Card = ({
-  project: {
-    excerpt,
-    frontmatter: { title, date },
-    fields: { slug },
-  },
-}) => (
+const Card = ({ project: { publicURL, slug, title, topic, date } }) => (
   <div className="max-w-2xl mx-auto my-56">
     <div className="rounded-lg overflow-hidden shadow-lg mx-5">
       <Link to={`/project${slug}/`}>
-        <Image
-          className="w-full"
-          src="https://picsum.photos/1920/1920/?random"
-          alt={excerpt}
-        />
+        <Image className="w-full" src={publicURL} alt={title} />
         <div className="px-3 pb-5">
           <div className="mb-2 pb-5">
             {title} - {date}
           </div>
-          <p>{excerpt}</p>
+          <p>{topic}</p>
         </div>
       </Link>
     </div>
@@ -41,9 +31,22 @@ const Projects = ({
     headerChild={<header>Welcome to the Projects Page</header>}
   >
     <section>
-      {edges.map(({ node }, i) => (
-        <Card key={i} project={node} />
-      ))}
+      {edges.map(
+        ({
+          node: {
+            id,
+            frontmatter: {
+              topic,
+              date,
+              title,
+              image: { publicURL },
+            },
+            fields: { slug },
+          },
+        }) => (
+          <Card key={id} project={{ topic, title, publicURL, slug, date }} />
+        )
+      )}
     </section>
   </Page>
 )
@@ -55,14 +58,18 @@ export const query = graphql`
     allMarkdownRemark {
       edges {
         node {
+          frontmatter {
+            topic
+            date
+            title
+            image {
+              publicURL
+            }
+          }
           fields {
             slug
           }
-          frontmatter {
-            date
-            title
-          }
-          excerpt
+          id
         }
       }
     }
