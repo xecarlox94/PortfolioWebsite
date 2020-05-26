@@ -93,10 +93,13 @@ const Projects = () => (
                 },
               },
               i
-            ) => {
-              const prj = { topic, slug, title, publicURL }
-              return <ProjectTile key={id} tabIndex={i} project={prj} />
-            }
+            ) => (
+              <ProjectTile
+                key={id}
+                tabIndex={i}
+                project={{ topic, slug, title, publicURL }}
+              />
+            )
           )
         }
       />
