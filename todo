@@ -29,6 +29,8 @@ SITE IMPROVEMENT:
 -creating site map
 -social media features/SEO
 -create social media sharing cards
+-add suggested work section to project page
+-add testimonials section home page
 -creating ssr feed
 -adding create keywords feature
 -pre load fonts
@@ -39,7 +41,7 @@ SITE IMPROVEMENT:
 -add smooth scrolling on page
 -animate on scroll
 -disable/enable scrolling when mobile menu is used/closed
--implement blogging page and articles
+-implement blogging page and articles (suggested articles section on article page)
 -adding people individual page, linking with article
 -webpack analyser
 -react svg loader
