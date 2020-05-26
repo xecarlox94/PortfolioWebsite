@@ -7,17 +7,17 @@ SITE TO GO LIVE:
 -finish contact me section
 -finish about me section, home page
 -implement call to action
+-add image on initial page header
 -implement mdx
 -set up project mdx format
 -finish project page
 -finish projects page
 -finish projects section, home page
 -add personal image to about me section
--add image on initial page header
--implement background sharp image
 -implement typography theme
 -change tailwind theme
 -change icon
+-implement background sharp image
 -implement web progressive (manifest and offline)
 -change domain
 
