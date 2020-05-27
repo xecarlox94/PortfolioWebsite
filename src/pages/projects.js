@@ -28,7 +28,11 @@ const Projects = ({
 }) => (
   <Page
     seoAttr={{ title: "Projects" }}
-    headerChild={<header>Welcome to the Projects Page</header>}
+    headerChild={
+      <header className="my-40 text-center">
+        Welcome to the Projects Page
+      </header>
+    }
   >
     <section>
       {edges.map(
