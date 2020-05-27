@@ -1,6 +1,6 @@
 import React from "react"
 
-import Image from "../../utils/image"
+import Img from "gatsby-image"
 
 const testimonialArr = [
   {
@@ -13,7 +13,7 @@ const testimonialArr = [
 
 const TestimonialCard = ({ testimonial: { image, name, text } }) => (
   <div className="max-w-xl rounded overflow-hidden text-center m-3">
-    <Image className="w-32 h-32 rounded-full mx-auto" src={image} alt={name} />
+    <Img className="w-32 h-32 rounded-full mx-auto" src={image} alt={name} />
     <div>
       <h1>{name}</h1>
       <p>{text}</p>

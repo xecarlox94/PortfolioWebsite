@@ -7,7 +7,7 @@ import Page from "../components/page"
 
 const PageHeader = ({ image }) => (
   <header>
-    <Img fluid={image} />
+    <Img fluid={image} style={{ maxHeight: "50vh" }} />
   </header>
 )
 
