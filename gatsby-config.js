@@ -46,12 +46,12 @@ module.exports = {
         path: `${__dirname}/data/`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/data/images`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/data/images`,
+    //   },
+    // },
     `gatsby-transformer-remark`,
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",

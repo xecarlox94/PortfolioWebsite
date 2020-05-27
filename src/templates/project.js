@@ -2,14 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Img from "gatsby-image"
-
 import Page from "../components/page"
 
-const PageHeader = ({ image }) => (
-  <header>
-    <Img fluid={image} style={{ maxHeight: "50vh" }} />
-  </header>
-)
+const PageHeader = ({ image }) => {
+  return (
+    <header>
+      <Img
+        fluid={image}
+        style={{ maxHeight: "60vh" }}
+        imgStyle={{ objectFit: "contain" }}
+      />
+    </header>
+  )
+}
 
 const Project = ({
   data: {
@@ -28,7 +33,7 @@ const Project = ({
 }) => (
   <Page seoAttr={{ title }} headerChild={<PageHeader image={fluid} />}>
     <section className="container mx-auto max-w-5xl px-3">
-      <h2>{topic}</h2>
+      <h2 style={{ objectFit: "contain" }}>{topic}</h2>
       <p>date: {date}</p>
       <p>{excerpt}</p>
     </section>

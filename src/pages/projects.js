@@ -5,11 +5,11 @@ import Page from "../components/page"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-const Card = ({ project: { publicURL, slug, title, topic, date } }) => (
+const Card = ({ project: { slug, title, topic, date, fluid } }) => (
   <div className="max-w-2xl mx-auto my-56">
     <div className="rounded-lg overflow-hidden shadow-lg mx-5">
       <Link to={`/project${slug}/`}>
-        <Img className="w-full" src={publicURL} alt={title} />
+        <Img className="w-full" alt={title} fluid={fluid} />
         <div className="px-3 pb-5">
           <div className="mb-2 pb-5">
             {title} - {date}
@@ -39,12 +39,14 @@ const Projects = ({
               topic,
               date,
               title,
-              image: { publicURL },
+              image: {
+                childImageSharp: { fluid },
+              },
             },
             fields: { slug },
           },
         }) => (
-          <Card key={id} project={{ topic, title, publicURL, slug, date }} />
+          <Card key={id} project={{ topic, title, slug, date, fluid }} />
         )
       )}
     </section>
@@ -63,7 +65,11 @@ export const query = graphql`
             date
             title
             image {
-              publicURL
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
           fields {
