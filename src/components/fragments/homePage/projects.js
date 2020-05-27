@@ -39,7 +39,7 @@ const ProjectTile = ({
         }}
       >
         <Link to={`/project${slug}`}>
-          <div className="bg-white p-6 text-center">
+          <div className="bg-white p-6 text-center border-2 hover:border-black border-transparent">
             <h1>{title}</h1>
             <p>{topic}</p>
           </div>
