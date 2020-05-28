@@ -1,15 +1,15 @@
 SITE TO GO LIVE:
--finish skills section, home page
--finish about me section, home page
--finish 404 page
--implement call to action
 -implement typography theme
 -change tailwind theme
 -implement mdx
 -set up project mdx format
+-email submission
+-finish skills section, home page
+-finish about me section, home page
+-finish 404 page
+-implement call to action
 -change icon
 -add image on initial page header
--email submission
 -add personal image to about me section
 -implement web progressive (manifest and offline)
 -change domain
