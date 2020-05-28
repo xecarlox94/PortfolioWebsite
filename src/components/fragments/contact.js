@@ -107,6 +107,7 @@ const ContactForm = () => {
     <form
       className="w-full max-w-3xl mx-auto"
       method="post"
+      name="contact"
       netlify-honeypot="bot-field"
       data-netlify="true"
     >
