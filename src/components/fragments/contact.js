@@ -79,16 +79,36 @@ const TextAreaInput = ({ name, error, type, register, height }) => (
   </InputWrapper>
 )
 
+// const encode = data => {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//     .join("&")
+// }
+
 const ContactForm = () => {
-  const { register, handleSubmit, errors } = useForm({
+  const { register, errors } = useForm({
     validationSchema,
   })
 
-  const onSubmit = data => console.log(data)
+  // const onSubmit = async data => {
+  //   try {
+  //     await fetch("/", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //       body: encode({ "form-name": "contact", data }),
+  //     })
+  //     alert("SUCCESS")
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
       className="w-full max-w-3xl mx-auto"
+      method="post"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
     >
       <TextInput
         type="text"
