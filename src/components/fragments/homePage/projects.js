@@ -56,10 +56,7 @@ const Projects = () => (
       <StaticQuery
         query={graphql`
           query {
-            allMarkdownRemark(
-              sort: { fields: frontmatter___date, order: ASC }
-              limit: 2
-            ) {
+            allMdx(sort: { fields: frontmatter___date, order: ASC }, limit: 2) {
               edges {
                 node {
                   frontmatter {
@@ -78,7 +75,7 @@ const Projects = () => (
             }
           }
         `}
-        render={({ allMarkdownRemark: { edges } }) =>
+        render={({ allMdx: { edges } }) =>
           edges.map(
             (
               {

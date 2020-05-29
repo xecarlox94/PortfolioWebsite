@@ -18,7 +18,7 @@ const PageHeader = ({ image }) => {
 
 const Project = ({
   data: {
-    markdownRemark: {
+    mdx: {
       excerpt,
       frontmatter: {
         date,
@@ -44,7 +44,7 @@ export default Project
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         date
         title

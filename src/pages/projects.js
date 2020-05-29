@@ -23,7 +23,7 @@ const Card = ({ project: { slug, title, topic, date, fluid } }) => (
 
 const Projects = ({
   data: {
-    allMarkdownRemark: { edges },
+    allMdx: { edges },
   },
 }) => (
   <Page
@@ -61,7 +61,7 @@ export default Projects
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMdx {
       edges {
         node {
           frontmatter {
