@@ -30,6 +30,7 @@
     "react-refresh": "^0.8.2",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
+    "typography-theme-noriega": "^0.16.19",
     "yup": "^0.29.0"
   },
   "devDependencies": {

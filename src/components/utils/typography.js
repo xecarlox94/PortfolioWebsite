@@ -1,17 +1,7 @@
 import Typography from "typography"
 
-const typography = new Typography({
-  baseFontSize: "18px",
-  baseLineHeight: 1.666,
-  headerFontFamily: [
-    "Avenir Next",
-    "Helvetica Neue",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
-  ],
-  bodyFontFamily: ["Georgia", "serif"],
-})
+import theme from "typography-theme-noriega"
+
+const typography = new Typography(theme)
 
 export default typography
