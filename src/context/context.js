@@ -4,13 +4,10 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [isMobileMenu, setMobileMenu] = useState(false)
-  const openMobileMenu = () => setMobileMenu(true)
-  const closeMobileMenu = () => setMobileMenu(false)
-
   const mobileMenu = {
     isMobileMenu,
-    openMobileMenu,
-    closeMobileMenu,
+    openMobileMenu: () => setMobileMenu(true),
+    closeMobileMenu: () => setMobileMenu(false),
   }
 
   return (

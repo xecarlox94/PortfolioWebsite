@@ -6,7 +6,7 @@ import BurgerButton from "./buttons/burgerButton"
 
 export const getPages = () => [
   {
-    link: "/projects/",
+    target: "/projects/",
     title: "Projects",
   },
 ]
@@ -85,9 +85,9 @@ const Navbar = ({ fixed }) => {
   if (!isMobile) {
     menu = (
       <ul>
-        {getPages().map(({ link, title }, i) => (
+        {getPages().map(({ target, title }, i) => (
           <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
-            <Link to={link}>{title}</Link>
+            <Link to={target}>{title}</Link>
           </li>
         ))}
       </ul>

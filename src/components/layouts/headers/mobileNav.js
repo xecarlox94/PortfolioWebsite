@@ -28,7 +28,7 @@ const MobileNav = () => {
           {getPages().map((page, i) => (
             <li key={i} className="text-center my-10">
               <Link
-                to={page.link}
+                to={page.target}
                 className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
               >
                 {page.title}
