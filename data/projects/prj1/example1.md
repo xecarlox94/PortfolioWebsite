@@ -1,7 +1,7 @@
 ---
 title: "Pandas and Bananas"
 date: "2017-08-21"
-image: "../images/first.jpg"
+image: "./first.jpg"
 topic: "web development"
 ---
 

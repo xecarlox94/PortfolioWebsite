@@ -1,13 +1,13 @@
 SITE TO GO LIVE:
--implement typography theme
--change tailwind theme
 -implement mdx
 -set up project mdx format
--email submission
--implement call to action
+-implement typography theme
+-change tailwind theme
 -finish skills section, home page
 -finish about me section, home page
 -finish 404 page
+-implement call to action
+-create modal alert for notifications (email is sent, you are subscribed,...)
 -change icon
 -add image on initial page header
 -add personal image to about me section
