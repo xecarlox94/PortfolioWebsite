@@ -16,6 +16,7 @@ const IndexPage = () => (
         style={{
           backgroundImage:
             "url(https://images.pexels.com/photos/1251299/pexels-photo-1251299.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)",
+          color: "white",
         }}
       >
         Landing Page

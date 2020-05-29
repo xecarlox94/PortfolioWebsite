@@ -43,7 +43,7 @@ const InputWrapper = ({ children, name, error }) => (
 
 const getFieldStyle = error => {
   let styleClasses =
-    "bg-gray-300 appearance-none border-2 border-gray-400 rounded w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white"
+    "bg-gray-300 appearance-none border-2 border-gray-400 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
 
   if (!error) styleClasses += "  focus:border-gray-700"
   else styleClasses += " focus:border-red-500"
@@ -136,7 +136,7 @@ const ContactForm = () => {
       <button
         style={{ float: "right", marginTop: "4vh" }}
         type="submit"
-        className="shadow bg-black hover:bg-gray-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+        className="shadow bg-black hover:bg-gray-800 focus:shadow-outline focus:outline-none text-white font-bold py-3 px-5 rounded"
       >
         Submit
       </button>
@@ -145,7 +145,7 @@ const ContactForm = () => {
 }
 
 const Contact = () => (
-  <section className="pb-20">
+  <section className="pb-20" id="contact">
     <div className="container mx-auto px-3 my-32">
       <h1 className="text-center mb-20">Get in touch with me :)</h1>
       <ContactForm />

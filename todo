@@ -1,10 +1,10 @@
 SITE TO GO LIVE:
--implement typography theme
--change tailwind theme
+-implement call to action
+-pointer on menu close button
+-moving navigation to app context
 -finish skills section, home page
 -finish about me section, home page
 -finish 404 page
--implement call to action
 -create modal alert for notifications (email is sent, you are subscribed,...)
 -set up project mdx format
 -change icon
@@ -36,6 +36,7 @@ SITE IMPROVEMENT:
 -add linking between markdown pages
 -adding incremental builds
 -add gdpr
+-show notifications on browser (web app)
 -adding mailchimp
 -implement background sharp image
 -add subscribe button to footer

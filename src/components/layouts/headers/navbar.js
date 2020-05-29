@@ -8,6 +8,12 @@ export const getPages = () => [
   {
     target: "/projects/",
     title: "Projects",
+    callAction: false,
+  },
+  {
+    target: `#contact`,
+    title: "Contact",
+    callAction: true,
   },
 ]
 
@@ -20,7 +26,7 @@ const getNavStyling = (fixed, isTop) => {
   }
 
   let navClasses =
-    "flex items-center justify-between px-2 py-3 z-40 w-full shadow-2xl "
+    "flex items-center justify-between px-4 py-3 z-40 w-full shadow-2xl "
 
   if (fixed) {
     navClasses += " fixed transition ease-in-out delay-300 duration-700 "
@@ -50,7 +56,7 @@ const Navbar = ({ fixed }) => {
     currentTarget: {
       window: { innerWidth },
     },
-  }) => setIsMobile(innerWidth <= 450)
+  }) => setIsMobile(innerWidth <= 500)
 
   const handleScroll = ({
     currentTarget: {
@@ -67,7 +73,7 @@ const Navbar = ({ fixed }) => {
     } = window
 
     setIsTop(scrollY === 0)
-    setIsMobile(innerWidth <= 450)
+    setIsMobile(innerWidth <= 500)
 
     addEventListener("resize", handleResize)
     addEventListener("scroll", handleScroll)
@@ -85,11 +91,40 @@ const Navbar = ({ fixed }) => {
   if (!isMobile) {
     menu = (
       <ul>
-        {getPages().map(({ target, title }, i) => (
-          <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
-            <Link to={target}>{title}</Link>
-          </li>
-        ))}
+        {getPages().map(({ target, title, callAction }, i) => {
+          let button
+
+          if (!callAction) {
+            button = <Link to={target}>{title}</Link>
+          } else {
+            let classes =
+              "transition ease-in-out delay-300 duration-700 py-2 px-3 rounded border "
+
+            if (fixed && isTop) {
+              classes +=
+                " bg-transparent border-white hover:bg-white hover:text-black "
+            } else {
+              classes +=
+                " bg-white border-black hover:bg-black hover:text-white "
+            }
+
+            button = (
+              <a href={target} className={classes}>
+                {title}
+              </a>
+            )
+          }
+
+          return (
+            <li
+              key={i}
+              className="inline-block pl-5"
+              style={{ marginBottom: 0 }}
+            >
+              {button}
+            </li>
+          )
+        })}
       </ul>
     )
   } else {
