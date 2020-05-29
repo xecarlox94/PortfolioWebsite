@@ -79,38 +79,34 @@ const TextAreaInput = ({ name, error, type, register, height }) => (
   </InputWrapper>
 )
 
-// const encode = data => {
-//   return Object.keys(data)
-//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-//     .join("&")
-// }
-
 const ContactForm = () => {
-  const { register, errors } = useForm({
+  const { register, handleSubmit, errors } = useForm({
     validationSchema,
   })
 
-  // const onSubmit = async data => {
-  //   try {
-  //     await fetch("/", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //       body: encode({ "form-name": "contact", data }),
-  //     })
-  //     alert("SUCCESS")
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
+  const submit = async data => {
+    const encode = data => {
+      return Object.keys(data)
+        .map(
+          key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&")
+    }
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", data }),
+      })
+      alert("SUCCESS")
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
-    <form
-      className="w-full max-w-3xl mx-auto"
-      method="post"
-      name="contact"
-      netlify-honeypot="bot-field"
-      data-netlify="true"
-    >
+    <form className="w-full max-w-3xl mx-auto" onSubmit={handleSubmit(submit)}>
       <TextInput
         type="text"
         name="name"
