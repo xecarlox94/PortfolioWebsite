@@ -4,50 +4,32 @@ import { Link, StaticQuery, graphql } from "gatsby"
 const ProjectTile = ({
   project: { topic, title, slug, publicURL },
   tabIndex,
-}) => {
-  const [isMouseOver, setMouseOver] = useState(false)
-
-  const onHover = () => setMouseOver(true)
-
-  const onHoverOut = () => setMouseOver(false)
-
-  let overlayClasses =
-    "z-10 bg-gray-300 w-full min-h-full bg-opacity-50 flex items-center justify-center "
-
-  if (!isMouseOver) overlayClasses += " invisible"
-
-  const minHeight = "60vh"
-
-  return (
+}) => (
+  <div
+    role="button"
+    tabIndex={tabIndex}
+    className="bg-cover bg-center"
+    style={{
+      minHeight: "60vh",
+      backgroundImage: `url(${publicURL})`,
+    }}
+  >
     <div
-      role="button"
-      tabIndex={tabIndex}
-      className="bg-cover bg-center"
+      className={"flex items-center justify-center z-10 w-full min-h-full"}
       style={{
-        minHeight,
-        backgroundImage: `url(${publicURL})`,
+        minHeight: "60vh",
+        backgroundColor: "rgba(255,255,255,0.5)",
       }}
-      onMouseOver={onHover}
-      onFocus={onHover}
-      onBlur={onHoverOut}
-      onMouseLeave={onHoverOut}
     >
-      <div
-        className={overlayClasses}
-        style={{
-          minHeight,
-        }}
-      >
-        <Link to={`/project${slug}`}>
-          <div className="bg-white p-6 text-center border-2 hover:border-black border-transparent">
-            <h1>{title}</h1>
-            <p>{topic}</p>
-          </div>
-        </Link>
-      </div>
+      <Link to={`/project${slug}`}>
+        <div className="bg-white p-6 text-center border-2 hover:border-black border-transparent">
+          <h1 className="pb-3">{title}</h1>
+          <p>{topic}</p>
+        </div>
+      </Link>
     </div>
-  )
-}
+  </div>
+)
 
 const Projects = () => (
   <section>
