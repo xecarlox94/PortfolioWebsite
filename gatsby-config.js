@@ -56,8 +56,3 @@ module.exports = {
     "gatsby-plugin-sharp",
   ],
 }
-
-// https://www.gatsbyjs.org/docs/why-gatsby-uses-graphql/#create-a-page-without-any-data
-
-// stopped here
-// GATSBY_GRAPHQL_IDE=playground gatsby develop

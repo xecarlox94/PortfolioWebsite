@@ -10,7 +10,7 @@ const Card = ({ project: { slug, title, topic, date, fluid } }) => (
     <div className="rounded-lg overflow-hidden shadow-lg mx-5">
       <Link to={`/project${slug}/`}>
         <Img className="w-full" alt={title} fluid={fluid} />
-        <div className="px-3 pb-5">
+        <div className="p-3">
           <div className="mb-2 pb-5">
             {title} - {date}
           </div>
@@ -30,7 +30,7 @@ const Projects = ({
     seoAttr={{ title: "Projects" }}
     headerChild={
       <header className="my-40 text-center">
-        Welcome to the Projects Page
+        <h1>Welcome to the Projects Page</h1>
       </header>
     }
   >
