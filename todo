@@ -1,7 +1,8 @@
 SITE TO GO LIVE:
--implement call to action
+-style call to action mobile
+-disable/enable scrolling when mobile menu is used/closed
 -pointer on menu close button
--moving navigation to app context
+-moving navigation pages to app context
 -finish skills section, home page
 -finish about me section, home page
 -finish 404 page
@@ -34,16 +35,16 @@ SITE IMPROVEMENT:
 -adding create keywords feature
 -pre load fonts
 -add linking between markdown pages
+-implement class names npm, refactor css classes
 -adding incremental builds
 -add gdpr
 -show notifications on browser (web app)
--adding mailchimp
+-adding mailchimp subscription
 -implement background sharp image
 -add subscribe button to footer
 -adding google analytics
 -add smooth scrolling on page
 -animate on scroll
--disable/enable scrolling when mobile menu is used/closed
 -implement blogging page and articles (suggested articles section on article page)
 -adding people individual page, linking with article
 -webpack analyser

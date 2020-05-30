@@ -17,7 +17,7 @@ export const getPages = () => [
   },
 ]
 
-const getNavStyling = (fixed, isTop) => {
+const getNavStyling = (isFixed, isTop) => {
   const navbarOpacity = 0.95
 
   let styles = {
@@ -28,7 +28,7 @@ const getNavStyling = (fixed, isTop) => {
   let navClasses =
     "flex items-center justify-between px-4 py-3 z-40 w-full shadow-2xl "
 
-  if (fixed) {
+  if (isFixed) {
     navClasses += " fixed transition ease-in-out delay-300 duration-700 "
     if (isTop) {
       navClasses += " bg-black bg-opacity-25 text-white "
@@ -46,6 +46,41 @@ const getNavStyling = (fixed, isTop) => {
     styles,
     navClasses,
   }
+}
+
+const ActionButton = ({ isTop, isFixed, link: { target, title } }) => {
+  let classes =
+    "transition ease-in-out delay-300 duration-700 py-2 px-3 rounded border "
+
+  if (isFixed && isTop) {
+    classes += " bg-transparent border-white hover:bg-white hover:text-black "
+  } else classes += " bg-white border-black hover:bg-black hover:text-white "
+
+  return (
+    <a href={target} className={classes}>
+      {title}
+    </a>
+  )
+}
+
+const Menu = ({ isMobile, isTop, isFixed, styles: { btnClrFill } }) => {
+  if (!isMobile) {
+    return (
+      <ul>
+        {getPages().map((link, i) => (
+          <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
+            {!link.callAction ? (
+              <Link to={link.target}>{link.title}</Link>
+            ) : (
+              <ActionButton link={link} isTop={isTop} isFixed={isFixed} />
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  return <BurgerButton colorFill={btnClrFill} />
 }
 
 const Navbar = ({ fixed }) => {
@@ -86,55 +121,10 @@ const Navbar = ({ fixed }) => {
 
   const { navClasses, styles } = getNavStyling(fixed, isTop)
 
-  let menu
-
-  if (!isMobile) {
-    menu = (
-      <ul>
-        {getPages().map(({ target, title, callAction }, i) => {
-          let button
-
-          if (!callAction) {
-            button = <Link to={target}>{title}</Link>
-          } else {
-            let classes =
-              "transition ease-in-out delay-300 duration-700 py-2 px-3 rounded border "
-
-            if (fixed && isTop) {
-              classes +=
-                " bg-transparent border-white hover:bg-white hover:text-black "
-            } else {
-              classes +=
-                " bg-white border-black hover:bg-black hover:text-white "
-            }
-
-            button = (
-              <a href={target} className={classes}>
-                {title}
-              </a>
-            )
-          }
-
-          return (
-            <li
-              key={i}
-              className="inline-block pl-5"
-              style={{ marginBottom: 0 }}
-            >
-              {button}
-            </li>
-          )
-        })}
-      </ul>
-    )
-  } else {
-    menu = <BurgerButton colorFill={styles.btnClrFill} />
-  }
-
   return (
     <nav className={navClasses} style={styles}>
       <HomeButton />
-      {menu}
+      <Menu isMobile={isMobile} isTop={isTop} isFixed={fixed} styles={styles} />
     </nav>
   )
 }
