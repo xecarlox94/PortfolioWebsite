@@ -145,7 +145,7 @@ const ContactForm = () => {
 }
 
 const Contact = () => (
-  <section className="pb-20" id="contact">
+  <section className="py-20" id="contact">
     <div className="container mx-auto px-3 my-32">
       <h1 className="text-center mb-20">Get in touch with me :)</h1>
       <ContactForm />

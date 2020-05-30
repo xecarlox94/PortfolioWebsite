@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import { AppContext } from "../../../context/context"
+
 import CloseButton from "./buttons/closeButton"
 import { getPages } from "./navbar"
-import { AppContext } from "../../../context/context"
 
 const MobileNav = () => (
   <div
@@ -14,31 +15,30 @@ const MobileNav = () => (
     <nav className="flex items-center h-screen">
       <ul className="w-full">
         {getPages().map(({ target, title, callAction }, i) => {
-          let button
-          let classes =
-            "bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-
-          if (!callAction) {
-            button = (
-              <Link to={target} className={classes}>
-                {title}
-              </Link>
-            )
-          } else {
-            button = (
-              <AppContext.Consumer>
-                {({ mobileMenu: { closeMobileMenu } }) => (
-                  <a href={target} onClick={closeMobileMenu}>
-                    {title}
-                  </a>
-                )}
-              </AppContext.Consumer>
-            )
-          }
+          let classes = "rounded py-3 px-6 border border-black "
 
           return (
-            <li key={i} className="text-center my-10">
-              {button}
+            <li key={i} className="text-center my-12">
+              {!callAction ? (
+                <Link
+                  to={target}
+                  className={classes + " bg-transparent text-black"}
+                >
+                  {title}
+                </Link>
+              ) : (
+                <AppContext.Consumer>
+                  {({ mobileMenu: { closeMobileMenu } }) => (
+                    <a
+                      href={target}
+                      onClick={closeMobileMenu}
+                      className={classes + " bg-black text-white"}
+                    >
+                      {title}
+                    </a>
+                  )}
+                </AppContext.Consumer>
+              )}
             </li>
           )
         })}
