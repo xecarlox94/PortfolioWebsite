@@ -1,8 +1,5 @@
 SITE TO GO LIVE:
 -style call to action mobile
--disable/enable scrolling when mobile menu is used/closed
--pointer on menu close button
--moving navigation pages to app context
 -finish skills section, home page
 -finish about me section, home page
 -finish 404 page
@@ -28,6 +25,8 @@ SITE IMPROVEMENT:
 -creating site map (add it to footer)
 -social media features/SEO
 -create social media sharing cards
+-disable/enable scrolling when mobile menu is used/closed
+-move navigation links to context
 -adding twitter share highlighted text
 -add suggested work section to project page
 -add testimonials section home page
@@ -49,7 +48,7 @@ SITE IMPROVEMENT:
 -adding people individual page, linking with article
 -webpack analyser
 -react svg loader
--progress/ loading feature
+-progress/loading feature
 -pagination
 
 
