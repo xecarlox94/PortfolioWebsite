@@ -21,8 +21,6 @@ module.exports = {
     listStylePosition: false,
     placeholderColor: false,
     placeholderOpacity: false,
-    textAlign: false,
-    textColor: false,
     textOpacity: false,
     textDecoration: false,
     textTransform: false,
