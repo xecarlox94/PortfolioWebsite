@@ -18,7 +18,7 @@ export const getPages = () => [
 ]
 
 const getNavStyling = (isFixed, isTop) => {
-  const navbarOpacity = 0.95
+  const navbarOpacity = 0.85
 
   let styles = {
     btnClrFill: "#000",

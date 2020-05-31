@@ -16,10 +16,8 @@ const About = () => (
       }
     `}
     render={({ imageSharp: { fluid } }) => (
-      <section className="my-24 px-4">
-        <h1 className="text-center mb-12" style={{}}>
-          About me
-        </h1>
+      <section className="my-24 px-3">
+        <h1 className="text-center mb-12">About me</h1>
         <Img
           className="mx-auto "
           fluid={fluid}
@@ -35,8 +33,21 @@ const About = () => (
             borderRadius: "1rem",
           }}
         />
-        <div className="text-center">
-          <p>Description</p>
+        <div className="max-w-sm m-auto py-20">
+          <h1 className="pb-16">Hello, nice to meet you!</h1>
+          D e s c r i p t i o n D e s c r i p t i o n D e s c r i p t i o n D e
+          s c r i p t i o n D e s c r i p t i o n D e s c r i p t i o n D e s c
+          r i p t i o n D e s c r i p t i o n D e s c r i p t i o n D e s c r i
+          p t i o n D e s c r i p t i o n D e s c r i p t i o n D e s c r i p t
+          i o n D e s c r i p t i o n D e s c r i p t i o n
+          <br />
+          <ul className="pt-16 pl-3" style={{ listStyle: "circle" }}>
+            <li className="mb-6">adsfdsaf</li>
+            <li className="mb-6">adsfdsaf</li>
+            <li className="mb-6">adsfdsaf</li>
+            <li className="mb-6">adsfdsaf</li>
+            <li className="mb-6">adsfdsaf</li>
+          </ul>
         </div>
       </section>
     )}
