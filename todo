@@ -1,13 +1,12 @@
 SITE TO GO LIVE:
--finish 404 page
--change icon
 -set up project mdx format
--fix bug contact me button on projects page, (mobile takes to landing page)
--remove link when it is in the page
 -create modal alert for notifications (email is sent, thank you, you are subscribed,...), scroll up to top
--add image on initial page header
--add personal image to about me section
+-change icon
+-create new svgs
+-fix bug contact me button on projects page, (mobile takes to landing page)
 -implement web progressive (manifest and offline)
+-add image/gif on initial page header
+-add personal image to about me section
 -change domain
 
 
@@ -19,7 +18,7 @@ SITE TO GO LIVE:
 
 SITE IMPROVEMENT:
 -typescript rewrite
--create new svg
+-set up SEO for pages and articles
 -add interactive 3d animation home page header
 -accessibility
 -creating site map (add it to footer)
@@ -27,6 +26,7 @@ SITE IMPROVEMENT:
 -create social media sharing cards
 -disable/enable scrolling when mobile menu is used/closed
 -move navigation links to context
+-remove link when it is in the page
 -adding twitter share highlighted text
 -add suggested work section to project page
 -add testimonials section home page

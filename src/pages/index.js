@@ -20,7 +20,7 @@ const IndexPage = () => (
         }}
       >
         <div className="p-10" style={{ backgroundColor: "rgba(0,0,0,0.5)" }}>
-          <h1>Landing Page</h1>
+          <h1>Welcome</h1>
         </div>
       </header>
     }

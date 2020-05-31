@@ -1,25 +1,28 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Img from "gatsby-image"
 import Page from "../components/page"
 
-const PageHeader = ({ image }) => {
-  return (
-    <header>
-      <Img
-        fluid={image}
-        style={{ maxHeight: "60vh" }}
-        imgStyle={{ objectFit: "contain" }}
-      />
-    </header>
-  )
-}
+const PageHeader = ({ image }) => (
+  <header>
+    <Img
+      fluid={image}
+      style={{ maxHeight: "60vh" }}
+      imgStyle={{ objectFit: "contain" }}
+    />
+  </header>
+)
+
+// https://www.gatsbyjs.org/packages/gatsby-remark-images/
+
+// https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/
 
 const Project = ({
   data: {
     mdx: {
-      excerpt,
+      body,
       frontmatter: {
         date,
         title,
@@ -35,7 +38,7 @@ const Project = ({
     <section className="container mx-auto max-w-5xl px-3">
       <h2 style={{ objectFit: "contain" }}>{topic}</h2>
       <p>date: {date}</p>
-      <p>{excerpt}</p>
+      <MDXRenderer>{body}</MDXRenderer>
     </section>
   </Page>
 )
@@ -57,7 +60,7 @@ export const query = graphql`
           }
         }
       }
-      excerpt
+      body
     }
   }
 `

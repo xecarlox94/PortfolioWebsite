@@ -64,7 +64,7 @@ export default Projects
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx(filter: { frontmatter: { title: { ne: "" } } }) {
       edges {
         node {
           frontmatter {
