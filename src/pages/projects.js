@@ -7,13 +7,13 @@ import Img from "gatsby-image"
 
 const Card = ({ project: { slug, title, topic, date, fluid } }) => (
   <div className="max-w-2xl mx-auto my-24">
-    <div className="rounded-lg overflow-hidden shadow-lg mx-5">
+    <div className="rounded-lg overflow-hidden shadow-xl mx-5">
       <Link to={`/project${slug}/`}>
         <Img className="w-full" alt={title} fluid={fluid} />
         <div className="px-3 py-4">
           <h3 className="mb-1">{title}</h3>
           <div className="flex flex-wrap justify-between">
-            <p className="mt-1" style={{ fontStyle: "italic" }}>
+            <p className="mt-1 mr-16" style={{ fontStyle: "italic" }}>
               {topic}
             </p>
             <p className="mt-1">{date}</p>
