@@ -23,17 +23,17 @@ const About = () => (
           fluid={fluid}
           alt="Jose Fernandes"
           style={{
-            minHeight: "10rem",
-            minWidth: "10rem",
-            height: "33%",
-            width: "33%",
+            minHeight: "15rem",
+            minWidth: "15rem",
+            height: "30%",
+            width: "30%",
           }}
           imgStyle={{
             objectFit: "contain",
             borderRadius: "1rem",
           }}
         />
-        <div className="max-w-sm m-auto py-20">
+        <div className="max-w-md m-auto py-20">
           <h1 className="pb-16">Hello, nice to meet you!</h1>
           D e s c r i p t i o n D e s c r i p t i o n D e s c r i p t i o n D e
           s c r i p t i o n D e s c r i p t i o n D e s c r i p t i o n D e s c
