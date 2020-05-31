@@ -12,7 +12,7 @@ export const getPages = () => [
   },
   {
     target: `#contact`,
-    title: "Contact",
+    title: "Contact me",
     callAction: true,
   },
 ]

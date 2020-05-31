@@ -16,9 +16,9 @@ const About = () => (
       }
     `}
     render={({ imageSharp: { fluid } }) => (
-      <section className="my-40 px-4">
-        <h1 className="text-center mb-20" style={{}}>
-          Who am I?
+      <section className="my-20 px-4">
+        <h1 className="text-center mb-10" style={{}}>
+          About me
         </h1>
         <Img
           className="mx-auto "

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 
 const ProjectTile = ({
@@ -18,7 +18,7 @@ const ProjectTile = ({
       className={"flex items-center justify-center z-10 w-full min-h-full"}
       style={{
         minHeight: "60vh",
-        backgroundColor: "rgba(255,255,255,0.5)",
+        backgroundColor: "rgba(255,255,255,0.4)",
       }}
     >
       <Link to={`/project${slug}`}>
@@ -33,7 +33,7 @@ const ProjectTile = ({
 
 const Projects = () => (
   <section>
-    <h1 className="text-center mb-20">Latest work</h1>
+    <h1 className="text-center">Latest work</h1>
     <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
       <StaticQuery
         query={graphql`
