@@ -35,21 +35,20 @@ const WebSVG = () => (
   </svg>
 )
 
-const SkillTile = ({ title, subtitle, svg, list }) => {
-  const style = { margin: "2rem auto" }
-  return (
-    <div className="text-center my-10">
-      <div style={style}>{svg}</div>
-      <h1 style={style}>{title}</h1>
-      <h2 style={style}>{subtitle}</h2>
-      <ul style={style}>
-        {list.map((val, i) => (
-          <li key={i}>{val}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
+const SkillTile = ({ title, subtitle, svg, list }) => (
+  <div className="text-center my-10">
+    <div style={{ marginBottom: "2rem" }}>{svg}</div>
+    <h1 style={{ marginBottom: "1.5rem" }}>{title}</h1>
+    <h2 style={{ marginBottom: "1.5rem" }}>{subtitle}</h2>
+    <ul style={{ margin: "2.5rem auto", textAlign: "left", maxWidth: "18rem" }}>
+      {list.map((val, i) => (
+        <li key={i} style={{ listStyle: "square" }}>
+          {val}
+        </li>
+      ))}
+    </ul>
+  </div>
+)
 
 const Services = () => (
   <section className="my-24">
