@@ -6,15 +6,18 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const Card = ({ project: { slug, title, topic, date, fluid } }) => (
-  <div className="max-w-2xl mx-auto my-56">
+  <div className="max-w-2xl mx-auto my-24">
     <div className="rounded-lg overflow-hidden shadow-lg mx-5">
       <Link to={`/project${slug}/`}>
         <Img className="w-full" alt={title} fluid={fluid} />
-        <div className="p-3">
-          <div className="mb-2 pb-5">
-            {title} - {date}
+        <div className="px-3 py-4">
+          <h3 className="mb-1">{title}</h3>
+          <div className="flex flex-wrap justify-between">
+            <p className="mt-1" style={{ fontStyle: "italic" }}>
+              {topic}
+            </p>
+            <p className="mt-1">{date}</p>
           </div>
-          <p>{topic}</p>
         </div>
       </Link>
     </div>
@@ -29,8 +32,8 @@ const Projects = ({
   <Page
     seoAttr={{ title: "Projects" }}
     headerChild={
-      <header className="my-40 text-center">
-        <h1>Welcome to the Projects Page</h1>
+      <header className="my-32 text-center">
+        <h1>My Projects</h1>
       </header>
     }
   >

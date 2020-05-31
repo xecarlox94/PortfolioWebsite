@@ -32,8 +32,10 @@ const ProjectTile = ({
 )
 
 const Projects = () => (
-  <section>
-    <h1 className="text-center mb-16">Latest work</h1>
+  <section className="my-24">
+    <h1 style={{ textAlign: "center" }} className="pb-20">
+      Latest work
+    </h1>
     <div className="grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
       <StaticQuery
         query={graphql`
