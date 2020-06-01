@@ -1,9 +1,7 @@
 SITE TO GO LIVE:
+-change mobile menu buttons to same width
 -create modal alert for notifications (email is sent, thank you, you are subscribed,...), scroll up to top
 -fix bug contact me button on projects page, (mobile takes to landing page)
--fix build error
--change services to experience, change about me section to top
--change mobile menu buttons to same width
 -change icon
 -create new svgs
 -add image/gif on initial page header
@@ -27,6 +25,8 @@ SITE IMPROVEMENT:
 -accessibility
 -creating site map (add it to footer)
 -remove tailwind
+-add focus styling in the forms
+-uncomment normalize font styling
 -social media features/SEO
 -create social media sharing cards
 -disable/enable scrolling when mobile menu is used/closed

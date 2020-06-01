@@ -1,6 +1,7 @@
 import React from "react"
 
 import { useForm } from "react-hook-form"
+import classNames from "classnames"
 import * as yup from "yup"
 
 const validationSchema = yup.object().shape({
@@ -18,16 +19,24 @@ const validationSchema = yup.object().shape({
 
 const InputError = ({ error }) =>
   error ? (
-    <p style={{ color: "red", fontStyle: "italic" }} className="mt-4">
+    <p style={{ color: "red", fontStyle: "italic", marginTop: "1rem" }}>
       {error.message}
     </p>
   ) : null
 
 const InputWrapper = ({ children, name, error }) => (
-  <div className="md:flex md:items-center mb-10">
-    <div className="md:w-1/6">
+  <div
+    className={classNames("md:flex", "md:items-center")}
+    style={{ marginBottom: "2.5rem" }}
+  >
+    <div className={classNames("md:w-1/6")}>
       <label
-        className="block md:text-right mb-3 md:mb-0 pr-10"
+        className={classNames("md:text-right", "md:mb-0")}
+        style={{
+          marginBottom: "0.75rem",
+          paddingRight: "2.5rem",
+          display: "block",
+        }}
         id={`label-${name}`}
         htmlFor={name}
       >
@@ -41,43 +50,61 @@ const InputWrapper = ({ children, name, error }) => (
   </div>
 )
 
-const getFieldStyle = error => {
-  let styleClasses =
-    "bg-gray-300 appearance-none border-2 border-gray-400 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white"
+const getFieldStyle = error => ({
+  classes: classNames("focus:outline-none", "focus:bg-white", {
+    "focus:border-gray-700": error,
+    "focus:border-red-500": error,
+  }),
+  styles: {
+    padding: "1rem 0.75rem",
+    width: "100%",
+    borderRadius: "0.25rem",
+    backgroundColor: "rgb(226, 232, 240)",
+    borderWidth: "2px",
+    borderColor: "#cbd5e0",
+    color: "#4a5568",
+  },
+})
 
-  if (!error) styleClasses += "  focus:border-gray-700"
-  else styleClasses += " focus:border-red-500"
-
-  return styleClasses
+const TextInput = ({ name, error, type, register }) => {
+  const { classes, styles } = getFieldStyle(error)
+  return (
+    <InputWrapper name={name} error={error}>
+      <input
+        className={classes}
+        style={{
+          ...styles,
+          lineHeight: "1.25",
+          appearance: "none",
+        }}
+        placeholder={`Please insert your ${name}`}
+        aria-labelledby={`label-${name}`}
+        name={name}
+        id={name}
+        type={type}
+        ref={register}
+      />
+    </InputWrapper>
+  )
 }
 
-const TextInput = ({ name, error, type, register }) => (
-  <InputWrapper name={name} error={error}>
-    <input
-      className={getFieldStyle(error)}
-      placeholder={`Please insert your ${name}`}
-      aria-labelledby={`label-${name}`}
-      name={name}
-      id={name}
-      type={type}
-      ref={register}
-    />
-  </InputWrapper>
-)
-
-const TextAreaInput = ({ name, error, type, register, height }) => (
-  <InputWrapper name={name} error={error}>
-    <textarea
-      className={getFieldStyle(error) + " " + height}
-      placeholder={`Please insert your ${name}`}
-      aria-labelledby={`label-${name}`}
-      name={name}
-      id={name}
-      type={type}
-      ref={register}
-    />
-  </InputWrapper>
-)
+const TextAreaInput = ({ name, error, type, register, height }) => {
+  const { classes, styles } = getFieldStyle(error)
+  return (
+    <InputWrapper name={name} error={error}>
+      <textarea
+        className={classNames(classes, height)}
+        style={styles}
+        placeholder={`Please insert your ${name}`}
+        aria-labelledby={`label-${name}`}
+        name={name}
+        id={name}
+        type={type}
+        ref={register}
+      />
+    </InputWrapper>
+  )
+}
 
 const ContactForm = () => {
   const { register, handleSubmit, errors } = useForm({

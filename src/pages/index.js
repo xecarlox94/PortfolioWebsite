@@ -4,7 +4,7 @@ import Page from "../components/page"
 
 import Projects from "../components/fragments/homePage/projects"
 import About from "../components/fragments/homePage/about"
-import Services from "../components/fragments/homePage/services"
+import Experience from "../components/fragments/homePage/experience"
 
 const IndexPage = () => (
   <Page
@@ -25,8 +25,8 @@ const IndexPage = () => (
       </header>
     }
   >
-    <Services />
     <About />
+    <Experience />
     <Projects />
     {/* <Testimonials /> adding testimonials soon !!!! */}
   </Page>

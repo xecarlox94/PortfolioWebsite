@@ -50,9 +50,9 @@ const SkillTile = ({ title, subtitle, svg, list }) => (
   </div>
 )
 
-const Services = () => (
+const Experience = () => (
   <section className="my-24">
-    <h1 className="text-center mb-5">Services</h1>
+    <h1 className="text-center mb-5">Experience</h1>
     <div className="grid grid-cols-1 lg:grid-cols-2 divide-x divide-gray-400">
       <SkillTile
         svg={<WebSVG />}
@@ -70,4 +70,4 @@ const Services = () => (
   </section>
 )
 
-export default Services
+export default Experience
