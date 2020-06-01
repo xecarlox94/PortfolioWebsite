@@ -107,7 +107,7 @@ const Navbar = ({ fixed }) => {
 
   const [isMobile, setIsMobile] = useState(false)
 
-  const minW = 550
+  const minW = 500
   const top = 0
 
   const handleResize = ({
