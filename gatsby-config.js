@@ -34,13 +34,6 @@ module.exports = {
     },
     `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: false, // Print removed selectors and processed file names
-        develop: false, // Enable while using `gatsby develop`
-      },
-    },
-    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/data/`,
