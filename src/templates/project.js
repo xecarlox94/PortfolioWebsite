@@ -15,9 +15,9 @@ const PageHeader = ({ image }) => (
   </header>
 )
 
-// https://www.gatsbyjs.org/packages/gatsby-remark-images/
-
 // https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/
+
+// https://www.gatsbyjs.org/packages/gatsby-remark-images/
 
 const Project = ({
   data: {

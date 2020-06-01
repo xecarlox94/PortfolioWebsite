@@ -1,12 +1,16 @@
 SITE TO GO LIVE:
--set up project mdx format
 -create modal alert for notifications (email is sent, thank you, you are subscribed,...), scroll up to top
+-fix bug contact me button on projects page, (mobile takes to landing page)
+-fix build error
+-change services to experience, change about me section to top
+-change mobile menu buttons to same width
 -change icon
 -create new svgs
--fix bug contact me button on projects page, (mobile takes to landing page)
--implement web progressive (manifest and offline)
 -add image/gif on initial page header
+-implement web progressive (manifest and offline)
 -add personal image to about me section
+-create 2 articles
+-put content on home page
 -change domain
 
 
