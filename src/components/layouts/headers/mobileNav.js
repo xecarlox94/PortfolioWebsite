@@ -11,18 +11,22 @@ const MobileNav = () => (
     className="fixed top-0 z-50 h-screen px-4 py-3 w-full bg-white"
     style={{ opacity: 0.87 }}
   >
-    <CloseButton />
+    <div style={{ display: "flow-root" }}>
+      <CloseButton />
+    </div>
     <nav className="flex items-center h-screen">
-      <ul className="w-full">
+      <ul style={{ width: "70%", margin: "0 auto" }}>
         {getPages().map(({ target, title, callAction }, i) => {
           let classes = "rounded py-3 px-6 border border-black "
+          let style = { width: "100%", display: "block" }
 
           return (
-            <li key={i} className="text-center my-12">
+            <li key={i} style={{ textAlign: "center", marginBottom: "2rem" }}>
               {!callAction ? (
                 <Link
                   to={target}
                   className={classes + " bg-transparent text-black"}
+                  style={style}
                 >
                   {title}
                 </Link>
@@ -33,6 +37,7 @@ const MobileNav = () => (
                       href={target}
                       onClick={closeMobileMenu}
                       className={classes + " bg-black text-white"}
+                      style={style}
                     >
                       {title}
                     </a>
