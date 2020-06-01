@@ -48,7 +48,12 @@ const getNavStyling = (isFixed, isTop) => {
   }
 }
 
-const ActionButton = ({ isTop, isFixed, link: { target, title } }) => {
+const ActionButton = ({
+  isTop,
+  isFixed,
+  link: { target, title },
+  currPage,
+}) => {
   let classes =
     "transition ease-in-out delay-300 duration-700 py-2 px-3 rounded border "
 
@@ -57,22 +62,36 @@ const ActionButton = ({ isTop, isFixed, link: { target, title } }) => {
   } else classes += " bg-white border-black hover:bg-black hover:text-white "
 
   return (
-    <a href={target} className={classes}>
+    <Link to={currPage + target} className={classes}>
       {title}
-    </a>
+    </Link>
   )
 }
 
 const Menu = ({ isMobile, isTop, isFixed, styles: { btnClrFill } }) => {
-  if (!isMobile) {
+  const [path, setPath] = useState(null)
+
+  useEffect(() => {
+    setPath(window.location.pathname)
+    return () => {}
+  }, [])
+
+  if (!isMobile && path != null) {
+    const pages = getPages().filter(({ target }) => target !== path)
+
     return (
       <ul>
-        {getPages().map((link, i) => (
+        {pages.map((link, i) => (
           <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
             {!link.callAction ? (
               <Link to={link.target}>{link.title}</Link>
             ) : (
-              <ActionButton link={link} isTop={isTop} isFixed={isFixed} />
+              <ActionButton
+                link={link}
+                currPage={path}
+                isTop={isTop}
+                isFixed={isFixed}
+              />
             )}
           </li>
         ))}
@@ -85,19 +104,23 @@ const Menu = ({ isMobile, isTop, isFixed, styles: { btnClrFill } }) => {
 
 const Navbar = ({ fixed }) => {
   const [isTop, setIsTop] = useState(true)
+
   const [isMobile, setIsMobile] = useState(false)
+
+  const minW = 550
+  const top = 0
 
   const handleResize = ({
     currentTarget: {
       window: { innerWidth },
     },
-  }) => setIsMobile(innerWidth <= 500)
+  }) => setIsMobile(innerWidth <= minW)
 
   const handleScroll = ({
     currentTarget: {
       window: { scrollY },
     },
-  }) => setIsTop(scrollY === 0)
+  }) => setIsTop(scrollY === top)
 
   useEffect(() => {
     const {
@@ -107,8 +130,8 @@ const Navbar = ({ fixed }) => {
       removeEventListener,
     } = window
 
-    setIsTop(scrollY === 0)
-    setIsMobile(innerWidth <= 500)
+    setIsTop(scrollY === top)
+    setIsMobile(innerWidth <= minW)
 
     addEventListener("resize", handleResize)
     addEventListener("scroll", handleScroll)

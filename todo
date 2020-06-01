@@ -1,6 +1,6 @@
 SITE TO GO LIVE:
--create modal alert for notifications (email is sent, thank you, you are subscribed,...), scroll up to top
 -fix bug contact me button on projects page, (mobile takes to landing page)
+-create modal alert for notifications (email is sent, thank you, you are subscribed,...), scroll up to top
 -change icon
 -create new svgs
 -add image/gif on initial page header
