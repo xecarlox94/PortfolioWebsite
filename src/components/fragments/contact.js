@@ -126,7 +126,6 @@ const ContactForm = () => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...data }),
       })
-      alert("SUCCESS")
     } catch (error) {
       console.error(error)
     }

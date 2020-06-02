@@ -1,12 +1,12 @@
 SITE TO GO LIVE:
--create modal alert for notifications (email is sent, thank you, you are subscribed,...), scroll up to top
+-email notification modal (email is sent, thank you, you are subscribed...)
 -change icon
--create new svgs
 -add image/gif on initial page header
 -implement web progressive (manifest and offline)
 -add personal image to about me section
 -create 2 articles
 -put content on home page
+-create new svgs
 -change domain
 
 

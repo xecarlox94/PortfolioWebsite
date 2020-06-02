@@ -43,7 +43,7 @@ const Menu = ({ currPath }) => {
   })
 }
 
-const MobileNav = () => {
+const MobileNav = ({ isOpen }) => {
   const [path, setPath] = useState(null)
 
   useEffect(() => {
@@ -52,19 +52,21 @@ const MobileNav = () => {
   }, [])
 
   return (
-    <div
-      className="fixed top-0 z-50 h-screen px-4 py-3 w-full bg-white"
-      style={{ opacity: 0.87 }}
-    >
-      <div style={{ display: "flow-root" }}>
-        <CloseButton />
+    isOpen && (
+      <div
+        className="fixed top-0 z-50 h-screen px-4 py-3 w-full bg-white"
+        style={{ opacity: 0.87 }}
+      >
+        <div style={{ display: "flow-root" }}>
+          <CloseButton />
+        </div>
+        <nav className="flex items-center h-screen">
+          <ul style={{ width: "70%", margin: "0 auto" }}>
+            <Menu currPath={path} />
+          </ul>
+        </nav>
       </div>
-      <nav className="flex items-center h-screen">
-        <ul style={{ width: "70%", margin: "0 auto" }}>
-          <Menu currPath={path} />
-        </ul>
-      </nav>
-    </div>
+    )
   )
 }
 
