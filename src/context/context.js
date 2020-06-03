@@ -19,10 +19,19 @@ const getPages = path => {
 
 const AppProvider = ({ children }) => {
   const [isMobileMenu, setMobileMenu] = useState(false)
+
   const mobileMenu = {
     isMobileMenu,
     openMobileMenu: () => setMobileMenu(true),
     closeMobileMenu: () => setMobileMenu(false),
+  }
+
+  const [alert, setAlert] = useState(null)
+
+  const alertMsg = {
+    alert,
+    createMsg: msg => setAlert(msg),
+    deleteMsg: () => setAlert(null),
   }
 
   return (
@@ -30,6 +39,7 @@ const AppProvider = ({ children }) => {
       value={{
         mobileMenu,
         getPages,
+        alertMsg,
       }}
     >
       {children}

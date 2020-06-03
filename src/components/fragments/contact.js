@@ -3,6 +3,7 @@ import React from "react"
 import { useForm } from "react-hook-form"
 import classNames from "classnames"
 import * as yup from "yup"
+import { AppContext } from "../../context/context"
 
 const validationSchema = yup.object().shape({
   name: yup
@@ -106,67 +107,75 @@ const TextAreaInput = ({ name, error, type, register, height }) => {
   )
 }
 
+const fetchMsg = data => {
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
+  return fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({ "form-name": "contact", ...data }),
+  })
+}
+
 const ContactForm = () => {
   const { register, handleSubmit, errors } = useForm({
     validationSchema,
   })
 
-  const submit = async data => {
-    const encode = data => {
-      return Object.keys(data)
-        .map(
-          key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-        )
-        .join("&")
-    }
-
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...data }),
-      })
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   return (
-    <form className="w-full max-w-3xl mx-auto" onSubmit={handleSubmit(submit)}>
-      <TextInput
-        type="text"
-        name="name"
-        register={register}
-        error={errors.name}
-      />
+    <AppContext.Consumer>
+      {({ alertMsg: { createMsg } }) => (
+        <form
+          className="w-full max-w-3xl mx-auto"
+          onSubmit={handleSubmit(async data => {
+            try {
+              await fetchMsg(data)
+              createMsg("Thank you, your email was sent.")
+            } catch (error) {
+              console.error(error)
+            }
+          })}
+        >
+          <TextInput
+            type="text"
+            name="name"
+            register={register}
+            error={errors.name}
+          />
 
-      <TextInput
-        type="email"
-        name="email"
-        register={register}
-        error={errors.email}
-      />
-      <TextInput
-        type="text"
-        name="subject"
-        register={register}
-        error={errors.subject}
-      />
-      <TextAreaInput
-        name="message"
-        register={register}
-        error={errors.message}
-        height={"h-40"}
-      />
+          <TextInput
+            type="email"
+            name="email"
+            register={register}
+            error={errors.email}
+          />
+          <TextInput
+            type="text"
+            name="subject"
+            register={register}
+            error={errors.subject}
+          />
+          <TextAreaInput
+            name="message"
+            register={register}
+            error={errors.message}
+            height={"h-40"}
+          />
 
-      <button
-        style={{ float: "right", marginTop: "4vh" }}
-        type="submit"
-        className="shadow bg-black hover:bg-gray-800 focus:shadow-outline focus:outline-none text-white font-bold py-3 px-5 rounded"
-      >
-        Submit
-      </button>
-    </form>
+          <button
+            style={{ float: "right", marginTop: "4vh" }}
+            type="submit"
+            className="shadow bg-black hover:bg-gray-800 focus:shadow-outline focus:outline-none text-white font-bold py-3 px-5 rounded"
+          >
+            Submit
+          </button>
+        </form>
+      )}
+    </AppContext.Consumer>
   )
 }
 
