@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import HomeButton from "./buttons/homeButton"
 import BurgerButton from "./buttons/burgerButton"
+import { AppContext } from "../../../context/context"
 
 export const getPages = () => [
   {
@@ -77,25 +78,31 @@ const Menu = ({ isMobile, isTop, isFixed, styles: { btnClrFill } }) => {
   }, [])
 
   if (!isMobile && path != null) {
-    const pages = getPages().filter(({ target }) => target !== path)
-
     return (
-      <ul>
-        {pages.map((link, i) => (
-          <li key={i} className="inline-block pl-5" style={{ marginBottom: 0 }}>
-            {!link.callAction ? (
-              <Link to={link.target}>{link.title}</Link>
-            ) : (
-              <ActionButton
-                link={link}
-                currPage={path}
-                isTop={isTop}
-                isFixed={isFixed}
-              />
-            )}
-          </li>
-        ))}
-      </ul>
+      <AppContext.Consumer>
+        {({ getPages }) => (
+          <ul>
+            {getPages(path).map((link, i) => (
+              <li
+                key={i}
+                className="inline-block pl-5"
+                style={{ marginBottom: 0 }}
+              >
+                {!link.callAction ? (
+                  <Link to={link.target}>{link.title}</Link>
+                ) : (
+                  <ActionButton
+                    link={link}
+                    currPage={path}
+                    isTop={isTop}
+                    isFixed={isFixed}
+                  />
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </AppContext.Consumer>
     )
   }
 

@@ -2,6 +2,21 @@ import React, { useState } from "react"
 
 const AppContext = React.createContext()
 
+const getPages = path => {
+  return [
+    {
+      target: "/projects/",
+      title: "Projects",
+      callAction: false,
+    },
+    {
+      target: `#contact`,
+      title: "Contact me",
+      callAction: true,
+    },
+  ].filter(({ target }) => target !== path)
+}
+
 const AppProvider = ({ children }) => {
   const [isMobileMenu, setMobileMenu] = useState(false)
   const mobileMenu = {
@@ -14,6 +29,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         mobileMenu,
+        getPages,
       }}
     >
       {children}

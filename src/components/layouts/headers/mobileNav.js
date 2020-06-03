@@ -6,27 +6,25 @@ import { AppContext } from "../../../context/context"
 import CloseButton from "./buttons/closeButton"
 import { getPages } from "./navbar"
 
-const Menu = ({ currPath }) => {
-  const pages = getPages().filter(({ target }) => target !== currPath)
+const Menu = ({ currPath }) => (
+  <AppContext.Consumer>
+    {({ mobileMenu: { closeMobileMenu }, getPages }) =>
+      getPages(currPath).map(({ target, title, callAction }, i) => {
+        let classes = "rounded py-3 px-6 border border-black "
 
-  return pages.map(({ target, title, callAction }, i) => {
-    let classes = "rounded py-3 px-6 border border-black "
+        let style = { width: "100%", display: "block" }
 
-    let style = { width: "100%", display: "block" }
-
-    return (
-      <li key={i} style={{ textAlign: "center", marginBottom: "2rem" }}>
-        {!callAction ? (
-          <Link
-            to={target}
-            className={classes + " bg-transparent text-black"}
-            style={style}
-          >
-            {title}
-          </Link>
-        ) : (
-          <AppContext.Consumer>
-            {({ mobileMenu: { closeMobileMenu } }) => (
+        return (
+          <li key={i} style={{ textAlign: "center", marginBottom: "2rem" }}>
+            {!callAction ? (
+              <Link
+                to={target}
+                className={classes + " bg-transparent text-black"}
+                style={style}
+              >
+                {title}
+              </Link>
+            ) : (
               <Link
                 to={currPath + target}
                 onClick={closeMobileMenu}
@@ -36,12 +34,12 @@ const Menu = ({ currPath }) => {
                 {title}
               </Link>
             )}
-          </AppContext.Consumer>
-        )}
-      </li>
-    )
-  })
-}
+          </li>
+        )
+      })
+    }
+  </AppContext.Consumer>
+)
 
 const MobileNav = ({ isOpen }) => {
   const [path, setPath] = useState(null)
