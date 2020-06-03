@@ -1,11 +1,11 @@
 SITE TO GO LIVE:
 -change icon
--add image/gif on initial page header
--implement web progressive (manifest and offline)
--add personal image to about me section
--create 2 articles
--put content on home page
 -create new svgs
+-add image/gif on initial page header
+-add personal image to about me section
+-put content on home page
+-create 2 articles
+-implement web progressive (manifest and offline)
 -change domain
 
 
