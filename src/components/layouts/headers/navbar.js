@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 
-import HomeButton from "./buttons/homeButton"
-import BurgerButton from "./buttons/burgerButton"
 import { AppContext } from "../../../context/context"
 
-export const getPages = () => [
-  {
-    target: "/projects/",
-    title: "Projects",
-    callAction: false,
-  },
-  {
-    target: `#contact`,
-    title: "Contact me",
-    callAction: true,
-  },
-]
+import HomeButton from "./buttons/homeButton"
+import BurgerButton from "./buttons/burgerButton"
 
 const getNavStyling = (isFixed, isTop) => {
   const navbarOpacity = 0.85
