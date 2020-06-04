@@ -5,7 +5,7 @@ import { AppProvider } from "../context/context"
 import SEO from "./utils/seo"
 import Layout from "./layouts/layout"
 
-const Page = ({ seoAttr, navbarFixed, headerChild, children }) => (
+const Page = ({ seoAttr, navbarFixed, headerChild, main }) => (
   <AppProvider>
     <SEO attributes={seoAttr} />
     <Layout
@@ -13,7 +13,7 @@ const Page = ({ seoAttr, navbarFixed, headerChild, children }) => (
       headerChild={headerChild}
       navbarFixed={navbarFixed}
     >
-      {children}
+      {main}
     </Layout>
   </AppProvider>
 )

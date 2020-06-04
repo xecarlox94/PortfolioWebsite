@@ -24,12 +24,14 @@ const IndexPage = () => (
         </div>
       </header>
     }
-  >
-    <About />
-    <Experience />
-    <Projects />
-    {/* <Testimonials /> adding testimonials soon !!!! */}
-  </Page>
+    main={
+      <>
+        <About />
+        <Experience />
+        <Projects />
+      </>
+    }
+  />
 )
 
 export default IndexPage

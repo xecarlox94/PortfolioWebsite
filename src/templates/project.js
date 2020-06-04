@@ -15,10 +15,6 @@ const PageHeader = ({ image }) => (
   </header>
 )
 
-// https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/
-
-// https://www.gatsbyjs.org/packages/gatsby-remark-images/
-
 const Project = ({
   data: {
     mdx: {
@@ -34,13 +30,17 @@ const Project = ({
     },
   },
 }) => (
-  <Page seoAttr={{ title }} headerChild={<PageHeader image={fluid} />}>
-    <section className="container mx-auto max-w-5xl px-3">
-      <h2 style={{ objectFit: "contain" }}>{topic}</h2>
-      <p>date: {date}</p>
-      <MDXRenderer>{body}</MDXRenderer>
-    </section>
-  </Page>
+  <Page
+    seoAttr={{ title }}
+    headerChild={<PageHeader image={fluid} />}
+    main={
+      <section className="container mx-auto max-w-5xl px-3">
+        <h2 style={{ objectFit: "contain" }}>{topic}</h2>
+        <p>date: {date}</p>
+        <MDXRenderer>{body}</MDXRenderer>
+      </section>
+    }
+  />
 )
 
 export default Project

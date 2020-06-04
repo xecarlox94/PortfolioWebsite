@@ -36,28 +36,29 @@ const Projects = ({
         <h1>My Projects</h1>
       </header>
     }
-  >
-    <section>
-      {edges.map(
-        ({
-          node: {
-            id,
-            frontmatter: {
-              topic,
-              date,
-              title,
-              image: {
-                childImageSharp: { fluid },
+    main={
+      <section>
+        {edges.map(
+          ({
+            node: {
+              id,
+              frontmatter: {
+                topic,
+                date,
+                title,
+                image: {
+                  childImageSharp: { fluid },
+                },
               },
+              fields: { slug },
             },
-            fields: { slug },
-          },
-        }) => (
-          <Card key={id} project={{ topic, title, slug, date, fluid }} />
-        )
-      )}
-    </section>
-  </Page>
+          }) => (
+            <Card key={id} project={{ topic, title, slug, date, fluid }} />
+          )
+        )}
+      </section>
+    }
+  />
 )
 
 export default Projects

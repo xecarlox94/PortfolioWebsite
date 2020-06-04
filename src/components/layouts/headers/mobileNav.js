@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { AppContext } from "../../../context/context"
 
 import CloseButton from "./buttons/closeButton"
-import { getPages } from "./navbar"
 
 const Menu = ({ currPath }) => (
   <AppContext.Consumer>
