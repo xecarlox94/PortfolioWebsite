@@ -1,9 +1,9 @@
 import React from "react"
+import { graphql, Link } from "gatsby"
+
+import Img from "gatsby-image"
 
 import Page from "../components/page"
-
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
 
 const Card = ({ project: { slug, title, topic, date, fluid } }) => (
   <div className="max-w-2xl mx-auto my-24">

@@ -22,6 +22,7 @@ SITE IMPROVEMENT:
 -typescript rewrite
 -set up SEO for pages and articles
 -add interactive 3d animation home page header
+-adding google analytics
 -accessibility
 -creating site map (add it to footer)
 -remove tailwind
@@ -46,7 +47,6 @@ SITE IMPROVEMENT:
 -adding mailchimp subscription
 -implement background sharp image
 -add subscribe button to footer
--adding google analytics
 -add smooth scrolling on page
 -animate on scroll
 -implement blogging page and articles (suggested articles section on article page)
